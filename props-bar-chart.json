@@ -1,0 +1,9 @@
+{
+  "chartData": [
+    {"label": "A", "value": 80},
+    {"label": "B", "value": 60},
+    {"label": "C", "value": 40}
+  ],
+  "layout": "horizontal",
+  "color": "#00BFFF"
+}

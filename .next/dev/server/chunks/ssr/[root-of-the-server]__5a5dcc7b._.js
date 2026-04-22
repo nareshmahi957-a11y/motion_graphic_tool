@@ -1,0 +1,13510 @@
+module.exports = [
+"[externals]/next/dist/compiled/next-server/app-page-turbo.runtime.dev.js [external] (next/dist/compiled/next-server/app-page-turbo.runtime.dev.js, cjs)", ((__turbopack_context__, module, exports) => {
+
+const mod = __turbopack_context__.x("next/dist/compiled/next-server/app-page-turbo.runtime.dev.js", () => require("next/dist/compiled/next-server/app-page-turbo.runtime.dev.js"));
+
+module.exports = mod;
+}),
+"[project]/src/blocks/DynamicSceneRenderer.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "DynamicSceneRenderer",
+    ()=>DynamicSceneRenderer
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/remotion/dist/esm/index.mjs [app-ssr] (ecmascript)");
+;
+;
+const DynamicSceneRenderer = ({ elements = [], sceneBgColor = "transparent" })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const { fps } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useVideoConfig"])();
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: sceneBgColor,
+            overflow: 'hidden'
+        },
+        children: elements.map((el, i)=>{
+            // ⏱️ ANIMATION LOGIC
+            const delay = el.delay || i * 10; // Auto-stagger if AI forgets delay
+            const activeFrame = Math.max(0, frame - delay);
+            let scale = 1;
+            let translateY = 0;
+            let opacity = 1;
+            if (el.animation === 'pop') {
+                scale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                    frame: activeFrame,
+                    fps,
+                    config: {
+                        stiffness: 120,
+                        damping: 14
+                    }
+                });
+                opacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(activeFrame, [
+                    0,
+                    5
+                ], [
+                    0,
+                    1
+                ], {
+                    extrapolateRight: 'clamp'
+                });
+            } else if (el.animation === 'slide-up') {
+                const slideSpring = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                    frame: activeFrame,
+                    fps,
+                    config: {
+                        stiffness: 80,
+                        damping: 15
+                    }
+                });
+                translateY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(slideSpring, [
+                    0,
+                    1
+                ], [
+                    100,
+                    0
+                ]);
+                opacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(slideSpring, [
+                    0,
+                    0.5
+                ], [
+                    0,
+                    1
+                ], {
+                    extrapolateRight: 'clamp'
+                });
+            } else if (el.animation === 'fade') {
+                opacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(activeFrame, [
+                    0,
+                    15
+                ], [
+                    0,
+                    1
+                ], {
+                    extrapolateRight: 'clamp'
+                });
+            }
+            // 🎯 POSITIONING LOGIC (Center-anchored so X/Y from AI works perfectly)
+            const baseStyle = {
+                position: 'absolute',
+                left: `${el.x}px`,
+                top: `${el.y}px`,
+                transform: `translate(-50%, -50%) scale(${scale}) translateY(${translateY}px)`,
+                opacity,
+                zIndex: i + 1,
+                display: 'flex',
+                justifyContent: 'center',
+                alignItems: 'center',
+                textAlign: 'center'
+            };
+            // 🧱 RENDER MEDIA (B-Roll or Images)
+            if (el.type === 'media' && el.content) {
+                const isVideo = el.content.endsWith('.mp4') || el.content.includes('video');
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        ...baseStyle,
+                        width: el.width || 950,
+                        height: el.height || 800,
+                        overflow: 'hidden',
+                        borderRadius: '30px',
+                        boxShadow: '0 20px 50px rgba(0,0,0,0.8)'
+                    },
+                    children: [
+                        isVideo ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Video"], {
+                            src: el.content,
+                            style: {
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover'
+                            },
+                            muted: true
+                        }, void 0, false, {
+                            fileName: "[project]/src/blocks/DynamicSceneRenderer.tsx",
+                            lineNumber: 70,
+                            columnNumber: 17
+                        }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Img"], {
+                            src: el.content,
+                            style: {
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/blocks/DynamicSceneRenderer.tsx",
+                            lineNumber: 72,
+                            columnNumber: 17
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                inset: 0,
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                                zIndex: 1
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/blocks/DynamicSceneRenderer.tsx",
+                            lineNumber: 75,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, el.id || i, true, {
+                    fileName: "[project]/src/blocks/DynamicSceneRenderer.tsx",
+                    lineNumber: 68,
+                    columnNumber: 13
+                }, ("TURBOPACK compile-time value", void 0));
+            }
+            // 🧱 RENDER SHAPES
+            if (el.type === 'shape') {
+                const isCircle = el.shapeType === 'circle';
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        ...baseStyle,
+                        width: el.width || 200,
+                        height: el.height || (isCircle ? el.width || 200 : 200),
+                        backgroundColor: el.color || '#00d4ff',
+                        borderRadius: isCircle ? '50%' : '20px',
+                        boxShadow: `0 10px 30px rgba(0,0,0,0.4)`
+                    }
+                }, el.id || i, false, {
+                    fileName: "[project]/src/blocks/DynamicSceneRenderer.tsx",
+                    lineNumber: 84,
+                    columnNumber: 13
+                }, ("TURBOPACK compile-time value", void 0));
+            }
+            // 🧱 RENDER TEXT
+            if (el.type === 'text') {
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        ...baseStyle,
+                        color: el.color || '#ffffff',
+                        fontSize: `${el.fontSize || 80}px`,
+                        fontWeight: el.fontWeight || 900,
+                        fontFamily: 'Montserrat, sans-serif',
+                        // 🟢 THE FIX: Added stroke and heavy shadow for maximum legibility
+                        WebkitTextStroke: '3px black',
+                        paintOrder: 'stroke fill',
+                        textShadow: '0 15px 40px rgba(0,0,0,0.9)',
+                        width: el.width ? `${el.width}px` : 'auto',
+                        lineHeight: 1.1,
+                        textTransform: 'uppercase'
+                    },
+                    children: el.content
+                }, el.id || i, false, {
+                    fileName: "[project]/src/blocks/DynamicSceneRenderer.tsx",
+                    lineNumber: 98,
+                    columnNumber: 13
+                }, ("TURBOPACK compile-time value", void 0));
+            }
+            return null;
+        })
+    }, void 0, false, {
+        fileName: "[project]/src/blocks/DynamicSceneRenderer.tsx",
+        lineNumber: 29,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+}),
+"[project]/src/components/ChromaKeyVideo.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "ChromaKeyVideo",
+    ()=>ChromaKeyVideo
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/remotion/dist/esm/index.mjs [app-ssr] (ecmascript)");
+;
+;
+;
+const ChromaKeyVideo = ({ src, startFrom = 0 })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const { width, height } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useVideoConfig"])();
+    const videoRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    const canvasRef = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useRef"])(null);
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const video = videoRef.current;
+        const canvas = canvasRef.current;
+        if (!video || !canvas) return;
+        const ctx = canvas.getContext("2d", {
+            willReadFrequently: true
+        });
+        if (!ctx) return;
+        if (video.videoWidth === 0 || video.videoHeight === 0) return;
+        const videoRatio = video.videoWidth / video.videoHeight;
+        const canvasRatio = width / height;
+        let drawWidth = width;
+        let drawHeight = height;
+        let offsetX = 0;
+        let offsetY = 0;
+        if (videoRatio > canvasRatio) {
+            drawWidth = height * videoRatio;
+            offsetX = (width - drawWidth) / 2;
+        } else {
+            drawHeight = width / videoRatio;
+            offsetY = (height - drawHeight) / 2;
+        }
+        ctx.drawImage(video, offsetX, offsetY, drawWidth, drawHeight);
+        const frameData = ctx.getImageData(0, 0, width, height);
+        const data = frameData.data;
+        // 🟢 CLEAN CHROMA KEY MATH (No yellow halos!)
+        for(let i = 0; i < data.length; i += 4){
+            const r = data[i];
+            const g = data[i + 1];
+            const b = data[i + 2];
+            // 1. If it is strongly green, make it 100% transparent
+            if (g > 90 && g > r * 1.3 && g > b * 1.3) {
+                data[i + 3] = 0;
+            } else if (g > r && g > b) {
+                // Average out the green so it matches the real lighting, removing the halo
+                data[i + 1] = (r + b) / 2;
+                // Slightly fade the edge to make it blend into the background smoothly
+                data[i + 3] = 200;
+            }
+        }
+        ctx.putImageData(frameData, 0, 0);
+    }, [
+        frame,
+        width,
+        height
+    ]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            position: "absolute",
+            width: "100%",
+            height: "100%"
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Video"], {
+                ref: videoRef,
+                src: src,
+                // 🟢 THE FIX: Tell the video to fast-forward to the right timestamp
+                startFrom: startFrom,
+                style: {
+                    position: "absolute",
+                    opacity: 0,
+                    pointerEvents: "none"
+                },
+                crossOrigin: "anonymous"
+            }, void 0, false, {
+                fileName: "[project]/src/components/ChromaKeyVideo.tsx",
+                lineNumber: 68,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("canvas", {
+                ref: canvasRef,
+                width: width,
+                height: height,
+                style: {
+                    width: "100%",
+                    height: "100%",
+                    objectFit: "cover"
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/components/ChromaKeyVideo.tsx",
+                lineNumber: 77,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/components/ChromaKeyVideo.tsx",
+        lineNumber: 67,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+}),
+"[project]/src/components/ViralCaptions.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "ViralCaptions",
+    ()=>ViralCaptions
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/remotion/dist/esm/index.mjs [app-ssr] (ecmascript)");
+;
+;
+const ViralCaptions = ({ captions })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const { fps } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useVideoConfig"])();
+    if (!captions || captions.length === 0) return null;
+    // AssemblyAI gives us time in milliseconds. We convert our current frame to milliseconds.
+    const currentTimeMs = frame / fps * 1000;
+    // Find the exact word being spoken right now
+    const activeWord = captions.find((w)=>currentTimeMs >= w.start && currentTimeMs <= w.end);
+    if (!activeWord) return null;
+    // Convert the word's start time back into frames so we can trigger a bounce!
+    const wordStartFrame = activeWord.start / 1000 * fps;
+    // Create a violent, snappy pop for every single word
+    const pop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: frame - wordStartFrame,
+        fps,
+        config: {
+            damping: 12,
+            stiffness: 200
+        }
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            justifyContent: 'center',
+            alignItems: 'center',
+            top: '25%',
+            pointerEvents: 'none',
+            zIndex: 100
+        },
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            style: {
+                fontSize: '110px',
+                fontWeight: 900,
+                fontFamily: 'Montserrat, sans-serif',
+                color: '#FFD700',
+                textTransform: 'uppercase',
+                // 🟢 THE FIX: Massive stroke, but drawn BEHIND the yellow fill!
+                WebkitTextStroke: '18px black',
+                paintOrder: 'stroke fill',
+                textShadow: '0px 10px 30px rgba(0,0,0,0.9), 0px 0px 20px rgba(0,0,0,0.8)',
+                textAlign: 'center',
+                transform: `scale(${pop}) rotate(${(1 - pop) * -10}deg)`
+            },
+            children: activeWord.text
+        }, void 0, false, {
+            fileName: "[project]/src/components/ViralCaptions.tsx",
+            lineNumber: 37,
+            columnNumber: 8
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/components/ViralCaptions.tsx",
+        lineNumber: 30,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+}),
+"[project]/src/remotion/AnimatedGraphic.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "AnimatedGraphic",
+    ()=>AnimatedGraphic
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/remotion/dist/esm/index.mjs [app-ssr] (ecmascript)");
+;
+;
+const AnimatedGraphic = ({ imageUrl, text })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const { fps } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useVideoConfig"])();
+    // This creates that smooth, bouncy "pop" effect
+    const scale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame,
+        fps,
+        config: {
+            damping: 12,
+            mass: 0.5
+        }
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            position: 'absolute',
+            top: '20%',
+            left: 0,
+            width: '100%',
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'center',
+            transform: `scale(${scale})`,
+            zIndex: 100
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    backgroundColor: 'white',
+                    padding: '20px',
+                    borderRadius: '20px',
+                    boxShadow: '0px 10px 30px rgba(0,0,0,0.5)'
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Img"], {
+                    src: imageUrl,
+                    style: {
+                        width: '200px',
+                        height: '200px',
+                        objectFit: 'contain'
+                    }
+                }, void 0, false, {
+                    fileName: "[project]/src/remotion/AnimatedGraphic.tsx",
+                    lineNumber: 44,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/remotion/AnimatedGraphic.tsx",
+                lineNumber: 38,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                style: {
+                    color: 'white',
+                    fontSize: '60px',
+                    fontWeight: 'bold',
+                    textShadow: '2px 2px 10px black',
+                    marginTop: '20px',
+                    textAlign: 'center'
+                },
+                children: text
+            }, void 0, false, {
+                fileName: "[project]/src/remotion/AnimatedGraphic.tsx",
+                lineNumber: 48,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/remotion/AnimatedGraphic.tsx",
+        lineNumber: 25,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+}),
+"[project]/src/templates/Animations.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "BRollTemplate",
+    ()=>BRollTemplate,
+    "BarChartTemplate",
+    ()=>BarChartTemplate,
+    "BookRevealTemplate",
+    ()=>BookRevealTemplate,
+    "CarouselTemplate",
+    ()=>CarouselTemplate,
+    "ChartCrashTemplate",
+    ()=>ChartCrashTemplate,
+    "ChaseAttentionTemplate",
+    ()=>ChaseAttentionTemplate,
+    "CinematicPourTemplate",
+    ()=>CinematicPourTemplate,
+    "CokeCinematicTemplate",
+    ()=>CokeCinematicTemplate,
+    "ComparisonPentagonTemplate",
+    ()=>ComparisonPentagonTemplate,
+    "CrowdScaleTemplate",
+    ()=>CrowdScaleTemplate,
+    "DarkWealthTemplate",
+    ()=>DarkWealthTemplate,
+    "FestivalCrowdTemplate",
+    ()=>FestivalCrowdTemplate,
+    "FocusTemplate",
+    ()=>FocusTemplate,
+    "HyperImpactTemplate",
+    ()=>HyperImpactTemplate,
+    "IceBucketTemplate",
+    ()=>IceBucketTemplate,
+    "KineticRoadmapTemplate",
+    ()=>KineticRoadmapTemplate,
+    "KineticSpeakerTemplate",
+    ()=>KineticSpeakerTemplate,
+    "LineChartTemplate",
+    ()=>LineChartTemplate,
+    "ListicleTemplate",
+    ()=>ListicleTemplate,
+    "MasterSequence",
+    ()=>MasterSequence,
+    "MindsetFlowTemplate",
+    ()=>MindsetFlowTemplate,
+    "NeonConceptTemplate",
+    ()=>NeonConceptTemplate,
+    "PanoramicReelTemplate",
+    ()=>PanoramicReelTemplate,
+    "PentagonFlowTemplate",
+    ()=>PentagonFlowTemplate,
+    "ProcessFlowTemplate",
+    ()=>ProcessFlowTemplate,
+    "ProductShowcaseTemplate",
+    ()=>ProductShowcaseTemplate,
+    "PuppetMasterTemplate",
+    ()=>PuppetMasterTemplate,
+    "StampChecklistTemplate",
+    ()=>StampChecklistTemplate,
+    "TripleBuildTemplate",
+    ()=>TripleBuildTemplate,
+    "VersusTemplate",
+    ()=>VersusTemplate,
+    "VerticalSplitTemplate",
+    ()=>VerticalSplitTemplate,
+    "renderSceneComponent",
+    ()=>renderSceneComponent
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/remotion/dist/esm/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$blocks$2f$DynamicSceneRenderer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/blocks/DynamicSceneRenderer.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChromaKeyVideo$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ChromaKeyVideo.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ViralCaptions$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/components/ViralCaptions.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$remotion$2f$AnimatedGraphic$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/remotion/AnimatedGraphic.tsx [app-ssr] (ecmascript)");
+;
+;
+;
+;
+;
+;
+const FestivalCrowdTemplate = ({ headerText = "FEEL THE ENERGY", color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    crowd: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const bgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : '#020005';
+    const flightProgress = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        150
+    ], [
+        0,
+        1200
+    ]);
+    const strobe1 = (Math.sin(frame / 2) + 1) / 2;
+    const strobe2 = (Math.cos(frame / 3) + 1) / 2;
+    // 🟢 Changed to 120 for performance
+    const crowd = new Array(120).fill(0).map((_, i)=>{
+        const row = Math.floor(i / 15);
+        const col = i % 15;
+        const x = col * 80 - 600 + Math.sin(i * 13) * 30;
+        const y = row * 80 - 800 + Math.cos(i * 17) * 30;
+        const jumpPhase = (x + y) * 0.05;
+        return {
+            x,
+            y,
+            jumpPhase,
+            size: 4 + i % 4
+        };
+    });
+    const textScale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        150
+    ], [
+        0.9,
+        1.15
+    ]);
+    const textOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        30
+    ], [
+        0,
+        1
+    ], {
+        extrapolateRight: 'clamp'
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: bgColor,
+            overflow: 'hidden',
+            perspective: '800px',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    transform: `rotateX(60deg) translateY(${flightProgress}px)`,
+                    transformOrigin: 'center center',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            top: '-1200px',
+                            width: '2000px',
+                            height: '800px',
+                            background: `radial-gradient(ellipse at bottom, ${color} 0%, transparent 70%)`,
+                            opacity: strobe1 * 0.8 + 0.2,
+                            filter: 'blur(60px)',
+                            zIndex: 1
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 36,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    crowd.map((person, i)=>{
+                        const jump = Math.sin(frame * 0.2 + person.jumpPhase) * 40;
+                        const lightCatch = Math.max(0.2, Math.sin(frame * 0.1 + person.jumpPhase));
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                left: `calc(50% + ${person.x}px)`,
+                                top: `calc(50% + ${person.y}px)`,
+                                width: `${person.size}px`,
+                                height: `${person.size}px`,
+                                backgroundColor: lightCatch > 0.8 ? '#fff' : color,
+                                borderRadius: '50%',
+                                transform: `translateZ(${Math.max(0, jump)}px)`,
+                                boxShadow: `0 0 ${10 + jump / 2}px ${color}`,
+                                opacity: 0.9,
+                                willChange: 'transform'
+                            }
+                        }, i, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 45,
+                            columnNumber: 14
+                        }, ("TURBOPACK compile-time value", void 0));
+                    })
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 32,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    background: `radial-gradient(circle at 30% -10%, rgba(255,255,255,${strobe1 * 0.15}) 0%, transparent 60%)`,
+                    mixBlendMode: 'screen',
+                    pointerEvents: 'none',
+                    zIndex: 40
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 54,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    background: `radial-gradient(circle at 70% -10%, rgba(255,255,255,${strobe2 * 0.15}) 0%, transparent 60%)`,
+                    mixBlendMode: 'screen',
+                    pointerEvents: 'none',
+                    zIndex: 40
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 55,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    opacity: textOpacity,
+                    pointerEvents: 'none',
+                    zIndex: 50
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                    style: {
+                        fontSize: '100px',
+                        fontWeight: 900,
+                        color: 'white',
+                        textTransform: 'uppercase',
+                        textAlign: 'center',
+                        margin: 0,
+                        letterSpacing: '8px',
+                        lineHeight: 1.1,
+                        transform: `scale(${textScale})`,
+                        textShadow: `0 20px 50px rgba(0,0,0,0.9), 0 0 60px ${color}`
+                    },
+                    children: headerText?.split(' ').join('\n')
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 57,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 56,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 31,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const HyperImpactTemplate = ({ headerText = "IMPACT", backgroundImage, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    impact: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const bgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : '#000000';
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const impact = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: frame - 20,
+        fps: 30,
+        config: {
+            stiffness: 200,
+            damping: 12,
+            mass: 0.5
+        }
+    });
+    const popSpring = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: frame - 20,
+        fps: 30,
+        config: {
+            stiffness: 70,
+            damping: 15,
+            mass: 1
+        }
+    });
+    const capY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(popSpring, [
+        0,
+        1
+    ], [
+        0,
+        -600
+    ]);
+    const capRotation = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(popSpring, [
+        0,
+        1
+    ], [
+        0,
+        360
+    ]);
+    const mistScale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(impact, [
+        0,
+        1
+    ], [
+        0.2,
+        5
+    ]);
+    const mistOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(impact, [
+        0,
+        0.15,
+        1
+    ], [
+        0,
+        1,
+        0
+    ]);
+    const shakeX = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(impact, [
+        0,
+        0.1,
+        0.2,
+        0.3,
+        0.4,
+        1
+    ], [
+        0,
+        30,
+        -30,
+        15,
+        -15,
+        0
+    ]);
+    const flashOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(impact, [
+        0,
+        0.1,
+        0.6
+    ], [
+        0,
+        0.8,
+        0
+    ]);
+    const bottlePath = "M 80,0 L 120,0 L 120,100 C 120,160 180,220 180,300 C 180,380 140,420 140,480 C 140,540 180,580 180,600 L 20,600 C 20,580 60,540 60,480 C 60,420 20,380 20,300 C 20,220 80,160 80,100 Z";
+    const bubbles = new Array(20).fill(0).map((_, i)=>{
+        const x = 40 + i * 123 % 120;
+        const size = 5 + i * 7 % 15;
+        const speed = 2 + i * 3 % 4;
+        const yOffset = frame * speed * 2 % 600;
+        return {
+            x,
+            size,
+            yOffset
+        };
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: bgColor,
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    transform: `scale(${1 + impact * 0.15}) translate(${shakeX}px)`
+                },
+                children: backgroundImage ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                    src: backgroundImage,
+                    style: {
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        opacity: 0.4
+                    },
+                    alt: "Bg"
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 91,
+                    columnNumber: 30
+                }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        backgroundColor: color,
+                        width: '100%',
+                        height: '100%',
+                        opacity: 0.3
+                    }
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 91,
+                    columnNumber: 151
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 89,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    backgroundColor: 'white',
+                    opacity: flashOpacity,
+                    zIndex: 5,
+                    pointerEvents: 'none'
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 93,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: 'absolute',
+                    top: '55%',
+                    left: '50%',
+                    transform: 'translate(-50%, -50%)',
+                    zIndex: 10,
+                    width: '200px',
+                    height: '600px'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            top: '-100px',
+                            left: '100px',
+                            marginLeft: '-250px',
+                            width: '500px',
+                            height: '500px',
+                            background: 'radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0.4) 40%, transparent 70%)',
+                            transform: `scale(${mistScale})`,
+                            opacity: mistOpacity,
+                            pointerEvents: 'none',
+                            zIndex: 20
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 95,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            width: '100%',
+                            height: '100%',
+                            clipPath: `path('${bottlePath}')`,
+                            WebkitClipPath: `path('${bottlePath}')`
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'absolute',
+                                    bottom: 0,
+                                    width: '100%',
+                                    height: '85%',
+                                    backgroundColor: color,
+                                    opacity: 0.8
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 97,
+                                columnNumber: 12
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            bubbles.map((b, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        position: 'absolute',
+                                        left: `${b.x}px`,
+                                        bottom: `${b.yOffset - 20}px`,
+                                        width: `${b.size}px`,
+                                        height: `${b.size}px`,
+                                        backgroundColor: 'rgba(255,255,255,0.7)',
+                                        borderRadius: '50%',
+                                        boxShadow: '0 0 10px rgba(255,255,255,0.5)'
+                                    }
+                                }, i, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 98,
+                                    columnNumber: 37
+                                }, ("TURBOPACK compile-time value", void 0)))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 96,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                        width: "200",
+                        height: "600",
+                        style: {
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            pointerEvents: 'none',
+                            zIndex: 15,
+                            filter: `drop-shadow(0 0 20px ${color}88)`
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: bottlePath,
+                                fill: "rgba(255,255,255,0.05)",
+                                stroke: "rgba(255,255,255,0.8)",
+                                strokeWidth: "6"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 101,
+                                columnNumber: 12
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: bottlePath,
+                                fill: "none",
+                                stroke: "rgba(255,255,255,0.3)",
+                                strokeWidth: "15",
+                                style: {
+                                    transform: 'translateX(-5px)'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 102,
+                                columnNumber: 12
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 100,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            top: '-25px',
+                            left: '70px',
+                            width: '60px',
+                            height: '25px',
+                            backgroundColor: '#e5e7eb',
+                            borderRadius: '4px 4px 2px 2px',
+                            borderBottom: '5px solid #9ca3af',
+                            transform: `translateY(${capY}px) rotate(${capRotation}deg)`,
+                            opacity: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(impact, [
+                                0.9,
+                                1
+                            ], [
+                                1,
+                                0
+                            ]),
+                            zIndex: 25,
+                            boxShadow: '0 10px 20px rgba(0,0,0,0.5)'
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 104,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 94,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    zIndex: 30,
+                    pointerEvents: 'none',
+                    padding: '0 40px'
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                    style: {
+                        fontSize: '85px',
+                        fontWeight: 900,
+                        color: 'white',
+                        textTransform: 'uppercase',
+                        textAlign: 'center',
+                        lineHeight: 1.1,
+                        margin: 0,
+                        letterSpacing: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(impact, [
+                            0,
+                            1
+                        ], [
+                            0,
+                            10
+                        ]),
+                        transform: `scale(${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(impact, [
+                            0,
+                            1
+                        ], [
+                            0.8,
+                            1.05
+                        ])})`,
+                        opacity: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(impact, [
+                            0,
+                            0.2
+                        ], [
+                            0,
+                            1
+                        ]),
+                        textShadow: `0 10px 40px rgba(0,0,0,0.8), 0 0 40px ${color}`
+                    },
+                    children: headerText?.split(' ').join('\n')
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 107,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 106,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 88,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const CinematicPourTemplate = ({ headerText = "POUR", color = "#F40009", logoUrl, fontFamily = "Montserrat", activeLayers = {
+    pour: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const bgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : '#000000';
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const zoomScale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        50,
+        130
+    ], [
+        1,
+        3.2
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const panX = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        50,
+        130
+    ], [
+        0,
+        120
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const panY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        50,
+        130
+    ], [
+        0,
+        -40
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const fillLevel = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        15,
+        65
+    ], [
+        0,
+        85
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const bottleY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        15,
+        60,
+        75
+    ], [
+        -400,
+        -180,
+        -180,
+        -450
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const bottleTilt = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        15,
+        60,
+        75
+    ], [
+        0,
+        105,
+        105,
+        0
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const streamOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        10,
+        15,
+        55,
+        60
+    ], [
+        0,
+        1,
+        1,
+        0
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const streamWobble = Math.sin(frame) * 2;
+    const iceFloat = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(fillLevel, [
+        0,
+        85
+    ], [
+        0,
+        -80
+    ]);
+    const tableIce = new Array(45).fill(0).map((_, i)=>({
+            x: -900 + i * 40,
+            yOffset: Math.sin(i) * 20,
+            size: 25 + i % 5 * 20,
+            rot: i * 117 % 360
+        }));
+    const droplets = new Array(35).fill(0).map((_, i)=>({
+            x: 5 + i * 37 % 90,
+            y: 10 + i * 53 % 80,
+            size: 4 + i % 8,
+            speed: 0.2 + i % 4 * 0.4
+        }));
+    const textOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        90,
+        110
+    ], [
+        0,
+        1
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: bgColor,
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    background: `radial-gradient(circle at center, ${color}33 0%, #050000 100%)`
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            top: '20%',
+                            left: '30%',
+                            width: '500px',
+                            height: '500px',
+                            backgroundColor: color,
+                            filter: 'blur(150px)',
+                            opacity: 0.3
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 136,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            top: '60%',
+                            right: '10%',
+                            width: '400px',
+                            height: '400px',
+                            backgroundColor: color,
+                            filter: 'blur(120px)',
+                            opacity: 0.15
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 137,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 135,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    transform: `scale(${zoomScale}) translate(${panX}px, ${panY}px)`,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            top: `${bottleY}px`,
+                            left: '50%',
+                            transformOrigin: 'top center',
+                            transform: `translateX(-50%) rotate(${bottleTilt}deg)`,
+                            zIndex: 15,
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    width: '28px',
+                                    height: '14px',
+                                    backgroundColor: '#silver',
+                                    borderRadius: '3px',
+                                    border: '1px solid #999',
+                                    boxShadow: '0 5px 10px rgba(0,0,0,0.5)'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 142,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    width: '36px',
+                                    height: '90px',
+                                    backgroundColor: color,
+                                    borderRadius: '8px 8px 0 0',
+                                    borderLeft: '2px solid rgba(255,255,255,0.4)',
+                                    boxShadow: 'inset 12px 0 20px rgba(0,0,0,0.8), inset -5px 0 10px rgba(0,0,0,0.5)'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 143,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    width: '90px',
+                                    height: '200px',
+                                    backgroundColor: color,
+                                    borderRadius: '40px 40px 10px 10px',
+                                    borderLeft: '3px solid rgba(255,255,255,0.3)',
+                                    borderRight: '1px solid rgba(255,255,255,0.1)',
+                                    boxShadow: 'inset 25px -20px 50px rgba(0,0,0,0.9), inset -10px 0 20px rgba(0,0,0,0.6)',
+                                    position: 'relative',
+                                    overflow: 'hidden'
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        position: 'absolute',
+                                        top: '50px',
+                                        width: '100%',
+                                        height: '50px',
+                                        display: 'flex',
+                                        justifyContent: 'center',
+                                        alignItems: 'center'
+                                    },
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: logoUrl || "https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg",
+                                        alt: "Logo",
+                                        style: {
+                                            width: '70px',
+                                            objectFit: 'contain',
+                                            filter: 'brightness(0) invert(1) drop-shadow(0 2px 5px rgba(0,0,0,0.8))'
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 147,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 145,
+                                    columnNumber: 14
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 144,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 141,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            top: '-180px',
+                            left: `calc(50% + ${streamWobble}px)`,
+                            marginLeft: '-8px',
+                            width: '16px',
+                            height: '380px',
+                            backgroundColor: color,
+                            opacity: streamOpacity,
+                            filter: 'blur(2px)',
+                            zIndex: 12,
+                            borderRadius: '10px',
+                            boxShadow: `0 0 15px ${color}`
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 153,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            top: '55%',
+                            width: '100%',
+                            height: '100px',
+                            zIndex: 5,
+                            filter: 'blur(3px)'
+                        },
+                        children: tableIce.map((ice, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'absolute',
+                                    left: `calc(50% + ${ice.x}px)`,
+                                    top: `${ice.yOffset}px`,
+                                    width: `${ice.size}px`,
+                                    height: `${ice.size}px`,
+                                    background: 'linear-gradient(135deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.05) 100%)',
+                                    border: '1px solid rgba(255,255,255,0.6)',
+                                    borderRadius: '8px',
+                                    transform: `rotate(${ice.rot}deg)`,
+                                    backdropFilter: 'blur(6px)',
+                                    boxShadow: 'inset 0 0 15px rgba(255,255,255,0.8), 0 15px 25px rgba(0,0,0,0.6)'
+                                }
+                            }, i, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 156,
+                                columnNumber: 52
+                            }, ("TURBOPACK compile-time value", void 0)))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 155,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            width: '230px',
+                            height: '380px',
+                            position: 'relative',
+                            overflow: 'hidden',
+                            backgroundColor: 'rgba(255,255,255,0.02)',
+                            backdropFilter: 'blur(4px)',
+                            borderRadius: '10px 10px 30px 30px',
+                            border: '3px solid rgba(255,255,255,0.4)',
+                            borderTop: 'none',
+                            boxShadow: 'inset 0 0 50px rgba(0,0,0,0.8), 0 20px 40px rgba(0,0,0,0.5)',
+                            marginTop: '100px',
+                            zIndex: 10
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'absolute',
+                                    bottom: 0,
+                                    width: '100%',
+                                    height: `${fillLevel}%`,
+                                    backgroundColor: color,
+                                    boxShadow: 'inset 0 20px 40px rgba(0,0,0,0.8)',
+                                    zIndex: 10
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 161,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'absolute',
+                                    top: '45%',
+                                    left: '0',
+                                    width: '100%',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    zIndex: 15,
+                                    transform: 'rotate(-5deg)'
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                    src: logoUrl || "https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg",
+                                    alt: "Logo",
+                                    style: {
+                                        width: '160px',
+                                        filter: 'brightness(0) invert(1) drop-shadow(0px 2px 4px rgba(0,0,0,0.8))',
+                                        opacity: 0.9,
+                                        objectFit: 'contain'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 163,
+                                    columnNumber: 14
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 162,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'absolute',
+                                    bottom: `calc(10% - ${iceFloat}px)`,
+                                    left: '15%',
+                                    width: '75px',
+                                    height: '75px',
+                                    background: 'linear-gradient(135deg, rgba(255,255,255,0.6) 0%, rgba(255,255,255,0.1) 100%)',
+                                    border: '2px solid rgba(255,255,255,0.9)',
+                                    borderRadius: '12px',
+                                    transform: 'rotate(15deg)',
+                                    backdropFilter: 'blur(4px)',
+                                    boxShadow: 'inset 0 0 20px rgba(255,255,255,0.8)',
+                                    zIndex: 5
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 166,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            droplets.map((d, i)=>{
+                                const slide = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+                                    80,
+                                    150
+                                ], [
+                                    0,
+                                    d.speed * 40
+                                ], {
+                                    extrapolateRight: 'clamp'
+                                });
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        position: 'absolute',
+                                        top: `${d.y}%`,
+                                        left: `${d.x}%`,
+                                        width: `${d.size}px`,
+                                        height: `${d.size * 1.3}px`,
+                                        transform: `translateY(${slide}px)`,
+                                        zIndex: 20,
+                                        borderRadius: '50%',
+                                        background: 'radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9) 0%, transparent 50%)',
+                                        boxShadow: 'inset 0 -2px 5px rgba(0,0,0,0.8)',
+                                        border: '1px solid rgba(255,255,255,0.2)'
+                                    }
+                                }, i, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 169,
+                                    columnNumber: 21
+                                }, ("TURBOPACK compile-time value", void 0));
+                            })
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 159,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 139,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'center',
+                    alignItems: 'flex-end',
+                    paddingRight: '50px',
+                    opacity: textOpacity,
+                    pointerEvents: 'none',
+                    zIndex: 50
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                    style: {
+                        fontSize: '85px',
+                        fontWeight: 900,
+                        color: 'white',
+                        textTransform: 'uppercase',
+                        textAlign: 'right',
+                        lineHeight: 1.1,
+                        textShadow: `0 10px 40px rgba(0,0,0,0.9), 0 0 40px ${color}`
+                    },
+                    children: headerText?.split(' ').join('\n')
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 174,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 173,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 133,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const VerticalSplitTemplate = ({ headerText, leftText = "DULL OFFICE", rightText = "VIBRANT BEACH", backgroundImage, backgroundImage2, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    left: true,
+    right: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const topImage = backgroundImage || "https://images.unsplash.com/photo-1497215728101-856f4ea42174?w=800&q=80";
+    const bottomImage = backgroundImage2 || "https://images.unsplash.com/photo-1520116468816-95b69f847357?w=800&q=80";
+    const introSpring = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame,
+        fps: 30,
+        config: {
+            damping: 14
+        }
+    });
+    const dividerWidth = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(introSpring, [
+        0,
+        1
+    ], [
+        0,
+        100
+    ]);
+    const panTop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        150
+    ], [
+        0,
+        -50
+    ]);
+    const panBottom = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        150
+    ], [
+        0,
+        50
+    ]);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: color,
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    height: '50%',
+                    top: 0,
+                    overflow: 'hidden'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            width: '120%',
+                            height: '100%',
+                            transform: `translateX(${panTop}px)`
+                        },
+                        children: [
+                            " ",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: topImage,
+                                style: {
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    filter: 'grayscale(100%) contrast(120%) brightness(80%)'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 193,
+                                columnNumber: 117
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            " "
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 193,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            top: '40px',
+                            left: '40px',
+                            background: 'rgba(0,0,0,0.7)',
+                            padding: '10px 30px',
+                            borderRadius: '50px',
+                            border: '1px solid rgba(255,255,255,0.2)',
+                            color: 'white',
+                            fontSize: '25px',
+                            fontWeight: 'bold',
+                            backdropFilter: 'blur(10px)'
+                        },
+                        children: leftText
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 194,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 192,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    height: '50%',
+                    top: '50%',
+                    overflow: 'hidden'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            width: '120%',
+                            height: '100%',
+                            transform: `translateX(${panBottom}px)`,
+                            left: '-10%'
+                        },
+                        children: [
+                            " ",
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: bottomImage,
+                                style: {
+                                    width: '100%',
+                                    height: '100%',
+                                    objectFit: 'cover',
+                                    filter: 'saturate(180%) contrast(110%) brightness(110%)'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 197,
+                                columnNumber: 134
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            " "
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 197,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            bottom: '40px',
+                            right: '40px',
+                            background: 'rgba(255,255,255,0.95)',
+                            padding: '10px 30px',
+                            borderRadius: '50px',
+                            color: 'black',
+                            fontSize: '25px',
+                            fontWeight: 'bold',
+                            boxShadow: '0 10px 30px rgba(0,0,0,0.5)'
+                        },
+                        children: rightText
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 198,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 196,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    pointerEvents: 'none',
+                    zIndex: 10
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            width: `${dividerWidth}%`,
+                            height: '8px',
+                            backgroundColor: '#ffffff',
+                            boxShadow: `0 0 20px rgba(255,255,255,0.8)`
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 201,
+                        columnNumber: 10
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            background: color,
+                            padding: '15px 50px',
+                            borderRadius: '15px',
+                            transform: `scale(${introSpring})`,
+                            border: `4px solid #ffffff`,
+                            boxShadow: '0 15px 40px rgba(0,0,0,0.6)'
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                            style: {
+                                fontSize: '55px',
+                                fontWeight: 900,
+                                color: 'white',
+                                textTransform: 'uppercase',
+                                margin: 0,
+                                letterSpacing: '3px',
+                                textAlign: 'center',
+                                lineHeight: '1.1'
+                            },
+                            children: headerText?.split(' ').join('\n')
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 203,
+                            columnNumber: 12
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 202,
+                        columnNumber: 10
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 200,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 191,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const IceBucketTemplate = ({ headerText = "COLD", color = "#F40009", logoUrl, fontFamily = "Montserrat", activeLayers = {
+    bucket: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const bgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : '#0a0a0a';
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const zoomScale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        150
+    ], [
+        0.85,
+        1.15
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const cameraRotate = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        150
+    ], [
+        -5,
+        5
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const sunRayPosition = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        120
+    ], [
+        -50,
+        150
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const sunOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        30,
+        90,
+        150
+    ], [
+        0,
+        0.8,
+        0.8,
+        0
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    const crushedIce = new Array(150).fill(0).map((_, i)=>{
+        const radius = i % 50 * 6;
+        const angle = i * 13.7;
+        return {
+            x: Math.cos(angle) * radius,
+            y: Math.sin(angle) * radius,
+            size: 20 + i % 4 * 15,
+            rot: i * 73 % 360
+        };
+    });
+    const bottles = [
+        0,
+        120,
+        240
+    ];
+    const textOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        60,
+        90
+    ], [
+        0,
+        1
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: bgColor,
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    background: 'radial-gradient(circle at center, #333 0%, #000 100%)'
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 224,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    transform: `scale(${zoomScale}) rotate(${cameraRotate}deg)`,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        position: 'relative',
+                        width: '700px',
+                        height: '700px',
+                        borderRadius: '50%',
+                        background: 'radial-gradient(circle at 30% 30%, #444 0%, #111 80%)',
+                        border: '25px solid #888',
+                        boxShadow: 'inset 20px 20px 60px rgba(0,0,0,0.9), 40px 40px 80px rgba(0,0,0,0.9)',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        overflow: 'hidden'
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                top: '-25px',
+                                left: '-25px',
+                                right: '-25px',
+                                bottom: '-25px',
+                                borderRadius: '50%',
+                                border: '2px solid rgba(255,255,255,0.4)',
+                                pointerEvents: 'none',
+                                zIndex: 50
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 227,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                width: '100%',
+                                height: '100%',
+                                zIndex: 5
+                            },
+                            children: crushedIce.map((ice, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        position: 'absolute',
+                                        left: `calc(50% + ${ice.x}px - ${ice.size / 2}px)`,
+                                        top: `calc(50% + ${ice.y}px - ${ice.size / 2}px)`,
+                                        width: `${ice.size}px`,
+                                        height: `${ice.size}px`,
+                                        background: 'linear-gradient(135deg, rgba(255,255,255,0.4) 0%, rgba(255,255,255,0.05) 100%)',
+                                        border: '1px solid rgba(255,255,255,0.6)',
+                                        borderRadius: '6px',
+                                        transform: `rotate(${ice.rot}deg)`,
+                                        // ⚡ SPEED FIX: Removed backdropFilter entirely!
+                                        boxShadow: '4px 4px 10px rgba(0,0,0,0.5), inset 0 0 10px rgba(255,255,255,0.8)'
+                                    }
+                                }, i, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 230,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0)))
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 228,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        bottles.map((rotation, index)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'absolute',
+                                    width: '100%',
+                                    height: '100%',
+                                    transform: `rotate(${rotation}deg)`,
+                                    zIndex: 10,
+                                    pointerEvents: 'none'
+                                },
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        position: 'absolute',
+                                        top: '80px',
+                                        left: '50%',
+                                        transform: 'translateX(-50%)',
+                                        width: '100px',
+                                        height: '320px',
+                                        display: 'flex',
+                                        flexDirection: 'column',
+                                        alignItems: 'center',
+                                        filter: 'drop-shadow(30px 30px 15px rgba(0,0,0,0.8))'
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            style: {
+                                                width: '30px',
+                                                height: '20px',
+                                                background: 'linear-gradient(90deg, #999 0%, #eee 50%, #999 100%)',
+                                                borderRadius: '3px',
+                                                borderTop: '2px solid white'
+                                            }
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 244,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            style: {
+                                                width: '40px',
+                                                height: '90px',
+                                                backgroundColor: color,
+                                                borderRadius: '5px 5px 0 0',
+                                                borderLeft: '2px solid rgba(255,255,255,0.5)',
+                                                boxShadow: 'inset 10px 0 15px rgba(0,0,0,0.8)'
+                                            }
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 246,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            style: {
+                                                width: '100px',
+                                                height: '210px',
+                                                backgroundColor: color,
+                                                borderRadius: '30px 30px 15px 15px',
+                                                position: 'relative',
+                                                overflow: 'hidden',
+                                                borderLeft: '3px solid rgba(255,255,255,0.4)',
+                                                borderRight: '1px solid rgba(255,255,255,0.1)',
+                                                boxShadow: 'inset 20px 0 40px rgba(0,0,0,0.9)'
+                                            },
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    style: {
+                                                        position: 'absolute',
+                                                        top: '60px',
+                                                        width: '100%',
+                                                        height: '55px',
+                                                        display: 'flex',
+                                                        justifyContent: 'center',
+                                                        alignItems: 'center'
+                                                    },
+                                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                        src: logoUrl || "https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg",
+                                                        alt: "Logo",
+                                                        style: {
+                                                            width: '60px',
+                                                            filter: 'brightness(0) invert(1) drop-shadow(0 2px 4px rgba(0,0,0,0.8))',
+                                                            transform: 'rotate(-90deg)',
+                                                            objectFit: 'contain'
+                                                        }
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/templates/Animations.tsx",
+                                                        lineNumber: 249,
+                                                        columnNumber: 23
+                                                    }, ("TURBOPACK compile-time value", void 0))
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/templates/Animations.tsx",
+                                                    lineNumber: 248,
+                                                    columnNumber: 20
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    style: {
+                                                        position: 'absolute',
+                                                        top: '10px',
+                                                        left: '10px',
+                                                        width: '15px',
+                                                        height: '190px',
+                                                        background: 'linear-gradient(180deg, rgba(255,255,255,0.6) 0%, transparent 100%)',
+                                                        borderRadius: '10px',
+                                                        filter: 'blur(1px)'
+                                                    }
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/templates/Animations.tsx",
+                                                    lineNumber: 251,
+                                                    columnNumber: 20
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 247,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 243,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, index, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 242,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0)))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 226,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 225,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    background: `linear-gradient(45deg, transparent ${sunRayPosition - 20}%, rgba(255,250,220,0.15) ${sunRayPosition - 10}%, rgba(255,250,200,0.4) ${sunRayPosition}%, rgba(255,250,220,0.15) ${sunRayPosition + 10}%, transparent ${sunRayPosition + 20}%)`,
+                    mixBlendMode: 'screen',
+                    opacity: sunOpacity,
+                    pointerEvents: 'none',
+                    zIndex: 40
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 258,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    opacity: textOpacity,
+                    pointerEvents: 'none',
+                    zIndex: 50
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        background: 'rgba(0,0,0,0.6)',
+                        padding: '20px 50px',
+                        borderRadius: '15px',
+                        backdropFilter: 'blur(10px)',
+                        border: `2px solid ${color}`,
+                        boxShadow: '0 20px 50px rgba(0,0,0,0.8)'
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                        style: {
+                            fontSize: '60px',
+                            fontWeight: 900,
+                            color: 'white',
+                            textTransform: 'uppercase',
+                            textAlign: 'center',
+                            margin: 0,
+                            letterSpacing: '5px'
+                        },
+                        children: headerText?.split(' ').join('\n')
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 261,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 260,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 259,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 223,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const CokeCinematicTemplate = ({ headerText, color = "#F40009", backgroundImage, activeLayers = {
+    cinematic: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const bgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : '#000000';
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const floatY = Math.sin(frame / 15) * 20;
+    const rotateY = Math.sin(frame / 25) * 25;
+    const heroImage = backgroundImage || "https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=800&q=80"; // Coke glass fallback
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: bgColor
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    backgroundColor: color,
+                    background: `radial-gradient(circle at center, ${color} 0%, #000 120%)`
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 278,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                    style: {
+                        fontSize: "140px",
+                        fontWeight: 900,
+                        color: 'rgba(255,255,255,0.08)',
+                        textTransform: 'uppercase',
+                        textAlign: 'center',
+                        lineHeight: '0.9',
+                        transform: `scale(${1 + Math.sin(frame / 40) * 0.05})`
+                    },
+                    children: headerText?.split(' ').join('\n')
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 280,
+                    columnNumber: 10
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 279,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        transform: `perspective(1200px) rotateY(${rotateY}deg) translateY(${floatY}px) rotateZ(-5deg)`,
+                        filter: `drop-shadow(0px 80px 60px rgba(0,0,0,0.6))`,
+                        borderRadius: '20px',
+                        overflow: 'hidden',
+                        border: '10px solid white'
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                        src: heroImage,
+                        style: {
+                            width: "600px",
+                            height: "800px",
+                            objectFit: "cover"
+                        },
+                        alt: "Hero"
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 286,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 285,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 284,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 277,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const ListicleTemplate = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    items: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const bgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : '#000000';
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const titleProgress = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: frame - 10,
+        fps: 30,
+        config: {
+            damping: 12
+        }
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            padding: '80px',
+            justifyContent: 'center',
+            alignItems: 'center',
+            backgroundColor: bgColor,
+            fontFamily: fontFamily
+        },
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            style: {
+                width: '90%',
+                padding: '60px',
+                borderRadius: '40px',
+                backgroundColor: 'rgba(255, 255, 255, 0.05)',
+                backdropFilter: 'blur(20px) saturate(180%)',
+                border: '1px solid rgba(255, 255, 255, 0.15)',
+                opacity: titleProgress
+            },
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                    style: {
+                        color: 'white',
+                        fontSize: '65px',
+                        fontWeight: '900',
+                        transform: `translateY(${(1 - titleProgress) * -20}px)`
+                    },
+                    children: headerText
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 300,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                (chartData || []).map((item, i)=>{
+                    const itemProgress = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                        frame: frame - 30 - i * 15,
+                        fps: 30,
+                        config: {
+                            damping: 12
+                        }
+                    });
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            color: 'white',
+                            fontSize: '42px',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '25px',
+                            padding: '20px',
+                            opacity: itemProgress,
+                            transform: `translateX(${(1 - itemProgress) * -50}px)`
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                style: {
+                                    backgroundColor: color,
+                                    minWidth: '60px',
+                                    height: '60px',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    alignItems: 'center',
+                                    borderRadius: '12px'
+                                },
+                                children: i + 1
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 305,
+                                columnNumber: 15
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            item.label
+                        ]
+                    }, i, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 304,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0));
+                })
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/templates/Animations.tsx",
+            lineNumber: 299,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 298,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const StampChecklistTemplate = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    items: true,
+    stamps: true,
+    text: true
+}, backgroundMode = 'black' })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            padding: '80px',
+            justifyContent: 'center',
+            backgroundColor: '#111',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                style: {
+                    color: 'white',
+                    fontSize: '70px',
+                    marginBottom: '60px'
+                },
+                children: headerText
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 317,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            (chartData || []).map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        display: 'flex',
+                        alignItems: 'center',
+                        gap: '30px',
+                        marginBottom: '30px'
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                minWidth: '50px',
+                                height: '50px',
+                                backgroundColor: color,
+                                display: 'flex',
+                                justifyContent: 'center',
+                                alignItems: 'center',
+                                borderRadius: '10px',
+                                fontSize: '30px'
+                            },
+                            children: "✅"
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 320,
+                            columnNumber: 9
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                color: 'white',
+                                fontSize: '45px'
+                            },
+                            children: item.label
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 321,
+                            columnNumber: 9
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, i, true, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 319,
+                    columnNumber: 7
+                }, ("TURBOPACK compile-time value", void 0)))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 316,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const CarouselTemplate = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    carousel: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const shift = frame % 150 / 150 * 100;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            justifyContent: 'center',
+            overflow: 'hidden',
+            backgroundColor: '#111',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                style: {
+                    color: 'white',
+                    textAlign: 'center',
+                    marginBottom: '100px',
+                    fontSize: '60px'
+                },
+                children: headerText
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 332,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: 'flex',
+                    gap: '40px',
+                    transform: `translateX(-${shift}%)`
+                },
+                children: (chartData || []).map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            minWidth: '400px',
+                            padding: '40px',
+                            background: 'rgba(255,255,255,0.1)',
+                            borderRadius: '20px',
+                            border: `2px solid ${color}`
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            style: {
+                                color: 'white',
+                                fontSize: '40px'
+                            },
+                            children: item.label
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 336,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, i, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 335,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 333,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 331,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const ProductShowcaseTemplate = ({ headerText = "NEW ARRIVAL", backgroundImage, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    product: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const pop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame,
+        fps: 30,
+        config: {
+            damping: 12
+        }
+    });
+    // 🔄 The Rotation Magic (Now spins side-to-side on the Y-axis)
+    const rotation = frame * 1.5;
+    const floatY = Math.sin(frame / 15) * 20;
+    // Using a 100% bot-safe Wikimedia image as the fallback instead!
+    const imageSrc = backgroundImage || "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a7/React-icon.svg/512px-React-icon.svg.png";
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: '#05000A',
+            justifyContent: 'center',
+            alignItems: 'center',
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: 'absolute',
+                    width: '1000px',
+                    height: '1000px',
+                    background: `radial-gradient(circle, ${color}77 0%, ${color}00 60%)`,
+                    transform: `scale(${pop})`
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 360,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    transform: `perspective(1000px) scale(${pop}) translateY(${floatY}px) rotateY(${rotation}deg)`,
+                    zIndex: 10,
+                    display: 'flex',
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                    src: imageSrc,
+                    style: {
+                        height: '450px',
+                        width: 'auto',
+                        objectFit: 'contain',
+                        filter: `drop-shadow(0 30px 50px rgba(0,0,0,0.8))`
+                    },
+                    alt: "Product"
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 371,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 367,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'flex-end',
+                    alignItems: 'center',
+                    paddingBottom: '100px',
+                    zIndex: 20
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                    style: {
+                        fontSize: '85px',
+                        fontWeight: 900,
+                        color: 'white',
+                        textTransform: 'uppercase',
+                        textAlign: 'center',
+                        margin: 0,
+                        letterSpacing: '8px',
+                        lineHeight: 1.1,
+                        transform: `translateY(${(1 - pop) * 50}px)`,
+                        opacity: pop,
+                        textShadow: `0 10px 30px rgba(0,0,0,0.9), 0 0 40px ${color}`
+                    },
+                    children: headerText?.split(' ').join('\n')
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 380,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 379,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 356,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const TripleBuildTemplate = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    elements: true,
+    text: true
+}, backgroundMode = 'black' })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: '#111',
+            padding: '40px',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                style: {
+                    fontSize: "65px",
+                    color: "white",
+                    marginBottom: "80px",
+                    textAlign: 'center'
+                },
+                children: headerText
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 395,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: "flex",
+                    flexDirection: 'column',
+                    gap: "40px",
+                    width: '100%'
+                },
+                children: (chartData || []).slice(0, 3).map((d, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            backgroundColor: "rgba(255,255,255,0.05)",
+                            padding: "40px",
+                            borderRadius: "20px",
+                            borderLeft: `8px solid ${color}`,
+                            textAlign: "left"
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            style: {
+                                color: "white",
+                                fontSize: "45px",
+                                margin: 0
+                            },
+                            children: d.label
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 399,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, i, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 398,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 396,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 394,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const ChaseAttentionTemplate = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    chase: true,
+    text: true
+}, backgroundMode = 'black' })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: '#111',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                style: {
+                    fontSize: "60px",
+                    color: "white",
+                    marginBottom: "60px",
+                    textAlign: 'center'
+                },
+                children: headerText
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 408,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    fontSize: "60px",
+                    color: "rgba(255,255,255,0.4)",
+                    textDecoration: "line-through",
+                    textAlign: 'center'
+                },
+                children: chartData?.[0]?.label || "Old Way"
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 409,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    fontSize: "90px",
+                    color: color,
+                    fontWeight: "bold",
+                    marginTop: "20px",
+                    textAlign: 'center'
+                },
+                children: chartData?.[1]?.label || "New Way"
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 410,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 407,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const CrowdScaleTemplate = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    crowd: true,
+    text: true
+}, backgroundMode = 'black' })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: '#111',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                style: {
+                    fontSize: "65px",
+                    color: "white",
+                    textAlign: 'center',
+                    padding: '0 40px'
+                },
+                children: headerText
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 416,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: "flex",
+                    flexDirection: 'column',
+                    gap: "80px",
+                    marginTop: "80px"
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            textAlign: "center"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    fontSize: "110px",
+                                    color: "white",
+                                    fontWeight: "bold"
+                                },
+                                children: chartData?.[0]?.value || "1"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 419,
+                                columnNumber: 9
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    fontSize: "45px",
+                                    color: color
+                                },
+                                children: chartData?.[0]?.label || "Person"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 420,
+                                columnNumber: 9
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 418,
+                        columnNumber: 7
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            textAlign: "center"
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    fontSize: "110px",
+                                    color: "white",
+                                    fontWeight: "bold"
+                                },
+                                children: chartData?.[1]?.value || "1M+"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 423,
+                                columnNumber: 9
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    fontSize: "45px",
+                                    color: color
+                                },
+                                children: chartData?.[1]?.label || "People"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 424,
+                                columnNumber: 9
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 422,
+                        columnNumber: 7
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 417,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 415,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const ChartCrashTemplate = ({ headerText, chartData, fontFamily = "Montserrat", activeLayers = {
+    chart: true,
+    text: true
+}, backgroundMode = 'black' })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: '#111',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                style: {
+                    fontSize: "70px",
+                    color: "#ff4444",
+                    fontWeight: "bold",
+                    textAlign: 'center'
+                },
+                children: headerText
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 432,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    fontSize: "60px",
+                    color: "white",
+                    marginTop: "40px"
+                },
+                children: [
+                    chartData?.[0]?.label || "Error",
+                    ": ",
+                    chartData?.[0]?.value || "0"
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 433,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 431,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const VersusTemplate = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    left: true,
+    right: true,
+    text: true
+}, backgroundMode = 'black' })=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            flexDirection: "column",
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    flex: 1,
+                    backgroundColor: "rgba(0,0,0,0.8)",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "40px"
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                    style: {
+                        fontSize: "60px",
+                        color: "white",
+                        textAlign: "center"
+                    },
+                    children: chartData?.[0]?.label || "Option A"
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 440,
+                    columnNumber: 7
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 439,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    height: "10px",
+                    backgroundColor: color,
+                    zIndex: 10
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 442,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    flex: 1,
+                    backgroundColor: color,
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "40px"
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                    style: {
+                        fontSize: "60px",
+                        color: "white",
+                        fontWeight: "bold",
+                        textAlign: "center"
+                    },
+                    children: chartData?.[1]?.label || "Option B"
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 444,
+                    columnNumber: 7
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 443,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -50%)",
+                    width: "100%",
+                    textAlign: "center",
+                    zIndex: 20
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                    style: {
+                        fontSize: "80px",
+                        color: "white",
+                        textShadow: "0 4px 20px rgba(0,0,0,0.8)"
+                    },
+                    children: headerText || "VS"
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 447,
+                    columnNumber: 7
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 446,
+                columnNumber: 5
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 438,
+        columnNumber: 3
+    }, ("TURBOPACK compile-time value", void 0));
+const BRollTemplate = ({ bRollUrl, backgroundMode = 'black' })=>{
+    const bgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : '#000000';
+    if (!bRollUrl) {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+            style: {
+                backgroundColor: bgColor,
+                justifyContent: 'center',
+                alignItems: 'center'
+            },
+            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    color: 'white',
+                    fontSize: 48,
+                    fontWeight: 'bold'
+                },
+                children: "Missing B-Roll URL"
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 458,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0))
+        }, void 0, false, {
+            fileName: "[project]/src/templates/Animations.tsx",
+            lineNumber: 457,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0));
+    }
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: bgColor
+        },
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Video"], {
+            src: bRollUrl,
+            style: {
+                width: '100%',
+                height: '100%',
+                objectFit: 'cover'
+            }
+        }, void 0, false, {
+            fileName: "[project]/src/templates/Animations.tsx",
+            lineNumber: 465,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 464,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const BarChartTemplate = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    bars: true,
+    labels: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const bgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : '#111';
+    // 1. Get the current frame to drive the animations
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    // 2. Animate the Title dropping in
+    const titleDrop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 10),
+        fps: 30,
+        config: {
+            damping: 14
+        }
+    });
+    const titleY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(titleDrop, [
+        0,
+        1
+    ], [
+        -50,
+        0
+    ]);
+    // Fallback data if AI fails
+    const safeChartData = chartData && chartData.length > 0 ? chartData : [
+        {
+            label: "A",
+            value: 50
+        },
+        {
+            label: "B",
+            value: 100
+        }
+    ];
+    // Find max value so we can scale the bars proportionally
+    const maxVal = Math.max(...safeChartData.map((d)=>d.value || 1), 1);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            padding: "80px",
+            justifyContent: "flex-end",
+            backgroundColor: bgColor,
+            fontFamily
+        },
+        children: [
+            activeLayers.text && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                style: {
+                    position: "absolute",
+                    top: "100px",
+                    width: "100%",
+                    textAlign: "center",
+                    fontSize: "60px",
+                    color: "white",
+                    fontWeight: 900,
+                    textTransform: "uppercase",
+                    transform: `translateY(${titleY}px)`,
+                    opacity: titleDrop
+                },
+                children: headerText
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 493,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    display: "flex",
+                    alignItems: "flex-end",
+                    gap: "40px",
+                    height: "600px",
+                    width: "100%",
+                    padding: "0 40px"
+                },
+                children: safeChartData.map((d, i)=>{
+                    // 3. Staggered Spring Animation for each bar!
+                    // We multiply 'i' by 10 so Bar 1 starts at frame 20, Bar 2 at frame 30, etc.
+                    const barPop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                        frame: Math.max(0, frame - 20 - i * 10),
+                        fps: 30,
+                        config: {
+                            damping: 12,
+                            stiffness: 100
+                        }
+                    });
+                    // Calculate final height, then multiply by the spring (0 to 1) to make it grow
+                    const finalHeight = Math.max((d.value || 10) / maxVal * 500, 50);
+                    const animatedHeight = finalHeight * barPop;
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            flex: 1,
+                            display: "flex",
+                            flexDirection: "column",
+                            alignItems: "center"
+                        },
+                        children: [
+                            activeLayers.labels && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    color: "white",
+                                    fontSize: "35px",
+                                    marginBottom: "20px",
+                                    fontWeight: "bold",
+                                    opacity: barPop,
+                                    transform: `translateY(${(1 - barPop) * 20}px)`
+                                },
+                                children: d.value
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 523,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            activeLayers.bars && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    width: "100%",
+                                    height: `${animatedHeight}px`,
+                                    backgroundColor: color,
+                                    borderRadius: "20px 20px 0 0",
+                                    boxShadow: `0 0 20px ${color}88` // Added a nice neon glow!
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 530,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            activeLayers.labels && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    color: "rgba(255,255,255,0.6)",
+                                    fontSize: "25px",
+                                    marginTop: "20px",
+                                    fontWeight: "bold",
+                                    opacity: barPop
+                                },
+                                children: d.label
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 541,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, i, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 519,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0));
+                })
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 503,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 489,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const LineChartTemplate = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = {
+    line: true,
+    labels: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const bgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : '#000000';
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const { width } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useVideoConfig"])();
+    const data = chartData && chartData.length > 0 ? chartData : [
+        {
+            label: "Start",
+            value: 0
+        },
+        {
+            label: "End",
+            value: 100
+        }
+    ];
+    const maxVal = Math.max(...data.map((d)=>d.value || 0), 1);
+    const chartHeight = 600;
+    const paddingX = 80;
+    const paddingY = 200;
+    const stepX = (width - paddingX * 2) / Math.max(data.length - 1, 1);
+    const points = data.map((d, i)=>{
+        const x = paddingX + i * stepX;
+        const y = paddingY + chartHeight - (d.value || 0) / maxVal * chartHeight;
+        return `${x},${y}`;
+    });
+    const progress = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame,
+        fps: 30,
+        config: {
+            damping: 14
+        }
+    });
+    const animatedPoints = points.slice(0, Math.max(1, Math.floor(progress * points.length))).join(" ");
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: bgColor,
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: "absolute",
+                    top: 80,
+                    width: "100%",
+                    textAlign: "center"
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                    style: {
+                        color: "white",
+                        fontSize: "60px",
+                        fontWeight: "900",
+                        textTransform: "uppercase"
+                    },
+                    children: headerText
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 577,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 576,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: "absolute",
+                    top: 100,
+                    width: "100%",
+                    height: "800px"
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                    width: "100%",
+                    height: "100%",
+                    children: animatedPoints && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polyline", {
+                        points: animatedPoints,
+                        fill: "none",
+                        stroke: color,
+                        strokeWidth: "16",
+                        strokeLinecap: "round",
+                        strokeLinejoin: "round"
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 581,
+                        columnNumber: 30
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 580,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 579,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 575,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const renderSceneComponent = (scene, color, activeLayers = {}, backgroundMode = 'black', sceneIndex = 0)=>{
+    const type = scene.visualType;
+    // 🤖 THE NEW DYNAMIC LEGO ENGINE
+    if (type === "DYNAMIC_CANVAS") {
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$blocks$2f$DynamicSceneRenderer$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["DynamicSceneRenderer"], {
+            elements: scene.elements || [],
+            sceneBgColor: scene.sceneBgColor || backgroundMode
+        }, void 0, false, {
+            fileName: "[project]/src/templates/Animations.tsx",
+            lineNumber: 594,
+            columnNumber: 12
+        }, ("TURBOPACK compile-time value", void 0));
+    }
+    if (type === "B_ROLL") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(BRollTemplate, {
+        ...scene,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 597,
+        columnNumber: 33
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "HYPER_IMPACT" || type === "KINETIC_STOMP" || type === "BOTTLE_POP" || type === "IMPACT_VIDEO") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(HyperImpactTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 599,
+        columnNumber: 119
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "CHRONO") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CokeCinematicTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 600,
+        columnNumber: 33
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "MACRO_POUR") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CinematicPourTemplate, {
+        ...scene,
+        color: color,
+        logoUrl: scene.logoUrl,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 601,
+        columnNumber: 37
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "VERTICAL_SPLIT") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(VerticalSplitTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 602,
+        columnNumber: 41
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "ICE_BUCKET") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(IceBucketTemplate, {
+        ...scene,
+        color: color,
+        logoUrl: scene.logoUrl,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 603,
+        columnNumber: 37
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "FESTIVAL_CROWD") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FestivalCrowdTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 604,
+        columnNumber: 41
+    }, ("TURBOPACK compile-time value", void 0));
+    // --- NEW TEMPLATES ---
+    if (type === "KINETIC_SPEAKER") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(KineticSpeakerTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 607,
+        columnNumber: 42
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "NEON_CONCEPT") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(NeonConceptTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 608,
+        columnNumber: 39
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "BOOK_REVEAL") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(BookRevealTemplate, {
+        ...scene,
+        color: color,
+        numberColor: scene.numberColor || "#000000",
+        showLightning: scene.showLightning ?? true,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 609,
+        columnNumber: 38
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "KINETIC_ROADMAP") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(KineticRoadmapTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 610,
+        columnNumber: 42
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "DARK_WEALTH") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(DarkWealthTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 611,
+        columnNumber: 38
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "PUPPET_MASTER") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PuppetMasterTemplate, {
+        ...scene,
+        chartData: scene.chartData || [],
+        customFontSize: scene.customFontSize || 135,
+        color: color,
+        sceneBgColor: scene.sceneBgColor || "#050505",
+        brainColor: scene.brainColor || "#00d4ff",
+        handSpeed: scene.handSpeed ?? 1,
+        stringTension: scene.stringTension ?? 1,
+        handImage: scene.handImage,
+        handSize: scene.handSize ?? 600,
+        handX: scene.handX ?? -138,
+        handY: scene.handY ?? -182,
+        handRotation: scene.handRotation ?? 6,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 612,
+        columnNumber: 40
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "FOCUS") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(FocusTemplate, {
+        ...scene,
+        color: color,
+        backgroundImage: scene.backgroundImage,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 613,
+        columnNumber: 32
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "MINDSET_FLOW") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(MindsetFlowTemplate, {
+        ...scene,
+        image1: scene.image1,
+        image2: scene.image2,
+        image3: scene.image3,
+        bookImage: scene.bookImage,
+        img1Size: scene.img1Size || 380,
+        img2Size: scene.img2Size || 380,
+        img3Size: scene.img3Size || 380,
+        img1Y: scene.img1Y || 0,
+        img2Y: scene.img2Y || 0,
+        img3Y: scene.img3Y || 0,
+        tintColor: scene.tintColor || "#00d4ff",
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 614,
+        columnNumber: 39
+    }, ("TURBOPACK compile-time value", void 0));
+    // Restored Data Templates
+    if (type === "LISTICLE") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ListicleTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 617,
+        columnNumber: 35
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "CAROUSEL") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CarouselTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 618,
+        columnNumber: 35
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "STAMP_CHECKLIST") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(StampChecklistTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 619,
+        columnNumber: 42
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "PRODUCT_SHOWCASE") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ProductShowcaseTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 620,
+        columnNumber: 43
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "TRIPLE_BUILD") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(TripleBuildTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 621,
+        columnNumber: 39
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "CHASE_ATTENTION") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ChaseAttentionTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 622,
+        columnNumber: 42
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "CHART_CRASH") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ChartCrashTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 623,
+        columnNumber: 38
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "CROWD_SCALE") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(CrowdScaleTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 624,
+        columnNumber: 38
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "VERSUS") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(VersusTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 625,
+        columnNumber: 33
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "BAR_CHART") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(BarChartTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 626,
+        columnNumber: 36
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "LINE_CHART") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(LineChartTemplate, {
+        ...scene,
+        color: color,
+        activeLayers: activeLayers,
+        backgroundMode: backgroundMode
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 627,
+        columnNumber: 37
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "PANORAMIC_REEL") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PanoramicReelTemplate, {
+        ...scene,
+        color: color
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 628,
+        columnNumber: 41
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "COMPARISON_PENTAGON") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ComparisonPentagonTemplate, {
+        ...scene,
+        color: color
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 629,
+        columnNumber: 46
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "PROCESS_FLOW") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(ProcessFlowTemplate, {
+        ...scene,
+        color: color
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 630,
+        columnNumber: 39
+    }, ("TURBOPACK compile-time value", void 0));
+    if (type === "PENTAGON_FLOW") return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(PentagonFlowTemplate, {
+        ...scene,
+        color: color
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 631,
+        columnNumber: 40
+    }, ("TURBOPACK compile-time value", void 0));
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        style: {
+            color: 'white',
+            fontSize: '40px',
+            backgroundColor: '#000',
+            display: 'flex',
+            justifyContent: 'center',
+            alignItems: 'center',
+            height: '100%'
+        },
+        children: [
+            "Error: ",
+            type,
+            " not found"
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 633,
+        columnNumber: 10
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const MasterSequence = ({ scenes = [], captions = [], color = "#000000", activeLayers = {}, backgroundMode = 'black', layoutMode = 'full', reactionVideoUrl })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const { fps } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useVideoConfig"])();
+    // 📍 PRE-CALCULATE ALL SCENE TIMINGS with fps
+    let runningStartFrame = 0;
+    const scenesWithTiming = scenes.map((scene)=>{
+        const startFrame = runningStartFrame;
+        const durationInFrames = 5 * fps; // Force every scene to be 5 seconds for now
+        runningStartFrame += durationInFrames;
+        return {
+            ...scene,
+            startFrame,
+            durationInFrames
+        };
+    });
+    // 🔍 FIND CURRENT SCENE from global frame position
+    const currentScene = scenesWithTiming.find((s)=>frame >= s.startFrame && frame < s.startFrame + s.durationInFrames) || scenesWithTiming[0];
+    const currentLayout = currentScene?.layoutMode || layoutMode || 'full';
+    const activeSceneBg = scenesWithTiming[0]?.sceneBgColor || "#000208";
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: backgroundMode === 'transparent' ? 'transparent' : activeSceneBg
+        },
+        children: [
+            scenesWithTiming.map((sceneData, index)=>{
+                // If it's KINETIC_SPEAKER, just let the base video play!
+                if (sceneData.sceneType === 'KINETIC_SPEAKER') {
+                    return null;
+                }
+                // If it's GRAPHIC_POPUP, render the animated graphic
+                if (sceneData.sceneType === 'GRAPHIC_POPUP') {
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Sequence"], {
+                        from: sceneData.startFrame,
+                        durationInFrames: sceneData.durationInFrames,
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$remotion$2f$AnimatedGraphic$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AnimatedGraphic"], {
+                            imageUrl: sceneData.iconUrl || "https://cdn-icons-png.flaticon.com/512/190/190411.png",
+                            text: sceneData.dialogue
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 686,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, index, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 681,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0));
+                }
+                // If it's B_ROLL, play real video content
+                if (sceneData.sceneType === 'B_ROLL') {
+                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Sequence"], {
+                        from: sceneData.startFrame,
+                        durationInFrames: sceneData.durationInFrames,
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["OffthreadVideo"], {
+                            src: sceneData.videoUrl || "https://www.w3schools.com/html/mov_bbb.mp4",
+                            style: {
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 702,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, index, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 697,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0));
+                }
+                // Render all other templates normally
+                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Sequence"], {
+                    from: sceneData.startFrame,
+                    durationInFrames: sceneData.durationInFrames,
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                        style: {
+                            height: sceneData.layoutMode || layoutMode === 'split' ? '50%' : '100%',
+                            top: 0,
+                            zIndex: 1
+                        },
+                        children: renderSceneComponent(sceneData, sceneData.color || color, activeLayers, backgroundMode, index)
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 713,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, index, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 712,
+                    columnNumber: 11
+                }, ("TURBOPACK compile-time value", void 0));
+            }),
+            reactionVideoUrl && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    zIndex: 10,
+                    height: currentLayout === 'split' ? '50%' : '100%',
+                    top: currentLayout === 'split' ? '50%' : '0%',
+                    transition: 'all 0.4s cubic-bezier(0.25, 1, 0.5, 1)',
+                    overflow: 'hidden',
+                    backgroundColor: currentLayout === 'split' ? currentScene?.sceneBgColor || '#000' : 'transparent',
+                    borderTop: currentLayout === 'split' ? '4px solid white' : 'none'
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        width: '100%',
+                        height: '100%',
+                        transform: currentLayout === 'split' ? 'scale(1.2) translateY(10%)' : 'scale(1)'
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ChromaKeyVideo$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ChromaKeyVideo"], {
+                        src: reactionVideoUrl,
+                        startFrom: 0
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 741,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 736,
+                    columnNumber: 11
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 726,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    zIndex: 20
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$src$2f$components$2f$ViralCaptions$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["ViralCaptions"], {
+                    captions: captions
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 748,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 747,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 668,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const KineticSpeakerTemplate = ({ chartData = [], backgroundImage, color = "#00d4ff", customFontSize = 135, fontFamily = "Montserrat", activeLayers = {
+    speaker: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const bgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : '#000000';
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: bgColor,
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: [
+            backgroundImage && backgroundImage.endsWith('.mp4') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Video"], {
+                src: backgroundImage,
+                style: {
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                },
+                muted: true
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 768,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0)) : backgroundImage ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                src: backgroundImage,
+                style: {
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover'
+                },
+                alt: "bg"
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 770,
+                columnNumber: 9
+            }, ("TURBOPACK compile-time value", void 0)) : null,
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0.5) 30%, transparent 60%)'
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 773,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'flex-end',
+                    alignItems: 'center',
+                    paddingBottom: '250px',
+                    display: 'flex',
+                    flexDirection: 'column'
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '10px',
+                        alignItems: 'center',
+                        width: 'max-content'
+                    },
+                    children: chartData.map((item, index)=>{
+                        const delay = index * 30;
+                        const activeFrame = Math.max(0, frame - delay);
+                        const pop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                            frame: activeFrame,
+                            fps: 30,
+                            config: {
+                                stiffness: 90,
+                                damping: 16
+                            }
+                        });
+                        const isHighlight = item.value === 1;
+                        const scale = isHighlight ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(pop, [
+                            0,
+                            1
+                        ], [
+                            2.5,
+                            1
+                        ]) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(pop, [
+                            0,
+                            1
+                        ], [
+                            0.5,
+                            1
+                        ]);
+                        const tracking = isHighlight ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(activeFrame, [
+                            0,
+                            30
+                        ], [
+                            250,
+                            0
+                        ], {
+                            extrapolateRight: 'clamp'
+                        }) : 0;
+                        let swapBlur = 0;
+                        if (isHighlight) {
+                            if (activeFrame > 12 && activeFrame < 18) swapBlur = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(activeFrame, [
+                                12,
+                                15,
+                                18
+                            ], [
+                                0,
+                                12,
+                                0
+                            ]);
+                            if (activeFrame > 27 && activeFrame < 33) swapBlur = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(activeFrame, [
+                                27,
+                                30,
+                                33
+                            ], [
+                                0,
+                                12,
+                                0
+                            ]);
+                        }
+                        const baseMotionBlur = isHighlight ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(pop, [
+                            0,
+                            1
+                        ], [
+                            15,
+                            0
+                        ], {
+                            extrapolateRight: 'clamp'
+                        }) : 0;
+                        const totalBlur = baseMotionBlur + swapBlur;
+                        const slideY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(pop, [
+                            0,
+                            1
+                        ], [
+                            60,
+                            0
+                        ]);
+                        const opacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(activeFrame, [
+                            0,
+                            5
+                        ], [
+                            0,
+                            1
+                        ], {
+                            extrapolateRight: 'clamp'
+                        });
+                        let numText = "";
+                        let wordText = item.label;
+                        if (isHighlight && item.label.toLowerCase().includes("10 powerful")) {
+                            if (activeFrame < 15) {
+                                numText = "8";
+                                wordText = "Powerful";
+                            } else if (activeFrame >= 15 && activeFrame < 30) {
+                                numText = "9";
+                                wordText = "Powerful";
+                            } else {
+                                numText = "10";
+                                wordText = "Powerful";
+                            }
+                        } else if (isHighlight) {
+                            const parts = item.label.split(" ");
+                            if (parts.length > 1 && !isNaN(Number(parts[0]))) {
+                                numText = parts[0];
+                                wordText = parts.slice(1).join(" ");
+                            }
+                        }
+                        const dynamicBigSize = customFontSize;
+                        const dynamicSmallSize = Math.max(35, Math.round(customFontSize * 0.35));
+                        const isTopText = !isHighlight && index < 1;
+                        const isBottomText = !isHighlight && index >= 2;
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                transform: `translateY(${slideY}px) scale(${scale})`,
+                                opacity: opacity,
+                                // ⚡ FIX: Remove the filter entirely if blur is 0 to prevent the Chromium rendering bug
+                                filter: totalBlur > 0 ? `blur(${totalBlur}px)` : undefined,
+                                fontSize: isHighlight ? `${dynamicBigSize}px` : `${dynamicSmallSize}px`,
+                                fontWeight: isHighlight ? 800 : 600,
+                                color: isHighlight ? color : 'white',
+                                lineHeight: 1,
+                                // ⚡ FIX: Removed hex-alphas (AA/66) which breaks text-shadow in headless MP4 render
+                                textShadow: isHighlight ? `0 10px 20px rgba(0,0,0,0.8), 0 0 50px ${color}, 0 0 90px ${color}` : '0 5px 15px rgba(0,0,0,0.9)',
+                                zIndex: 10,
+                                display: 'flex',
+                                alignItems: 'center',
+                                // ⚡ PERFECT DIAGONAL ALIGNMENT: Pushes to the true edges of the parent container
+                                alignSelf: isHighlight ? 'center' : isTopText ? 'flex-start' : 'flex-end',
+                                textAlign: isHighlight ? 'center' : isTopText ? 'left' : 'right',
+                                // Tiny optical nudges so it looks perfectly aligned with the curved letters
+                                paddingLeft: isTopText ? '5px' : '0px',
+                                paddingRight: isBottomText ? '10px' : '0px'
+                            },
+                            children: !isHighlight ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                style: {
+                                    letterSpacing: '-1px'
+                                },
+                                children: item.label
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 851,
+                                columnNumber: 19
+                            }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                children: [
+                                    numText && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        style: {
+                                            display: 'inline-block',
+                                            width: '1.4em',
+                                            textAlign: 'left',
+                                            letterSpacing: '-2px',
+                                            marginRight: '15px',
+                                            flexShrink: 0
+                                        },
+                                        children: numText
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 855,
+                                        columnNumber: 23
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        style: {
+                                            display: 'flex',
+                                            flexDirection: 'row'
+                                        },
+                                        children: wordText.split('').map((char, charIdx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                style: {
+                                                    display: 'block',
+                                                    transform: `translateX(${tracking * charIdx}px)`,
+                                                    // ⚡ RELAXED THE SQUISH
+                                                    marginRight: charIdx !== wordText.length - 1 ? '-3px' : '0px'
+                                                },
+                                                children: char
+                                            }, charIdx, false, {
+                                                fileName: "[project]/src/templates/Animations.tsx",
+                                                lineNumber: 869,
+                                                columnNumber: 25
+                                            }, ("TURBOPACK compile-time value", void 0)))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 867,
+                                        columnNumber: 21
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true)
+                        }, index, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 826,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0));
+                    })
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 780,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 775,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 766,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const NeonConceptTemplate = ({ activeLayers = {
+    pillars: true,
+    diamond: true,
+    text: true
+}, backgroundMode = 'black', headerText = "These will teach you", leftText = "10 powerful skills", backgroundImage, color = "#00d4ff", bgGradientColor = "#002255", // ⚡ NEW: Individual Size and Color Props!
+topFontSize = 75, bottomFontSize = 125, topFontColor = "#00ffff", bottomFontColor = "#00aaff", // ⚡ NEW: Diamond & Pillar Customization
+diamondColor = "#00d4ff", pillarColorLeft = "#00d4ff", pillarColorCenter = "#0088cc", pillarColorRight = "#001a33", // ⚡ NEW: Font Family
+fontFamily = "Montserrat" })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const liftProgress = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 5),
+        fps: 30,
+        config: {
+            stiffness: 25,
+            damping: 18
+        }
+    });
+    const masterY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(liftProgress, [
+        0,
+        1
+    ], [
+        1400,
+        320
+    ]);
+    const floatY = Math.sin(frame / 15) * 15;
+    const topWords = (headerText || "").split(' ');
+    const bottomWords = (leftText || "").split(' ');
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: '#000208',
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    background: `radial-gradient(circle at 50% 60%, ${bgGradientColor} 0%, #000208 65%)`
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 927,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    transform: `translateY(${masterY}px)`,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    paddingTop: '10px'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            flexDirection: 'column',
+                            alignItems: 'center',
+                            marginBottom: '10px'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'relative',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    width: '100%',
+                                    height: '80px'
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            display: 'flex',
+                                            gap: '15px',
+                                            color: '#001a44',
+                                            transform: 'translateY(3px)',
+                                            textShadow: '0px 10px 20px rgba(0,0,0,1)'
+                                        },
+                                        children: topWords.map((word, i)=>{
+                                            const wordPop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                                                frame: Math.max(0, frame - i * 3),
+                                                fps: 30,
+                                                config: {
+                                                    stiffness: 80,
+                                                    damping: 14
+                                                }
+                                            });
+                                            return(// ⚡ APPLIED: topFontSize
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                style: {
+                                                    transform: `translateY(${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(wordPop, [
+                                                        0,
+                                                        1
+                                                    ], [
+                                                        20,
+                                                        0
+                                                    ])}px)`,
+                                                    opacity: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(wordPop, [
+                                                        0,
+                                                        1
+                                                    ], [
+                                                        0,
+                                                        1
+                                                    ]),
+                                                    fontSize: `${topFontSize}px`,
+                                                    fontWeight: 700
+                                                },
+                                                children: word
+                                            }, i, false, {
+                                                fileName: "[project]/src/templates/Animations.tsx",
+                                                lineNumber: 948,
+                                                columnNumber: 19
+                                            }, ("TURBOPACK compile-time value", void 0)));
+                                        })
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 943,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            position: 'absolute',
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            display: 'flex',
+                                            gap: '15px',
+                                            justifyContent: 'center'
+                                        },
+                                        children: topWords.map((word, i)=>{
+                                            const wordPop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                                                frame: Math.max(0, frame - i * 3),
+                                                fps: 30,
+                                                config: {
+                                                    stiffness: 80,
+                                                    damping: 14
+                                                }
+                                            });
+                                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                style: {
+                                                    transform: `translateY(${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(wordPop, [
+                                                        0,
+                                                        1
+                                                    ], [
+                                                        20,
+                                                        0
+                                                    ])}px)`,
+                                                    opacity: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(wordPop, [
+                                                        0,
+                                                        1
+                                                    ], [
+                                                        0,
+                                                        1
+                                                    ]),
+                                                    fontSize: `${topFontSize}px`,
+                                                    fontWeight: 700,
+                                                    // ⚡ COLOR FIX: Gradient is now locked directly to the moving word!
+                                                    backgroundImage: `linear-gradient(to right, ${topFontColor} 0%, #ffffff 50%, ${topFontColor} 100%)`,
+                                                    WebkitBackgroundClip: 'text',
+                                                    WebkitTextFillColor: 'transparent',
+                                                    backgroundClip: 'text',
+                                                    color: 'transparent'
+                                                },
+                                                children: word
+                                            }, i, false, {
+                                                fileName: "[project]/src/templates/Animations.tsx",
+                                                lineNumber: 959,
+                                                columnNumber: 19
+                                            }, ("TURBOPACK compile-time value", void 0));
+                                        })
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 955,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 940,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'relative',
+                                    display: 'flex',
+                                    justifyContent: 'center',
+                                    width: '100%',
+                                    height: '140px',
+                                    marginTop: '-12px'
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            display: 'flex',
+                                            gap: '6px',
+                                            color: '#001133',
+                                            transform: 'translateY(6px)',
+                                            textShadow: '0px 15px 30px rgba(0,0,0,1)'
+                                        },
+                                        children: bottomWords.map((word, i)=>{
+                                            const delay = topWords.length * 3 + i * 4;
+                                            const wordPop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                                                frame: Math.max(0, frame - delay),
+                                                fps: 30,
+                                                config: {
+                                                    stiffness: 80,
+                                                    damping: 14
+                                                }
+                                            });
+                                            return(// ⚡ APPLIED: bottomFontSize
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                style: {
+                                                    transform: `scaleX(0.9) scaleY(1.05) translateY(${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(wordPop, [
+                                                        0,
+                                                        1
+                                                    ], [
+                                                        30,
+                                                        0
+                                                    ])}px)`,
+                                                    opacity: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(wordPop, [
+                                                        0,
+                                                        1
+                                                    ], [
+                                                        0,
+                                                        1
+                                                    ]),
+                                                    fontSize: `${bottomFontSize}px`,
+                                                    fontWeight: 900,
+                                                    letterSpacing: '-4px'
+                                                },
+                                                children: word
+                                            }, i, false, {
+                                                fileName: "[project]/src/templates/Animations.tsx",
+                                                lineNumber: 990,
+                                                columnNumber: 19
+                                            }, ("TURBOPACK compile-time value", void 0)));
+                                        })
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 984,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            position: 'absolute',
+                                            top: 0,
+                                            left: 0,
+                                            right: 0,
+                                            display: 'flex',
+                                            gap: '6px',
+                                            justifyContent: 'center'
+                                        },
+                                        children: bottomWords.map((word, i)=>{
+                                            const delay = topWords.length * 3 + i * 4;
+                                            const wordPop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                                                frame: Math.max(0, frame - delay),
+                                                fps: 30,
+                                                config: {
+                                                    stiffness: 80,
+                                                    damping: 14
+                                                }
+                                            });
+                                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                style: {
+                                                    transform: `scaleX(0.9) scaleY(1.05) translateY(${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(wordPop, [
+                                                        0,
+                                                        1
+                                                    ], [
+                                                        30,
+                                                        0
+                                                    ])}px)`,
+                                                    opacity: (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(wordPop, [
+                                                        0,
+                                                        1
+                                                    ], [
+                                                        0,
+                                                        1
+                                                    ]),
+                                                    fontSize: `${bottomFontSize}px`,
+                                                    fontWeight: 900,
+                                                    letterSpacing: '-4px',
+                                                    // ⚡ COLOR FIX: Locked directly to the span!
+                                                    backgroundImage: `linear-gradient(to right, ${bottomFontColor} 0%, #ffffff 50%, ${bottomFontColor} 100%)`,
+                                                    WebkitBackgroundClip: 'text',
+                                                    WebkitTextFillColor: 'transparent',
+                                                    backgroundClip: 'text',
+                                                    color: 'transparent'
+                                                },
+                                                children: word
+                                            }, i, false, {
+                                                fileName: "[project]/src/templates/Animations.tsx",
+                                                lineNumber: 1001,
+                                                columnNumber: 19
+                                            }, ("TURBOPACK compile-time value", void 0));
+                                        })
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 996,
+                                        columnNumber: 13
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 981,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 935,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            transform: `translateY(${floatY}px)`,
+                            zIndex: 10,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center'
+                        },
+                        children: backgroundImage ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: backgroundImage,
+                            style: {
+                                width: '550px',
+                                filter: `drop-shadow(0 0 50px ${diamondColor}88)`
+                            },
+                            alt: "3D Object"
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1028,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0)) : // Applying the diamondColor to the emoji using a drop-shadow glow
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                            style: {
+                                fontSize: '380px',
+                                filter: `drop-shadow(0 0 50px ${diamondColor}) brightness(1.2)`
+                            },
+                            children: "💎"
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1031,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1023,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            marginTop: '-10px',
+                            width: '520px',
+                            height: '2500px',
+                            display: 'flex',
+                            position: 'relative',
+                            boxShadow: `0 -15px 80px ${diamondColor}44`,
+                            zIndex: 1
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'absolute',
+                                    top: 0,
+                                    left: 0,
+                                    right: 0,
+                                    height: '3px',
+                                    background: '#ffffff',
+                                    boxShadow: `0 0 15px 3px ${pillarColorLeft}`,
+                                    zIndex: 5
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1047,
+                                columnNumber: 12
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    flex: 1,
+                                    background: pillarColorLeft
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1053,
+                                columnNumber: 12
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    flex: 1,
+                                    background: pillarColorCenter
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1056,
+                                columnNumber: 12
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    flex: 1,
+                                    background: pillarColorRight,
+                                    borderRight: '2px solid rgba(255, 255, 255, 0.4)'
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1059,
+                                columnNumber: 12
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1039,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 929,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 924,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const BookRevealTemplate = ({ activeLayers = {
+    book: true,
+    text: true,
+    lightning: true
+}, backgroundMode = 'black', number = "1", // ⚡ NEW: Added numberColor prop for the editor
+numberColor = "#000000", backgroundImage, coverImage = "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop", title = "Clear thinking by", author = "Shane Parish", fontColor = "#111111", fontSize = 100, color = "#DCE8F2", fontFamily = "Montserrat", showLightning = true // ⚡ ADD THIS
+ })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const textScale = fontSize / 100;
+    const finalCoverImage = backgroundImage || coverImage;
+    // ⚡ ADD THESE TWO ANIMATION VARIABLES:
+    // This creates a rapid double-flash effect between frames 5 and 16
+    const lightningOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        5,
+        7,
+        8,
+        10,
+        12,
+        16
+    ], [
+        0,
+        1,
+        0,
+        1,
+        0.8,
+        0
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    // This flashes the entire background slightly white to illuminate the "room"
+    const bgFlash = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        5,
+        7,
+        8,
+        10,
+        12,
+        16
+    ], [
+        0,
+        0.4,
+        0,
+        0.5,
+        0.2,
+        0
+    ], {
+        extrapolateLeft: 'clamp',
+        extrapolateRight: 'clamp'
+    });
+    // 1. THE NUMBER DROP
+    const numberDrop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 10),
+        fps: 30,
+        config: {
+            stiffness: 60,
+            damping: 18
+        }
+    });
+    const numberY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(numberDrop, [
+        0,
+        1
+    ], [
+        -150,
+        0
+    ]);
+    // 2. THE 3D BOOK PHYSICS 
+    const flightProgress = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 5),
+        fps: 30,
+        config: {
+            mass: 1.5,
+            stiffness: 60,
+            damping: 12
+        }
+    });
+    const bookY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(flightProgress, [
+        0,
+        1
+    ], [
+        1500,
+        0
+    ]);
+    const bookRotateX = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(flightProgress, [
+        0,
+        1
+    ], [
+        60,
+        20
+    ]);
+    const bookRotateY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(flightProgress, [
+        0,
+        1
+    ], [
+        -180,
+        -25
+    ]);
+    const bookRotateZ = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(flightProgress, [
+        0,
+        1
+    ], [
+        45,
+        -5
+    ]);
+    const topWords = (title || "").split(' ');
+    const bottomWords = (author || "").split(' ');
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: color,
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: [
+            showLightning && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                        style: {
+                            backgroundColor: '#ffffff',
+                            opacity: bgFlash,
+                            zIndex: 1
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1130,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            width: '100%',
+                            height: '100%',
+                            opacity: lightningOpacity,
+                            zIndex: 2,
+                            pointerEvents: 'none'
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            width: "100%",
+                            height: "100%",
+                            viewBox: "0 0 1080 1920",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: "M540,-50 L480,200 L580,450 L450,700 L550,950 L500,1200",
+                                    fill: "none",
+                                    stroke: "#ffffff",
+                                    strokeWidth: "8",
+                                    style: {
+                                        filter: 'drop-shadow(0 0 20px #ffffff) drop-shadow(0 0 50px #00d4ff)'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1141,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: "M580,450 L680,550 L620,700",
+                                    fill: "none",
+                                    stroke: "#ffffff",
+                                    strokeWidth: "4",
+                                    style: {
+                                        filter: 'drop-shadow(0 0 15px #00d4ff)'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1144,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: "M250,-50 L350,150 L200,400 L350,650 L250,900 L300,1150",
+                                    fill: "none",
+                                    stroke: "#ffffff",
+                                    strokeWidth: "5",
+                                    style: {
+                                        filter: 'drop-shadow(0 0 20px #00d4ff)'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1147,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: "M200,400 L100,500 L150,650",
+                                    fill: "none",
+                                    stroke: "#ffffff",
+                                    strokeWidth: "3",
+                                    style: {
+                                        filter: 'drop-shadow(0 0 10px #00d4ff)'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1150,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: "M850,-50 L750,250 L900,500 L750,800 L850,1000 L780,1250",
+                                    fill: "none",
+                                    stroke: "#ffffff",
+                                    strokeWidth: "6",
+                                    style: {
+                                        filter: 'drop-shadow(0 0 20px #00d4ff)'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1153,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: "M900,500 L1000,650 L950,800",
+                                    fill: "none",
+                                    stroke: "#ffffff",
+                                    strokeWidth: "3",
+                                    style: {
+                                        filter: 'drop-shadow(0 0 10px #00d4ff)'
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1156,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1138,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1133,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'flex-start',
+                    alignItems: 'center',
+                    top: '0px',
+                    zIndex: 1
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        fontSize: '850px',
+                        fontWeight: 900,
+                        // ⚡ FIXED: Now uses the numberColor prop from the editor
+                        color: numberColor,
+                        opacity: 1,
+                        lineHeight: 1,
+                        transform: `translateY(${numberY}px)`,
+                        WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%)',
+                        maskImage: 'linear-gradient(to bottom, rgba(0,0,0,1) 40%, rgba(0,0,0,0) 90%)'
+                    },
+                    children: number
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 1165,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 1164,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'center',
+                    alignItems: 'center',
+                    perspective: '1500px',
+                    top: '80px',
+                    zIndex: 10
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        width: '360px',
+                        height: '540px',
+                        position: 'relative',
+                        transformStyle: 'preserve-3d',
+                        transform: `translateY(${bookY}px) rotateX(${bookRotateX}deg) rotateY(${bookRotateY}deg) rotateZ(${bookRotateZ}deg)`,
+                        boxShadow: flightProgress > 0.8 ? '-20px 30px 50px rgba(0,0,0,0.3)' : 'none',
+                        transition: 'box-shadow 0.2s ease-out'
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                width: '100%',
+                                height: '100%',
+                                backgroundImage: `url(${finalCoverImage})`,
+                                backgroundSize: 'cover',
+                                backgroundPosition: 'center',
+                                transform: 'translateZ(25px)',
+                                borderRadius: '2px 8px 8px 2px',
+                                overflow: 'hidden',
+                                boxShadow: 'inset 4px 0 10px rgba(0,0,0,0.1)'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1187,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                width: '100%',
+                                height: '100%',
+                                backgroundColor: '#111',
+                                transform: 'rotateY(180deg) translateZ(25px)',
+                                borderRadius: '8px 2px 2px 8px'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1188,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                width: '50px',
+                                height: '100%',
+                                backgroundColor: '#222',
+                                transform: 'rotateY(-90deg) translateZ(25px)',
+                                left: '-25px'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1189,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                width: '48px',
+                                height: '98%',
+                                backgroundColor: '#f4f4f4',
+                                transform: 'rotateY(90deg) translateZ(335px)',
+                                top: '1%',
+                                backgroundImage: 'repeating-linear-gradient(to bottom, transparent 0px, transparent 2px, rgba(0,0,0,0.05) 3px)'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1190,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                width: '98%',
+                                height: '48px',
+                                backgroundColor: '#f4f4f4',
+                                transform: 'rotateX(90deg) translateZ(25px)',
+                                left: '1%',
+                                top: '-24px',
+                                backgroundImage: 'repeating-linear-gradient(to right, transparent 0px, transparent 2px, rgba(0,0,0,0.05) 3px)'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1191,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 1182,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 1181,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'flex-end',
+                    alignItems: 'center',
+                    paddingBottom: '210px',
+                    zIndex: 10
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        WebkitMaskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,1) 40%)',
+                        maskImage: 'linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,1) 40%)'
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                display: 'flex',
+                                gap: '10px',
+                                marginBottom: '5px'
+                            },
+                            children: topWords.map((word, i)=>{
+                                const wordPop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                                    frame: Math.max(0, frame - 5 - i * 4),
+                                    fps: 30,
+                                    config: {
+                                        stiffness: 120,
+                                        damping: 14
+                                    }
+                                });
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    style: {
+                                        fontSize: `${55 * textScale}px`,
+                                        fontWeight: 700,
+                                        color: fontColor,
+                                        letterSpacing: '-1px',
+                                        opacity: wordPop,
+                                        transform: `translateY(${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(wordPop, [
+                                            0,
+                                            1
+                                        ], [
+                                            30,
+                                            0
+                                        ])}px)`
+                                    },
+                                    children: word
+                                }, i, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1206,
+                                    columnNumber: 17
+                                }, ("TURBOPACK compile-time value", void 0));
+                            })
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1202,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                display: 'flex',
+                                gap: '12px'
+                            },
+                            children: bottomWords.map((word, i)=>{
+                                const delay = 5 + topWords.length * 4 + i * 5;
+                                const wordPop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                                    frame: Math.max(0, frame - delay),
+                                    fps: 30,
+                                    config: {
+                                        stiffness: 120,
+                                        damping: 14
+                                    }
+                                });
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    style: {
+                                        fontSize: `${95 * textScale}px`,
+                                        fontWeight: 900,
+                                        color: fontColor,
+                                        letterSpacing: '-3px',
+                                        lineHeight: 1,
+                                        opacity: wordPop,
+                                        transform: `translateY(${(0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(wordPop, [
+                                            0,
+                                            1
+                                        ], [
+                                            40,
+                                            0
+                                        ])}px)`
+                                    },
+                                    children: word
+                                }, i, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1225,
+                                    columnNumber: 17
+                                }, ("TURBOPACK compile-time value", void 0));
+                            })
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1220,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 1197,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 1196,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 1124,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const KineticRoadmapTemplate = ({ activeLayers = {
+    roadmap: true,
+    icons: true,
+    text: true
+}, backgroundMode = 'black', headerText = "Good Habits", backgroundImage, color = "#00d4ff", // ⚡ FIX 1: Change default emojis to standard Line Art IDs
+icons = [
+    "RiRocketLine",
+    "RiLightbulbLine",
+    "RiBookLine",
+    "RiTargetLine"
+], fontSize = 115, fontColor = "#ffffff", fontFamily = "Montserrat" })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    // 1. Zoom Logic
+    const bgZoom = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        120
+    ], [
+        1,
+        1.05
+    ]);
+    // ⚡ START SMALL TO BIG: Zooming from 0.75 (small) to 1.1 (final size)
+    const diagramZoom = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        120
+    ], [
+        0.75,
+        1.1
+    ], {
+        extrapolateRight: 'clamp'
+    });
+    // 2. Animation Springs
+    const lineProgress = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 30),
+        fps: 30,
+        config: {
+            stiffness: 35,
+            damping: 20
+        }
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: '#000',
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    transform: `scale(${bgZoom})`
+                },
+                children: [
+                    backgroundImage && (backgroundImage.endsWith('.mp4') || backgroundImage.startsWith('data:video/')) ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Video"], {
+                        src: backgroundImage,
+                        style: {
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover'
+                        },
+                        muted: true,
+                        loop: false
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1277,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)) : backgroundImage ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                        src: backgroundImage,
+                        style: {
+                            width: '100%',
+                            height: '100%',
+                            objectFit: 'cover'
+                        },
+                        alt: "bg"
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1284,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            width: '100%',
+                            height: '100%',
+                            backgroundColor: '#111'
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1286,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                        style: {
+                            background: 'linear-gradient(to top, rgba(0,0,0,0.8) 0%, transparent 60%)'
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1288,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 1275,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'flex-end',
+                    alignItems: 'center',
+                    paddingBottom: '250px',
+                    transform: `scale(${diagramZoom})`,
+                    transformOrigin: 'bottom center'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            bottom: '380px',
+                            width: '120%',
+                            left: '-10%',
+                            height: '6px',
+                            transform: `scaleX(${lineProgress})`,
+                            background: `linear-gradient(to right, transparent, ${color}, white, ${color}, transparent)`,
+                            boxShadow: `0 0 35px ${color}`,
+                            zIndex: 5,
+                            borderRadius: '10px'
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1301,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'relative',
+                            width: '100%',
+                            height: '240px',
+                            display: 'flex',
+                            justifyContent: 'space-evenly',
+                            alignItems: 'center',
+                            marginBottom: '50px',
+                            zIndex: 10
+                        },
+                        children: icons.slice(0, 4).map((rawIcon, i)=>{
+                            // ⚡ FIX 2: Safe fallback! If the slot is empty, default to a checkmark
+                            const icon = rawIcon || "RiCheckLine";
+                            const delay = 45 + i * 12;
+                            const itemSpring = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                                frame: Math.max(0, frame - delay),
+                                fps: 30,
+                                config: {
+                                    stiffness: 100,
+                                    damping: 12
+                                }
+                            });
+                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    display: 'flex',
+                                    flexDirection: 'column',
+                                    alignItems: 'center',
+                                    opacity: itemSpring,
+                                    transform: `translateY(${(1 - itemSpring) * 30}px)`
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            width: '135px',
+                                            height: '135px',
+                                            borderRadius: '50%',
+                                            // Thick white border as seen in reference
+                                            border: '6px solid #ffffff',
+                                            display: 'flex',
+                                            justifyContent: 'center',
+                                            alignItems: 'center',
+                                            fontSize: '70px',
+                                            // ⚡ FIX: Making the background perfectly empty
+                                            background: 'transparent',
+                                            // Removing the backdropFilter blur as requested
+                                            backdropFilter: 'none',
+                                            marginBottom: '25px',
+                                            // Clean white halo shadow
+                                            boxShadow: `0 0 25px rgba(255,255,255,0.7)`
+                                        },
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            style: {
+                                                width: '75px',
+                                                height: '75px',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                // ⚡ THE MAGIC: SVG MASKING
+                                                // This treats the icon as a stencil. Only the lines of the icon will show the color.
+                                                backgroundColor: color,
+                                                WebkitMaskImage: `url(${icon.startsWith('http') || icon.startsWith('data:') ? icon : `https://api.iconify.design/ri:${icon.replace('Ri', '').replace('Line', '').toLowerCase()}-line.svg`})`,
+                                                WebkitMaskRepeat: 'no-repeat',
+                                                WebkitMaskPosition: 'center',
+                                                WebkitMaskSize: 'contain',
+                                                maskImage: `url(${icon.startsWith('http') || icon.startsWith('data:') ? icon : `https://api.iconify.design/ri:${icon.replace('Ri', '').replace('Line', '').toLowerCase()}-line.svg`})`,
+                                                maskRepeat: 'no-repeat',
+                                                maskSize: 'contain',
+                                                // Adds the neon glow around the lines only
+                                                filter: `drop-shadow(0 0 12px ${color})`
+                                            }
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1361,
+                                            columnNumber: 19
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 1342,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            width: '26px',
+                                            height: '26px',
+                                            backgroundColor: color,
+                                            transform: 'rotate(45deg)',
+                                            boxShadow: `0 0 20px ${color}`,
+                                            border: '2px solid white'
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 1385,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, i, true, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1333,
+                                columnNumber: 15
+                            }, ("TURBOPACK compile-time value", void 0));
+                        })
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1315,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            display: 'flex',
+                            justifyContent: 'center',
+                            flexWrap: 'wrap',
+                            gap: '2px',
+                            // ⚡ Applied Dynamic FontSize
+                            fontSize: `${fontSize}px`,
+                            fontWeight: 900,
+                            // ⚡ Applied Dynamic FontColor
+                            color: fontColor,
+                            textAlign: 'center',
+                            letterSpacing: '-4px',
+                            lineHeight: 1,
+                            zIndex: 20
+                        },
+                        children: headerText.split('').map((char, i)=>{
+                            // Delay each letter by 2 frames for a fast, kinetic sequence
+                            const delay = 15 + i * 2;
+                            const letterSpring = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                                frame: Math.max(0, frame - delay),
+                                fps: 30,
+                                config: {
+                                    stiffness: 150,
+                                    damping: 12
+                                }
+                            });
+                            return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                style: {
+                                    display: 'inline-block',
+                                    opacity: letterSpring,
+                                    transform: `scale(${letterSpring}) translateY(${(1 - letterSpring) * 30}px)`,
+                                    // Glow stays linked to the THEME color (cyan) for contrast
+                                    textShadow: `0 10px 40px rgba(0,0,0,0.9), 0 0 50px ${color}88`,
+                                    // Preserve space between words
+                                    whiteSpace: char === ' ' ? 'pre' : 'normal'
+                                },
+                                children: char
+                            }, i, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1421,
+                                columnNumber: 15
+                            }, ("TURBOPACK compile-time value", void 0));
+                        })
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1396,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 1292,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 1272,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const DarkWealthTemplate = ({ activeLayers = {
+    card: true,
+    coin: true,
+    text: true
+}, backgroundMode = 'black', topText1 = "Kis trah khel skte ho", mainText1 = "MONEY", topText2 = "How you become", mainText2 = "RICH", cardImage = "https://img.icons8.com/fluency/512/bank-cards.png", coinImage = "https://img.icons8.com/fluency/512/bitcoin.png", noteImage = "https://img.icons8.com/fluency/512/stack-of-money.png" })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    // 🎥 1. MASTER CAMERA ZOOM (⚡ EXTENDED TO 180 FRAMES)
+    const masterZoom = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        180
+    ], [
+        1,
+        1.9
+    ], {
+        extrapolateRight: 'clamp'
+    });
+    // 🌌 2. BACKGROUND STITCH RINGS (⚡ EXTENDED TO 180 FRAMES)
+    const ringRotateCenter = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        180
+    ], [
+        0,
+        54
+    ]);
+    const ringRotateLeft = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        180
+    ], [
+        0,
+        -72
+    ]);
+    const ringRotateRight = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        180
+    ], [
+        0,
+        36
+    ]);
+    // 🔀 3. TIMING LOGIC
+    const mainText1Scale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 5),
+        fps: 30,
+        config: {
+            stiffness: 120,
+            damping: 14
+        }
+    });
+    const text1Length = Math.floor((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        25,
+        45
+    ], [
+        0,
+        topText1.length
+    ], {
+        extrapolateRight: 'clamp'
+    }));
+    const visibleTopText1 = topText1.substring(0, text1Length);
+    const mainText1Opacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        65,
+        75
+    ], [
+        1,
+        0
+    ], {
+        extrapolateRight: 'clamp'
+    });
+    // ⚡ FIX: Shifted the spring start to frame 45 (it will be fully settled by frame 75 when the note is covering the screen)
+    const mainText2Scale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 45),
+        fps: 30,
+        config: {
+            stiffness: 120,
+            damping: 14
+        }
+    });
+    // ⚡ FIX: Typewriter for "How you become" also shifted earlier so it's ready when the note drops
+    const text2Length = Math.floor((0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        65,
+        85
+    ], [
+        0,
+        topText2.length
+    ], {
+        extrapolateRight: 'clamp'
+    }));
+    const visibleTopText2 = topText2.substring(0, text2Length);
+    // ⚡ FIX: Snaps to 100% visible exactly at frame 75 (the exact moment the wiping note covers the center)
+    const mainText2Opacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        74,
+        75
+    ], [
+        0,
+        1
+    ], {
+        extrapolateRight: 'clamp',
+        extrapolateLeft: 'clamp'
+    });
+    // 💵 4. THE CURRENCY NOTE FLIP TRANSITION
+    const noteY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        60,
+        75,
+        90
+    ], [
+        1000,
+        0,
+        -1000
+    ], {
+        extrapolateRight: 'clamp'
+    });
+    const noteScale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        60,
+        75,
+        90
+    ], [
+        1,
+        7,
+        1
+    ], {
+        extrapolateRight: 'clamp'
+    });
+    const noteFlip = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        60,
+        90
+    ], [
+        -60,
+        60
+    ]);
+    const cardFloat = Math.sin(frame / 15) * 20;
+    const coinFloat = Math.cos(frame / 20) * 30;
+    //  5. GENERATE FLOWING DUST PARTICLES
+    // We use Math.sin/cos with fixed multipliers to generate pseudo-random but perfectly consistent particles 
+    // so they don't jump around every time the component re-renders.
+    const dustParticles = new Array(80).fill(0).map((_, i)=>({
+            id: i,
+            startX: Math.abs(Math.sin(i * 12.3)) * 100,
+            startY: Math.abs(Math.cos(i * 45.6)) * 100,
+            size: Math.abs(Math.sin(i * 78.9)) * 3 + 1,
+            driftX: Math.sin(i * 32.1) * 70,
+            driftY: Math.cos(i * 65.4) * 120 - 60,
+            baseOpacity: Math.abs(Math.sin(i * 98.7)) * 0.4 + 0.2
+        }));
+    // 🎨 HELPER: Layered Text Component
+    const LayeredWealthText = ({ topText, mainText, scale, opacity })=>{
+        const firstChar = mainText ? mainText.charAt(0) : "";
+        const restChars = mainText ? mainText.slice(1) : "";
+        const gothicFont = '"Old English Text MT", "UnifrakturMaguntia", "Pirata One", serif';
+        const serifFont = "'Playfair Display', 'Times New Roman', serif";
+        const rainbowShadow = `
+      0px 2px 0px rgba(255,0,0,0.9),
+      0px 4px 0px rgba(255,165,0,0.9),
+      0px 6px 0px rgba(255,255,0,0.9),
+      0px 8px 0px rgba(0,255,0,0.9),
+      0px 10px 0px rgba(0,255,255,0.9),
+      0px 12px 0px rgba(0,0,255,0.9),
+      0px 20px 40px rgba(0,0,0,0.9)
+    `;
+        const dashTexture = `repeating-linear-gradient(
+      -45deg,
+      #FDE047 0px,       
+      #FDE047 2px,       
+      transparent 2px,   
+      transparent 6px    
+    )`;
+        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+            style: {
+                justifyContent: 'center',
+                alignItems: 'center',
+                opacity
+            },
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        fontFamily: "'Montserrat', 'Inter', sans-serif",
+                        color: '#ffffff',
+                        fontSize: '32px',
+                        fontWeight: 500,
+                        letterSpacing: '4px',
+                        marginBottom: '-20px',
+                        zIndex: 20,
+                        textShadow: '0 0 15px rgba(255,255,255,0.4)'
+                    },
+                    children: topText
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 1528,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        transform: `scale(${scale}) scaleY(1.25)`,
+                        position: 'relative',
+                        fontSize: '190px',
+                        fontWeight: 'normal',
+                        fontStyle: 'italic',
+                        lineHeight: 1,
+                        display: 'inline-block',
+                        filter: 'drop-shadow(0 0 25px rgba(255, 215, 0, 0.4)) brightness(1.2)'
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                top: 0,
+                                left: 0,
+                                width: '100%',
+                                color: '#050505',
+                                textShadow: rainbowShadow,
+                                zIndex: 1,
+                                whiteSpace: 'nowrap'
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    style: {
+                                        fontFamily: gothicFont
+                                    },
+                                    children: firstChar
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1559,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    style: {
+                                        fontFamily: serifFont,
+                                        marginLeft: '4px'
+                                    },
+                                    children: restChars
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1560,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1552,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'relative',
+                                zIndex: 2,
+                                backgroundImage: dashTexture,
+                                WebkitBackgroundClip: 'text',
+                                backgroundClip: 'text',
+                                color: 'transparent',
+                                WebkitTextFillColor: 'transparent',
+                                whiteSpace: 'nowrap'
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    style: {
+                                        fontFamily: gothicFont
+                                    },
+                                    children: firstChar
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1574,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    style: {
+                                        fontFamily: serifFont,
+                                        marginLeft: '4px'
+                                    },
+                                    children: restChars
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1575,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1564,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 1541,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/templates/Animations.tsx",
+            lineNumber: 1527,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0));
+    };
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: '#020202',
+            overflow: 'hidden'
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    opacity: 0.6,
+                    perspective: '1000px'
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            left: '-15%',
+                            top: '30%',
+                            transform: `rotateX(65deg) rotateY(15deg) rotateZ(${ringRotateLeft}deg)`
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            width: "600",
+                            height: "600",
+                            viewBox: "0 0 100 100",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                    cx: "50",
+                                    cy: "50",
+                                    r: "48",
+                                    fill: "none",
+                                    stroke: "#ffffff",
+                                    strokeWidth: "1.2",
+                                    strokeDasharray: "2 4",
+                                    opacity: "0.8"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1591,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                    cx: "50",
+                                    cy: "50",
+                                    r: "42",
+                                    fill: "none",
+                                    stroke: "#FFD700",
+                                    strokeWidth: "0.8",
+                                    strokeDasharray: "4 6",
+                                    opacity: "0.6"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1592,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1590,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1589,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            right: '5%',
+                            bottom: '5%',
+                            transform: `rotateX(75deg) rotateY(-15deg) rotateZ(${ringRotateRight}deg)`
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            width: "650",
+                            height: "650",
+                            viewBox: "0 0 100 100",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                    cx: "50",
+                                    cy: "50",
+                                    r: "48",
+                                    fill: "none",
+                                    stroke: "#ffffff",
+                                    strokeWidth: "1.0",
+                                    strokeDasharray: "2 4",
+                                    opacity: "0.7"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1599,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                    cx: "50",
+                                    cy: "50",
+                                    r: "45",
+                                    fill: "none",
+                                    stroke: "#B8860B",
+                                    strokeWidth: "0.8",
+                                    strokeDasharray: "1.5 3",
+                                    opacity: "0.5"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1600,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1598,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1597,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            left: '30%',
+                            top: '20%',
+                            transform: `rotateX(60deg) rotateZ(${ringRotateCenter}deg) translateZ(-400px)`
+                        },
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                            width: "800",
+                            height: "800",
+                            viewBox: "0 0 100 100",
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                cx: "50",
+                                cy: "50",
+                                r: "48",
+                                fill: "none",
+                                stroke: "#B8860B",
+                                strokeWidth: "0.5",
+                                strokeDasharray: "2 6",
+                                opacity: "0.4"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1606,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0))
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1605,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1604,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 1586,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    transform: `scale(${masterZoom})`,
+                    justifyContent: 'center',
+                    alignItems: 'center'
+                },
+                children: [
+                    dustParticles.map((particle)=>{
+                        const xOffset = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+                            0,
+                            180
+                        ], [
+                            0,
+                            particle.driftX
+                        ]);
+                        const yOffset = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+                            0,
+                            180
+                        ], [
+                            0,
+                            particle.driftY
+                        ]);
+                        // Add a twinkling effect by modulating opacity with a sine wave
+                        const twinkle = particle.baseOpacity * (0.6 + 0.4 * Math.sin((frame + particle.id * 10) / 15));
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                left: `${particle.startX}%`,
+                                top: `${particle.startY}%`,
+                                width: `${particle.size}px`,
+                                height: `${particle.size}px`,
+                                backgroundColor: '#ffffff',
+                                borderRadius: '50%',
+                                opacity: twinkle,
+                                transform: `translate(${xOffset}px, ${yOffset}px)`,
+                                boxShadow: `0 0 ${particle.size * 3}px rgba(255, 255, 255, 0.8)` // Glowing halo
+                            }
+                        }, particle.id, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1622,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0));
+                    }),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            left: '15%',
+                            top: '25%',
+                            transform: `translateY(${cardFloat}px) rotate(-15deg) scale(1.4)`,
+                            opacity: 0.9,
+                            filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.9)) brightness(1.4) contrast(1.1)'
+                        },
+                        children: cardImage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: cardImage,
+                            style: {
+                                width: '250px',
+                                objectFit: 'contain'
+                            },
+                            alt: "card"
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1646,
+                            columnNumber: 25
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1642,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            right: '10%',
+                            bottom: '25%',
+                            transform: `translateY(${coinFloat}px) rotate(25deg) scale(1.5)`,
+                            opacity: 0.8,
+                            filter: 'drop-shadow(0 20px 30px rgba(0,0,0,0.9)) brightness(1.4) contrast(1.1)'
+                        },
+                        children: coinImage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: coinImage,
+                            style: {
+                                width: '200px',
+                                objectFit: 'contain'
+                            },
+                            alt: "coin"
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1654,
+                            columnNumber: 25
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1650,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(LayeredWealthText, {
+                        topText: visibleTopText1,
+                        mainText: mainText1,
+                        scale: mainText1Scale,
+                        opacity: mainText1Opacity
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1658,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(LayeredWealthText, {
+                        topText: visibleTopText2,
+                        mainText: mainText2,
+                        scale: mainText2Scale,
+                        opacity: mainText2Opacity
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1661,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    frame > 55 && frame < 95 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            zIndex: 50,
+                            transform: `translateY(${noteY}px) scale(${noteScale}) rotateX(${noteFlip}deg) rotateZ(15deg)`,
+                            filter: 'drop-shadow(0 50px 50px rgba(0,0,0,0.95)) brightness(0.7)'
+                        },
+                        children: noteImage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: noteImage,
+                            style: {
+                                width: '350px',
+                                objectFit: 'contain',
+                                opacity: 0.95
+                            },
+                            alt: "wipe"
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1669,
+                            columnNumber: 27
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1665,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 1612,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    background: 'radial-gradient(circle, rgba(0,0,0,0) 30%, rgba(0,0,0,0.85) 100%)',
+                    zIndex: 100,
+                    pointerEvents: 'none'
+                }
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 1675,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 1583,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const PuppetMasterTemplate = ({ chartData = [], customFontSize = 135, color = "#00d4ff", brainColor = "#00d4ff", handSpeed = 1, stringTension = 1, handSize = 600, handX = -138, handY = -182, handRotation = 6, fontFamily = "Montserrat", sceneBgColor = "#050505", // ⚡ HARDCODED JOINT ASSEMBLY (Locked in place)
+palmX = -19, palmY = 36, palmSize = 57, f1X = 14, f1Y = 41, f1Size = 30, f1RotOffset = 33, f1Twitch = 0.20, f2X = 14, f2Y = 45, f2Size = 30, f2RotOffset = 33, f2Twitch = 0.25, f3X = 8, f3Y = 47, f3Size = 30, f3RotOffset = 33, f3Twitch = 0.20, f4X = 33, f4Y = -50, f4Size = 25, f4RotOffset = 0, f4Twitch = 0.14, // 🧶 HARDCODED STRING ATTACHMENT POINTS (Locked in place)
+s1X = 310, s1Y = 250, s2X = 303, s2Y = 254, s3X = 198, s3Y = 238, s4X = 0, s4Y = 119, // 👁️ LAYER VISIBILITY & BACKGROUND MODE
+activeLayers = {
+    hand: true,
+    brain: true,
+    text: true
+}, backgroundMode = 'black' })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const entrance = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame,
+        fps: 30,
+        config: {
+            stiffness: 50,
+            damping: 14
+        }
+    });
+    const masterY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(entrance, [
+        0,
+        1
+    ], [
+        -800,
+        0
+    ]);
+    // 🖼️ FIXED FOR RENDER: Wrapped in staticFile
+    const palmImage = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["staticFile"])("renders/hand/palm.png");
+    const finger1Image = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["staticFile"])("renders/hand/finger1.png"); // Index
+    const finger2Image = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["staticFile"])("renders/hand/finger2.png"); // Middle
+    const finger3Image = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["staticFile"])("renders/hand/finger3.png"); // Ring
+    const finger4Image = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["staticFile"])("renders/hand/finger4.png"); // Pinky
+    // 🎯 CONTINUOUS ANIMATION DRIVERS
+    const motionSpeed = handSpeed * 0.015;
+    const tensionJitter = Math.sin(frame * 0.8) * (stringTension * 0.003);
+    // 1️⃣ THE WRIST PIVOT POINT (Frozen: Removed the up/down bobbing)
+    const pivotX = 80 + handX;
+    const pivotY = 150 + handY;
+    // 2️⃣ GLOBAL HAND ROTATION (Frozen: Palm stays still, only tension jitter remains)
+    const baseRotation = (handRotation || 0) * (Math.PI / 180);
+    const totalAngle = baseRotation + tensionJitter;
+    // 3️⃣ INDEPENDENT FINGER TWITCHING (Controlled by UI Twitch sliders)
+    const finger1Rot = Math.sin(frame * motionSpeed * 5) * f1Twitch;
+    const finger2Rot = Math.sin(frame * motionSpeed * 5 + 1.5) * f2Twitch;
+    const finger3Rot = Math.sin(frame * motionSpeed * 5 + 3.0) * f3Twitch;
+    const finger4Rot = Math.sin(frame * motionSpeed * 5 + 4.5) * f4Twitch;
+    // 4️⃣ FLAWLESS FINGERTIP TRACKING MATH
+    // Convert UI rotation offsets to radians for the finger images
+    const f1Rad = (f1RotOffset || 0) * (Math.PI / 180);
+    const f2Rad = (f2RotOffset || 0) * (Math.PI / 180);
+    const f3Rad = (f3RotOffset || 0) * (Math.PI / 180);
+    const f4Rad = (f4RotOffset || 0) * (Math.PI / 180);
+    // Calculate the physical length of each finger in pixels based on the UI Size sliders.
+    // The hand container width is (handSize * 2).
+    const f1Len = handSize * 2 * ((f1Size || 30) / 100);
+    const f2Len = handSize * 2 * ((f2Size || 33) / 100);
+    const f3Len = handSize * 2 * ((f3Size || 30) / 100);
+    const f4Len = handSize * 2 * ((f4Size || 25) / 100);
+    // 🎨 Set the dynamic background color
+    const finalBgColor = backgroundMode === 'green' ? '#00FF00' : backgroundMode === 'transparent' ? 'transparent' : sceneBgColor; // ⚡ FIXED: Uses UI state instead of hardcoded black
+    // Calculate the exact resting angle of each finger (Global hand rotation + Individual finger UI rotation)
+    const f1BaseAng = baseRotation + (f1Rad || 0);
+    const f2BaseAng = baseRotation + (f2Rad || 0);
+    const f3BaseAng = baseRotation + (f3Rad || 0);
+    const f4BaseAng = baseRotation + (f4Rad || 0);
+    // Apply exact trigonometry delta. 
+    // This takes the manual slider position (s1X, s1Y) and adds the exact X/Y movement caused by the finger twitch.
+    const f1x = s1X + f1Len * (Math.cos(f1BaseAng + finger1Rot) - Math.cos(f1BaseAng));
+    const f1y = s1Y + f1Len * (Math.sin(f1BaseAng + finger1Rot) - Math.sin(f1BaseAng));
+    const f2x = s2X + f2Len * (Math.cos(f2BaseAng + finger2Rot) - Math.cos(f2BaseAng));
+    const f2y = s2Y + f2Len * (Math.sin(f2BaseAng + finger2Rot) - Math.sin(f2BaseAng));
+    const f3x = s3X + f3Len * (Math.cos(f3BaseAng + finger3Rot) - Math.cos(f3BaseAng));
+    const f3y = s3Y + f3Len * (Math.sin(f3BaseAng + finger3Rot) - Math.sin(f3BaseAng));
+    const f4x = s4X + f4Len * (Math.cos(f4BaseAng + finger4Rot) - Math.cos(f4BaseAng));
+    const f4y = s4Y + f4Len * (Math.sin(f4BaseAng + finger4Rot) - Math.sin(f4BaseAng));
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: finalBgColor,
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: 'absolute',
+                    top: '0px',
+                    left: '50%',
+                    transform: `translateX(-50%) translateY(${masterY}px)`,
+                    zIndex: 10,
+                    width: '400px',
+                    height: '1000px' // ⚡ Increased height so the brain doesn't clip
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                        width: "100%",
+                        height: "100%",
+                        viewBox: "0 0 400 1000",
+                        style: {
+                            overflow: 'visible',
+                            position: 'absolute',
+                            top: 0,
+                            left: 0,
+                            zIndex: 10
+                        },
+                        children: activeLayers.brain && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                                    stroke: "rgba(255, 255, 255, 0.6)",
+                                    strokeWidth: "2.5",
+                                    style: {
+                                        filter: 'drop-shadow(0 0 6px rgba(255,255,255,0.8))'
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
+                                            x1: f1x,
+                                            y1: f1y,
+                                            x2: "260",
+                                            y2: "720"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1795,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        " ",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
+                                            x1: f2x,
+                                            y1: f2y,
+                                            x2: "220",
+                                            y2: "710"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1796,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        " ",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
+                                            x1: f3x,
+                                            y1: f3y,
+                                            x2: "180",
+                                            y2: "710"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1797,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        " ",
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
+                                            x1: f4x,
+                                            y1: f4y,
+                                            x2: "140",
+                                            y2: "720"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1798,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        " "
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1794,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                                    transform: `translate(100, 700) scale(${8 + Math.sin(frame / 20) * 0.2})`,
+                                    style: {
+                                        filter: `drop-shadow(0px 0px 4px ${brainColor}) drop-shadow(0px 0px 15px ${brainColor})`
+                                    },
+                                    stroke: brainColor,
+                                    strokeWidth: "1.5",
+                                    strokeLinecap: "round",
+                                    strokeLinejoin: "round",
+                                    fill: "none",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            d: "M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1807,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            d: "M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1808,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            d: "M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1809,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            d: "M17.599 6.5a3 3 0 0 0 .399-1.375"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1810,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            d: "M6.002 6.5A3 3 0 0 1 5.603 5.125"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1811,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            d: "M11.8 12a1 1 0 0 0-1.6 0"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 1812,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1802,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true)
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1789,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    activeLayers.hand && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            left: `${pivotX}px`,
+                            top: `${pivotY}px`,
+                            width: `${handSize * 2}px`,
+                            height: `${handSize}px`,
+                            zIndex: 30,
+                            pointerEvents: 'none',
+                            transform: `translate(0, -50%) rotate(${totalAngle}rad)`,
+                            transformOrigin: '0% 50%',
+                            filter: `drop-shadow(0 20px 20px rgba(0,0,0,0.8)) drop-shadow(0 0 15px ${color}55)`
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: palmImage,
+                                style: {
+                                    position: 'absolute',
+                                    top: `${palmY}%`,
+                                    left: `${palmX}%`,
+                                    width: `${palmSize}%`,
+                                    zIndex: 20
+                                },
+                                alt: "Palm"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1830,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: finger1Image,
+                                style: {
+                                    position: 'absolute',
+                                    top: `${f1Y}%`,
+                                    left: `${f1X}%`,
+                                    width: `${f1Size}%`,
+                                    transformOrigin: '0% 50%',
+                                    transform: `rotate(${finger1Rot + f1Rad}rad)`,
+                                    zIndex: 10
+                                },
+                                alt: "Index"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1833,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: finger2Image,
+                                style: {
+                                    position: 'absolute',
+                                    top: `${f2Y}%`,
+                                    left: `${f2X}%`,
+                                    width: `${f2Size}%`,
+                                    transformOrigin: '0% 50%',
+                                    transform: `rotate(${finger2Rot + f2Rad}rad)`,
+                                    zIndex: 30
+                                },
+                                alt: "Middle"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1839,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: finger3Image,
+                                style: {
+                                    position: 'absolute',
+                                    top: `${f3Y}%`,
+                                    left: `${f3X}%`,
+                                    width: `${f3Size}%`,
+                                    transformOrigin: '0% 50%',
+                                    transform: `rotate(${finger3Rot + f3Rad}rad)`,
+                                    zIndex: 40
+                                },
+                                alt: "Ring"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1845,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                src: finger4Image,
+                                style: {
+                                    position: 'absolute',
+                                    top: `${f4Y}%`,
+                                    left: `${f4X}%`,
+                                    width: `${f4Size}%`,
+                                    transformOrigin: '0% 50%',
+                                    transform: `rotate(${finger4Rot + f4Rad}rad)`,
+                                    zIndex: 50
+                                },
+                                alt: "Pinky"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1851,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 1820,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 1781,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            activeLayers.text && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    justifyContent: 'flex-end',
+                    alignItems: 'center',
+                    paddingBottom: '250px',
+                    display: 'flex',
+                    flexDirection: 'column'
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        display: 'flex',
+                        flexDirection: 'column',
+                        gap: '10px',
+                        alignItems: 'center',
+                        width: 'max-content'
+                    },
+                    children: chartData.map((item, index)=>{
+                        const delay = index * 30;
+                        const activeFrame = Math.max(0, frame - delay);
+                        const pop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                            frame: activeFrame,
+                            fps: 30,
+                            config: {
+                                stiffness: 90,
+                                damping: 16
+                            }
+                        });
+                        const isHighlight = item.value === 1;
+                        const scale = isHighlight ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(pop, [
+                            0,
+                            1
+                        ], [
+                            2.5,
+                            1
+                        ]) : (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(pop, [
+                            0,
+                            1
+                        ], [
+                            0.5,
+                            1
+                        ]);
+                        const tracking = isHighlight ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(activeFrame, [
+                            0,
+                            30
+                        ], [
+                            250,
+                            0
+                        ], {
+                            extrapolateRight: 'clamp'
+                        }) : 0;
+                        let swapBlur = 0;
+                        if (isHighlight) {
+                            if (activeFrame > 12 && activeFrame < 18) swapBlur = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(activeFrame, [
+                                12,
+                                15,
+                                18
+                            ], [
+                                0,
+                                12,
+                                0
+                            ]);
+                            if (activeFrame > 27 && activeFrame < 33) swapBlur = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(activeFrame, [
+                                27,
+                                30,
+                                33
+                            ], [
+                                0,
+                                12,
+                                0
+                            ]);
+                        }
+                        const baseMotionBlur = isHighlight ? (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(pop, [
+                            0,
+                            1
+                        ], [
+                            15,
+                            0
+                        ], {
+                            extrapolateRight: 'clamp'
+                        }) : 0;
+                        const totalBlur = baseMotionBlur + swapBlur;
+                        const slideY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(pop, [
+                            0,
+                            1
+                        ], [
+                            60,
+                            0
+                        ]);
+                        const opacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(activeFrame, [
+                            0,
+                            5
+                        ], [
+                            0,
+                            1
+                        ], {
+                            extrapolateRight: 'clamp'
+                        });
+                        let numText = "";
+                        let wordText = item.label;
+                        if (isHighlight && item.label.toLowerCase().includes("10 powerful")) {
+                            if (activeFrame < 15) {
+                                numText = "8";
+                                wordText = "Powerful";
+                            } else if (activeFrame >= 15 && activeFrame < 30) {
+                                numText = "9";
+                                wordText = "Powerful";
+                            } else {
+                                numText = "10";
+                                wordText = "Powerful";
+                            }
+                        } else if (isHighlight) {
+                            const parts = item.label.split(" ");
+                            if (parts.length > 1 && !isNaN(Number(parts[0]))) {
+                                numText = parts[0];
+                                wordText = parts.slice(1).join(" ");
+                            }
+                        }
+                        const dynamicBigSize = customFontSize;
+                        const dynamicSmallSize = Math.max(35, Math.round(customFontSize * 0.35));
+                        const isTopText = !isHighlight && index < 1;
+                        const isBottomText = !isHighlight && index >= 2;
+                        const staggerX = isTopText ? -70 : isBottomText ? 70 : 0;
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                transform: `translate(${staggerX}px, ${slideY}px) scale(${scale})`,
+                                opacity: opacity,
+                                filter: totalBlur > 0 ? `blur(${totalBlur}px)` : undefined,
+                                fontSize: isHighlight ? `${dynamicBigSize}px` : `${dynamicSmallSize}px`,
+                                fontWeight: isHighlight ? 800 : 600,
+                                color: isHighlight ? color : 'white',
+                                lineHeight: 1,
+                                textShadow: isHighlight ? `0 10px 20px rgba(0,0,0,0.8), 0 0 50px ${color}, 0 0 90px ${color}` : '0 5px 15px rgba(0,0,0,0.9)',
+                                zIndex: 10,
+                                display: 'flex',
+                                alignItems: 'center',
+                                alignSelf: 'center',
+                                textAlign: 'center'
+                            },
+                            children: !isHighlight ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                style: {
+                                    letterSpacing: '-1px'
+                                },
+                                children: item.label
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 1913,
+                                columnNumber: 19
+                            }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                                children: [
+                                    numText && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        style: {
+                                            display: 'inline-block',
+                                            width: '1.4em',
+                                            textAlign: 'left',
+                                            letterSpacing: '-2px',
+                                            marginRight: '15px',
+                                            flexShrink: 0
+                                        },
+                                        children: numText
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 1917,
+                                        columnNumber: 23
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        style: {
+                                            display: 'flex',
+                                            flexDirection: 'row'
+                                        },
+                                        children: wordText.split('').map((char, charIdx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                style: {
+                                                    display: 'block',
+                                                    transform: `translateX(${tracking * charIdx}px)`,
+                                                    marginRight: charIdx !== wordText.length - 1 ? '-3px' : '0px'
+                                                },
+                                                children: char
+                                            }, charIdx, false, {
+                                                fileName: "[project]/src/templates/Animations.tsx",
+                                                lineNumber: 1923,
+                                                columnNumber: 25
+                                            }, ("TURBOPACK compile-time value", void 0)))
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 1921,
+                                        columnNumber: 21
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true)
+                        }, index, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1904,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0));
+                    })
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 1864,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 1863,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 1778,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const FocusTemplate = ({ activeLayers = {
+    focus: true,
+    text: true
+}, backgroundMode = 'black', color = "#00ff44", fontFamily = "Montserrat", backgroundImage })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const entrance = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame,
+        fps: 30,
+        config: {
+            stiffness: 80,
+            damping: 12
+        }
+    });
+    const graphicY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(entrance, [
+        0,
+        1
+    ], [
+        150,
+        0
+    ]);
+    const graphicOpacity = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(entrance, [
+        0,
+        1
+    ], [
+        0,
+        1
+    ]);
+    const focusFill = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(frame, [
+        0,
+        30
+    ], [
+        0,
+        100
+    ], {
+        extrapolateRight: 'clamp',
+        extrapolateLeft: 'clamp'
+    });
+    const lineOffset = frame * -2;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            background: 'linear-gradient(180deg, #090c24 0%, #000000 100%)',
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            style: {
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                // ⚡ FIX: calc(-50% + graphicY) keeps it perfectly centered while still allowing the slide-up animation!
+                transform: `translate(-50%, calc(-50% + ${graphicY}px))`,
+                opacity: graphicOpacity,
+                zIndex: 10,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center'
+            },
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        display: 'flex',
+                        alignItems: 'center',
+                        position: 'relative',
+                        width: '280px',
+                        justifyContent: 'center'
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                width: '100%',
+                                height: '46px',
+                                border: '2px solid rgba(255,255,255,0.8)',
+                                borderRadius: '30px',
+                                padding: '4px',
+                                position: 'relative',
+                                display: 'flex',
+                                alignItems: 'center',
+                                backgroundColor: 'rgba(0,0,0,0.5)',
+                                boxShadow: '0 10px 30px rgba(0,0,0,0.8)'
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        width: `${focusFill}%`,
+                                        height: '100%',
+                                        backgroundColor: color,
+                                        borderRadius: '25px',
+                                        boxShadow: `0 0 20px ${color}`
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1982,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                    style: {
+                                        position: 'absolute',
+                                        width: '100%',
+                                        textAlign: 'center',
+                                        color: focusFill > 50 ? '#000' : '#fff',
+                                        fontWeight: 800,
+                                        fontSize: '18px',
+                                        letterSpacing: '3px',
+                                        zIndex: 2,
+                                        textTransform: 'uppercase'
+                                    },
+                                    children: "Focus"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 1986,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1976,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                right: '-90px',
+                                width: '60px',
+                                height: '30px',
+                                border: '2px solid rgba(255,255,255,0.8)',
+                                borderRadius: '20px',
+                                display: 'flex',
+                                alignItems: 'center',
+                                padding: '4px',
+                                justifyContent: 'flex-end'
+                            },
+                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    width: '18px',
+                                    height: '18px',
+                                    borderRadius: '50%',
+                                    backgroundColor: color,
+                                    boxShadow: `0 0 10px ${color}`
+                                }
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2009,
+                                columnNumber: 17
+                            }, ("TURBOPACK compile-time value", void 0))
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 1997,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 1973,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                    width: "200",
+                    height: "220",
+                    viewBox: "0 0 200 220",
+                    style: {
+                        marginTop: '-5px',
+                        zIndex: 1
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                            d: "M 100 10 C 100 120, 50 150, 50 220",
+                            fill: "none",
+                            stroke: "rgba(255,255,255,0.6)",
+                            strokeWidth: "3",
+                            strokeDasharray: "8 8",
+                            strokeDashoffset: lineOffset
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2021,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                            cx: "50",
+                            cy: "210",
+                            r: "5",
+                            fill: color,
+                            style: {
+                                filter: `drop-shadow(0 0 8px ${color})`
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2026,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 2020,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        marginTop: '-30px',
+                        position: 'relative'
+                    },
+                    children: backgroundImage ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                        src: backgroundImage,
+                        style: {
+                            width: '500px',
+                            height: '500px',
+                            objectFit: 'contain',
+                            filter: `drop-shadow(0 0 40px ${color}33)`
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2032,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            color: 'rgba(255,255,255,0.3)',
+                            padding: '50px',
+                            border: '2px dashed rgba(255,255,255,0.2)',
+                            borderRadius: '20px',
+                            textAlign: 'center',
+                            marginTop: '20px'
+                        },
+                        children: "Image will appear here"
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2042,
+                        columnNumber: 14
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 2030,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/templates/Animations.tsx",
+            lineNumber: 1961,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 1958,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const MindsetFlowTemplate = ({ activeLayers = {
+    images: true,
+    text: true
+}, backgroundMode = 'black', // Passed from your editor!
+image1, image2, image3, bookImage, // Stagger/Size sliders
+img1Size = 380, img2Size = 380, img3Size = 380, img1Y = 0, img2Y = 0, img3Y = 0, // The custom colors from your editor boxes
+tintColor = "#00d4ff", color = "#000080", fontFamily = "Montserrat" })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    // --- 🎬 ANIMATION TIMELINE ---
+    const img1Pop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 5),
+        fps: 30,
+        config: {
+            stiffness: 100,
+            damping: 14
+        }
+    });
+    const img2Pop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 10),
+        fps: 30,
+        config: {
+            stiffness: 100,
+            damping: 14
+        }
+    });
+    const img3Pop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 15),
+        fps: 30,
+        config: {
+            stiffness: 100,
+            damping: 14
+        }
+    });
+    const brainPop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 30),
+        fps: 30,
+        config: {
+            stiffness: 120,
+            damping: 12
+        }
+    });
+    // 🎥 THE CAMERA PAN (The Page Slides Up)
+    const scrollAnim = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 55),
+        fps: 30,
+        config: {
+            stiffness: 40,
+            damping: 16
+        }
+    });
+    const scrollY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(scrollAnim, [
+        0,
+        1
+    ], [
+        -440,
+        500
+    ]);
+    // The Book Reveal
+    const bookPop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 65),
+        fps: 30,
+        config: {
+            stiffness: 80,
+            damping: 14
+        }
+    });
+    const bookY = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(bookPop, [
+        0,
+        1
+    ], [
+        200,
+        0
+    ]);
+    const bookRotate = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(bookPop, [
+        0,
+        1
+    ], [
+        -25,
+        0
+    ]);
+    // Dashed line marching effect
+    const lineOffset = frame * -3;
+    return(// ⚡ FIX: Uses the selected `color` prop to create a smooth gradient fading down into black
+    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            background: `linear-gradient(180deg, ${color} 0%, #000000 100%)`,
+            overflow: 'hidden',
+            fontFamily: fontFamily
+        },
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            style: {
+                position: 'absolute',
+                width: '1080px',
+                height: '2000px',
+                top: 0,
+                left: 0,
+                transform: `translateY(${scrollY}px)`
+            },
+            children: [
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                    width: "1080",
+                    height: "2000",
+                    style: {
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        zIndex: 1
+                    },
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("g", {
+                            fill: "none",
+                            stroke: "rgba(255,255,255,0.4)",
+                            strokeWidth: "4",
+                            strokeDasharray: "12 12",
+                            strokeDashoffset: lineOffset,
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: `M 240 ${1350 + img1Y} C 240 1100, 500 1100, 540 980`,
+                                    style: {
+                                        opacity: img1Pop
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 2105,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: `M 540 ${1350 + img2Y} L 540 980`,
+                                    style: {
+                                        opacity: img2Pop
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 2107,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                    d: `M 840 ${1350 + img3Y} C 840 1100, 580 1100, 540 980`,
+                                    style: {
+                                        opacity: img3Pop
+                                    }
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 2109,
+                                    columnNumber: 13
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2103,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                            d: "M 540 850 L 540 600",
+                            fill: "none",
+                            stroke: "rgba(255,255,255,0.4)",
+                            strokeWidth: "4",
+                            strokeDasharray: "12 12",
+                            strokeDashoffset: lineOffset,
+                            style: {
+                                opacity: brainPop
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2113,
+                            columnNumber: 11
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 2102,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        zIndex: 2
+                    },
+                    children: [
+                        1,
+                        2,
+                        3
+                    ].map((num)=>{
+                        const imgKey = `image${num}`;
+                        const sizeKey = `img${num}Size`;
+                        const yKey = `img${num}Y`;
+                        const popKey = `img${num}Pop`;
+                        // Map keys back to values
+                        const imageValue = {
+                            image1,
+                            image2,
+                            image3
+                        }[imgKey];
+                        const sizeValue = {
+                            img1Size,
+                            img2Size,
+                            img3Size
+                        }[sizeKey];
+                        const yValue = {
+                            img1Y,
+                            img2Y,
+                            img3Y
+                        }[yKey];
+                        const popValue = {
+                            img1Pop,
+                            img2Pop,
+                            img3Pop
+                        }[popKey];
+                        const xValue = [
+                            0,
+                            240,
+                            540,
+                            840
+                        ][num]; // X-positions kept from prev version
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                top: `${1350 + yValue}px`,
+                                left: `calc(${xValue}px - ${sizeValue / 2}px)`,
+                                width: `${sizeValue}px`,
+                                height: `${sizeValue}px`,
+                                transform: `scale(${popValue})`
+                            },
+                            children: imageValue && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    position: 'relative',
+                                    width: '100%',
+                                    height: '100%'
+                                },
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                        src: imageValue,
+                                        style: {
+                                            width: '100%',
+                                            height: '100%',
+                                            objectFit: 'contain',
+                                            filter: 'grayscale(100%) brightness(0.9) contrast(1.1)'
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 2150,
+                                        columnNumber: 21
+                                    }, ("TURBOPACK compile-time value", void 0)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        style: {
+                                            position: 'absolute',
+                                            top: 0,
+                                            left: 0,
+                                            width: '100%',
+                                            height: '100%',
+                                            backgroundColor: tintColor,
+                                            // ⚡ THE MAGIC: This sets the uploaded image AS THE MASK
+                                            // Only areas that are opaque in the image will show the tintColor!
+                                            maskImage: `url(${imageValue})`,
+                                            WebkitMaskImage: `url(${imageValue})`,
+                                            maskSize: 'contain',
+                                            WebkitMaskSize: 'contain',
+                                            maskRepeat: 'no-repeat',
+                                            WebkitMaskRepeat: 'no-repeat',
+                                            maskPosition: 'center',
+                                            WebkitMaskPosition: 'center',
+                                            // 'mixBlendMode: color' applies the hue perfectly without crushing blacks/whites
+                                            mixBlendMode: 'color',
+                                            zIndex: 1
+                                        }
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 2160,
+                                        columnNumber: 21
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2147,
+                                columnNumber: 19
+                            }, ("TURBOPACK compile-time value", void 0))
+                        }, imgKey, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2138,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0));
+                    })
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 2121,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        position: 'absolute',
+                        top: '860px',
+                        left: '50%',
+                        transform: `translateX(-50%) scale(${brainPop})`,
+                        zIndex: 3,
+                        backgroundColor: '#050505',
+                        padding: '20px',
+                        borderRadius: '50%'
+                    },
+                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                        width: "120",
+                        height: "120",
+                        viewBox: "0 0 24 24",
+                        fill: "none",
+                        stroke: "#ffffff",
+                        strokeWidth: "1.5",
+                        strokeLinecap: "round",
+                        strokeLinejoin: "round",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M12 5a3 3 0 1 0-5.997.125 4 4 0 0 0-2.526 5.77 4 4 0 0 0 .556 6.588A4 4 0 1 0 12 18Z"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2194,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M12 5a3 3 0 1 1 5.997.125 4 4 0 0 1 2.526 5.77 4 4 0 0 1-.556 6.588A4 4 0 1 1 12 18Z"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2195,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M15 13a4.5 4.5 0 0 1-3-4 4.5 4.5 0 0 1-3 4"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2196,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M17.599 6.5a3 3 0 0 0 .399-1.375"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2197,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M6.002 6.5A3 3 0 0 1 5.603 5.125"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2198,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                d: "M11.8 12a1 1 0 0 0-1.6 0"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2199,
+                                columnNumber: 13
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2193,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 2189,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0)),
+                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        position: 'absolute',
+                        top: '150px',
+                        left: '50%',
+                        transform: `translateX(-50%) translateY(${bookY}px) scale(${bookPop})`,
+                        opacity: bookPop,
+                        zIndex: 4,
+                        perspective: '1000px'
+                    },
+                    children: bookImage && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                        src: bookImage,
+                        style: {
+                            width: '450px',
+                            height: 'auto',
+                            borderRadius: '15px',
+                            boxShadow: '-20px 30px 50px rgba(0,0,0,0.8)',
+                            transform: `rotateY(${bookRotate}deg) rotateX(10deg)`
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2210,
+                        columnNumber: 13
+                    }, ("TURBOPACK compile-time value", void 0))
+                }, void 0, false, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 2204,
+                    columnNumber: 9
+                }, ("TURBOPACK compile-time value", void 0))
+            ]
+        }, void 0, true, {
+            fileName: "[project]/src/templates/Animations.tsx",
+            lineNumber: 2096,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 2093,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0)));
+};
+const PanoramicReelTemplate = ({ chartData = [], color = "#00d4ff", fontFamily = "Montserrat", reelSpeed = 5 })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const { width, fps } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useVideoConfig"])();
+    // 🛡️ Fallback data
+    const items = chartData.length > 0 ? chartData : [
+        {
+            label: "VILLAGE",
+            image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800"
+        },
+        {
+            label: "CITY",
+            image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800"
+        },
+        {
+            label: "SITE",
+            image: "https://images.unsplash.com/photo-1503387762-592dea58ef23?w=800"
+        }
+    ];
+    // ⏱️ TIMING MATH
+    // Speed slider now controls how many frames an image stays still.
+    const framesPerSlide = Math.round(fps * (10 / (reelSpeed || 1)));
+    const index = Math.floor(frame / framesPerSlide);
+    // 🎢 TRANSITION MATH (The last 10 frames of the duration)
+    const transitionDuration = 10;
+    const slideProgress = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame % framesPerSlide - (framesPerSlide - transitionDuration)),
+        fps,
+        config: {
+            stiffness: 100,
+            damping: 20
+        }
+    });
+    // ⚡ ALIGNMENT FIX: offsetX is now strictly tied to the image width.
+    // Each slide moves exactly 1 full 'width' unit.
+    const offsetX = -((index + slideProgress) * width);
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: '#000',
+            overflow: 'hidden',
+            fontFamily
+        },
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            style: {
+                display: 'flex',
+                flexDirection: 'row',
+                height: '100%',
+                width: 'max-content',
+                transform: `translateX(${offsetX}px)`
+            },
+            children: items.map((item, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        width: `${width}px`,
+                        height: '100%',
+                        position: 'relative',
+                        flexShrink: 0
+                    },
+                    children: [
+                        item.image ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: item.image,
+                            style: {
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2277,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                width: '100%',
+                                height: '100%',
+                                display: 'flex',
+                                alignItems: 'center',
+                                justifyContent: 'center',
+                                backgroundColor: '#1f2937',
+                                color: '#6b7280',
+                                fontSize: '48px',
+                                fontWeight: 'bold',
+                                textTransform: 'uppercase'
+                            },
+                            children: item.label
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2279,
+                            columnNumber: 15
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                bottom: '50px',
+                                left: '50px',
+                                color: 'white',
+                                fontSize: '60px',
+                                fontWeight: 900,
+                                textTransform: 'uppercase',
+                                textShadow: '0 4px 20px rgba(0,0,0,0.9)',
+                                borderLeft: `8px solid ${color}`,
+                                paddingLeft: '20px',
+                                // Fade out the text only during the slide
+                                opacity: i === index ? 1 - slideProgress : i === index + 1 ? slideProgress : 0
+                            },
+                            children: item.label
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2285,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, i, true, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 2270,
+                    columnNumber: 11
+                }, ("TURBOPACK compile-time value", void 0)))
+        }, void 0, false, {
+            fileName: "[project]/src/templates/Animations.tsx",
+            lineNumber: 2262,
+            columnNumber: 7
+        }, ("TURBOPACK compile-time value", void 0))
+    }, void 0, false, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 2261,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const ComparisonPentagonTemplate = ({ headerText = "", backgroundImage, status = "neutral", showPath = false, color = "#00d4ff", fontFamily = "Montserrat" })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const pop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame,
+        fps: 30,
+        config: {
+            stiffness: 100,
+            damping: 15
+        }
+    });
+    // ⚡ Kinetic Entrance for the X/Checkmark
+    const statusPop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, frame - 10),
+        fps: 30,
+        config: {
+            stiffness: 200,
+            damping: 12
+        }
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: 'relative',
+                    width: '600px',
+                    height: '600px',
+                    transform: `scale(${pop})`
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                        viewBox: "0 0 100 100",
+                        style: {
+                            position: 'absolute',
+                            width: '100%',
+                            height: '100%',
+                            filter: `drop-shadow(0 0 20px ${status === 'correct' ? '#22c55e' : status === 'wrong' ? '#ef4444' : color})`
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
+                                points: "50,5 95,38 78,92 22,92 5,38",
+                                fill: "#111",
+                                stroke: status === 'correct' ? '#22c55e' : status === 'wrong' ? '#ef4444' : color,
+                                strokeWidth: "2"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2328,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("clipPath", {
+                                    id: "pentagonClip",
+                                    children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
+                                        points: "50,5 95,38 78,92 22,92 5,38"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 2329,
+                                        columnNumber: 45
+                                    }, ("TURBOPACK compile-time value", void 0))
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 2329,
+                                    columnNumber: 17
+                                }, ("TURBOPACK compile-time value", void 0))
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2329,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2327,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            inset: '10px',
+                            clipPath: 'url(#pentagonClip)',
+                            WebkitClipPath: 'url(#pentagonClip)',
+                            zIndex: 1
+                        },
+                        children: backgroundImage ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                            src: backgroundImage,
+                            style: {
+                                width: '100%',
+                                height: '100%',
+                                objectFit: 'cover'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2334,
+                            columnNumber: 30
+                        }, ("TURBOPACK compile-time value", void 0)) : /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                width: '100%',
+                                height: '100%',
+                                backgroundColor: '#222'
+                            }
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2334,
+                            columnNumber: 124
+                        }, ("TURBOPACK compile-time value", void 0))
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2333,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            inset: 0,
+                            display: 'flex',
+                            justifyContent: 'center',
+                            alignItems: 'center',
+                            zIndex: 20,
+                            pointerEvents: 'none',
+                            transform: `scale(${statusPop})`
+                        },
+                        children: [
+                            status === "wrong" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    fontSize: '380px',
+                                    color: '#ef4444',
+                                    fontWeight: 900,
+                                    textShadow: '0 0 50px rgba(0,0,0,0.9)'
+                                },
+                                children: "✕"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2339,
+                                columnNumber: 34
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            status === "correct" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                style: {
+                                    fontSize: '380px',
+                                    color: '#22c55e',
+                                    fontWeight: 900,
+                                    textShadow: '0 0 50px rgba(0,0,0,0.9)'
+                                },
+                                children: "✓"
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2340,
+                                columnNumber: 36
+                            }, ("TURBOPACK compile-time value", void 0))
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2338,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 2325,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    marginTop: '40px',
+                    color: 'white',
+                    fontSize: '80px',
+                    fontWeight: 900,
+                    textTransform: 'uppercase'
+                },
+                children: headerText
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 2343,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 2324,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const ProcessFlowTemplate = ({ chartData = [], color = "#00d4ff", fontFamily = "Montserrat" })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const { width, height } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useVideoConfig"])();
+    // 🛡️ Fallback for 3 stages
+    const stages = chartData.length >= 3 ? chartData : [
+        {
+            label: "BRICKS",
+            status: "neutral"
+        },
+        {
+            label: "IRON",
+            status: "wrong"
+        },
+        {
+            label: "CEMENT",
+            status: "correct"
+        }
+    ];
+    // ⏱️ TIMING: 120 frames total. 40 frames per stage.
+    const stageIndex = Math.min(2, Math.floor(frame / 40));
+    const stageFrame = frame % 40;
+    // 🎢 MOTION MATH: Circular Path Positions
+    // P1: Left, P2: Top-Center, P3: Right
+    const positions = [
+        {
+            x: width * 0.2,
+            y: height * 0.3
+        },
+        {
+            x: width * 0.5,
+            y: height * 0.15
+        },
+        {
+            x: width * 0.8,
+            y: height * 0.3
+        }
+    ];
+    const pop = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: stageFrame,
+        fps: 30,
+        config: {
+            stiffness: 100
+        }
+    });
+    const pathDraw = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["interpolate"])(stageFrame, [
+        10,
+        35
+    ], [
+        0,
+        1
+    ], {
+        extrapolateRight: 'clamp'
+    });
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            justifyContent: 'center',
+            alignItems: 'center',
+            fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                width: "100%",
+                height: "100%",
+                style: {
+                    position: 'absolute',
+                    overflow: 'visible'
+                },
+                children: [
+                    stageIndex >= 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: `M ${positions[0].x} ${positions[0].y} Q ${width * 0.35} ${height * 0.1} ${positions[1].x} ${positions[1].y}`,
+                        fill: "none",
+                        stroke: "white",
+                        strokeWidth: "4",
+                        strokeDasharray: "10 10",
+                        strokeDashoffset: frame * -2,
+                        style: {
+                            opacity: stageIndex === 1 ? pathDraw : 1
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2384,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    stageIndex >= 2 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                        d: `M ${positions[1].x} ${positions[1].y} Q ${width * 0.65} ${height * 0.1} ${positions[2].x} ${positions[2].y}`,
+                        fill: "none",
+                        stroke: "white",
+                        strokeWidth: "4",
+                        strokeDasharray: "10 10",
+                        strokeDashoffset: frame * -2,
+                        style: {
+                            opacity: pathDraw
+                        }
+                    }, void 0, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2392,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0))
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 2381,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: 'absolute',
+                    left: positions[stageIndex].x,
+                    top: positions[stageIndex].y,
+                    transform: `translate(-50%, -50%) scale(${pop})`
+                },
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    style: {
+                        width: '300px',
+                        height: '300px',
+                        border: `4px solid ${color}`,
+                        borderRadius: '20px',
+                        backgroundColor: '#111',
+                        display: 'flex',
+                        justifyContent: 'center',
+                        alignItems: 'center',
+                        fontSize: '40px',
+                        color: 'white',
+                        fontWeight: 900,
+                        position: 'relative'
+                    },
+                    children: [
+                        stages[stageIndex].label,
+                        stages[stageIndex].status === "wrong" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                color: '#ef4444',
+                                fontSize: '150px',
+                                fontWeight: 900,
+                                textShadow: '0 0 30px rgba(0,0,0,0.8)'
+                            },
+                            children: "✕"
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2410,
+                            columnNumber: 55
+                        }, ("TURBOPACK compile-time value", void 0)),
+                        stages[stageIndex].status === "correct" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                color: '#22c55e',
+                                fontSize: '150px',
+                                fontWeight: 900,
+                                textShadow: '0 0 30px rgba(0,0,0,0.8)'
+                            },
+                            children: "✓"
+                        }, void 0, false, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2411,
+                            columnNumber: 57
+                        }, ("TURBOPACK compile-time value", void 0))
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/templates/Animations.tsx",
+                    lineNumber: 2408,
+                    columnNumber: 10
+                }, ("TURBOPACK compile-time value", void 0))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 2401,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 2380,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+const PentagonFlowTemplate = ({ chartData = [], color = "#00d4ff", fontFamily = "Montserrat", framesPerStage = 150 // ⚡ Receives the slider value (Defaults to 150)
+ })=>{
+    const frame = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useCurrentFrame"])();
+    const { width, height, fps } = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useVideoConfig"])();
+    // 🛡️ Fallback Data
+    const stages = chartData.length > 0 ? chartData : [
+        {
+            label: "EENT",
+            status: "wrong"
+        },
+        {
+            label: "LOHA",
+            status: "wrong"
+        },
+        {
+            label: "CEMENT",
+            status: "correct"
+        }
+    ];
+    const stageIndex = Math.min(stages.length - 1, Math.floor(frame / framesPerStage));
+    const stageFrame = frame % framesPerStage;
+    // 🗺️ WIDER WORLD COORDINATES: Pushed slightly further apart to give the camera breathing room
+    const positions = [
+        {
+            x: 0,
+            y: 0
+        },
+        {
+            x: -width * 0.55,
+            y: -height * 0.45
+        },
+        {
+            x: width * 0.45,
+            y: -height * 0.85
+        },
+        {
+            x: -width * 0.25,
+            y: -height * 1.30
+        }
+    ];
+    // 🎥 DYNAMIC TIMING (Scales automatically based on your speed slider)
+    // Transition happens in the last 30% of whatever the duration is
+    const transitionStart = Math.floor(framesPerStage * 0.7);
+    // Status pops in at the 30% mark of the duration
+    const statusDelay = Math.floor(framesPerStage * 0.3);
+    const moveProgress = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+        frame: Math.max(0, stageFrame - transitionStart),
+        fps,
+        config: {
+            stiffness: 70,
+            damping: 18
+        }
+    });
+    const currentP = positions[stageIndex] || positions[0];
+    const nextP = positions[stageIndex + 1] || currentP;
+    const cameraX = currentP.x + (nextP.x - currentP.x) * moveProgress;
+    const cameraY = currentP.y + (nextP.y - currentP.y) * moveProgress;
+    // ⚡ FIX: Reduced from 150 to 80 so it doesn't push the top of the pentagon off-screen
+    const cameraOffsetY = 80;
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+        style: {
+            backgroundColor: '#000',
+            overflow: 'hidden',
+            fontFamily
+        },
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["AbsoluteFill"], {
+                style: {
+                    transform: `translate(${-cameraX * 0.15}px, ${(-cameraY - cameraOffsetY) * 0.15}px)`,
+                    opacity: 0.4
+                },
+                children: [
+                    ...Array(60)
+                ].map((_, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        style: {
+                            position: 'absolute',
+                            left: `${Math.abs(Math.sin(i * 55)) * 150 - 20}%`,
+                            top: `${Math.abs(Math.cos(i * 77)) * 150 - 20}%`,
+                            width: '3px',
+                            height: '3px',
+                            backgroundColor: 'white',
+                            borderRadius: '50%',
+                            boxShadow: '0 0 10px white'
+                        }
+                    }, i, false, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2472,
+                        columnNumber: 11
+                    }, ("TURBOPACK compile-time value", void 0)))
+            }, void 0, false, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 2470,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0)),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                style: {
+                    position: 'absolute',
+                    left: '50%',
+                    top: '50%',
+                    width: 1,
+                    height: 1,
+                    overflow: 'visible',
+                    // ⚡ FIX: Apply the cameraOffsetY here to lift the entire scene up
+                    transform: `translate(${-cameraX}px, ${-cameraY - cameraOffsetY}px)`
+                },
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                        style: {
+                            position: 'absolute',
+                            overflow: 'visible'
+                        },
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("defs", {
+                                children: stages.map((_, i)=>{
+                                    if (i >= stages.length - 1) return null;
+                                    const p1 = positions[i];
+                                    const p2 = positions[i + 1];
+                                    const len = Math.hypot(p2.x - p1.x, p2.y - p1.y);
+                                    let progress = stageIndex > i ? 1 : stageIndex === i ? moveProgress : 0;
+                                    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("mask", {
+                                        id: `line-mask-${i}`,
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
+                                            x1: p1.x,
+                                            y1: p1.y,
+                                            x2: p2.x,
+                                            y2: p2.y,
+                                            stroke: "white",
+                                            strokeWidth: "30",
+                                            strokeDasharray: len,
+                                            strokeDashoffset: len * (1 - progress),
+                                            strokeLinecap: "round"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 2498,
+                                            columnNumber: 19
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    }, `mask-${i}`, false, {
+                                        fileName: "[project]/src/templates/Animations.tsx",
+                                        lineNumber: 2497,
+                                        columnNumber: 17
+                                    }, ("TURBOPACK compile-time value", void 0));
+                                })
+                            }, void 0, false, {
+                                fileName: "[project]/src/templates/Animations.tsx",
+                                lineNumber: 2487,
+                                columnNumber: 11
+                            }, ("TURBOPACK compile-time value", void 0)),
+                            stages.map((_, i)=>{
+                                if (i >= stages.length - 1) return null;
+                                const p1 = positions[i];
+                                const p2 = positions[i + 1];
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("line", {
+                                    x1: p1.x,
+                                    y1: p1.y,
+                                    x2: p2.x,
+                                    y2: p2.y,
+                                    // ⚡ FIX: Increased strokeWidth to 8, and dash sizes to "40 25" (40px line, 25px gap)
+                                    stroke: "white",
+                                    strokeWidth: "8",
+                                    strokeDasharray: "40 25",
+                                    strokeDashoffset: frame * -5,
+                                    mask: `url(#line-mask-${i})`,
+                                    strokeLinecap: "round"
+                                }, `line-${i}`, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 2510,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0));
+                            })
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/templates/Animations.tsx",
+                        lineNumber: 2486,
+                        columnNumber: 9
+                    }, ("TURBOPACK compile-time value", void 0)),
+                    stages.map((item, i)=>{
+                        // ⚡ OVERLAP FIX: Hide future items AND completely unmount past items
+                        if (stageIndex < i) return null;
+                        if (stageIndex > i) return null;
+                        // 1. ENTRANCE: Pops in at the start of its own stage
+                        const entrance = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                            frame: stageFrame,
+                            fps: 30,
+                            config: {
+                                stiffness: 120,
+                                damping: 14
+                            }
+                        });
+                        // 2. EXIT: Shrinks exactly as the camera starts moving to the next item
+                        const exitFrame = Math.max(0, stageFrame - transitionStart);
+                        const exit = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                            frame: exitFrame,
+                            fps: 30,
+                            config: {
+                                stiffness: 80,
+                                damping: 15
+                            }
+                        });
+                        // The final visual scale of the pentagon
+                        const scale = entrance - exit;
+                        const statusScale = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$remotion$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["spring"])({
+                            frame: Math.max(0, stageFrame - statusDelay),
+                            fps: 30,
+                            config: {
+                                stiffness: 180,
+                                damping: 12
+                            }
+                        });
+                        return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            style: {
+                                position: 'absolute',
+                                left: positions[i].x,
+                                top: positions[i].y,
+                                // ⚡ Apply the shrinking scale logic here
+                                transform: `translate(-50%, -50%) scale(${scale})`
+                            },
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        position: 'relative',
+                                        width: '750px',
+                                        height: '750px'
+                                    },
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                            viewBox: "0 0 100 100",
+                                            style: {
+                                                position: 'absolute',
+                                                width: '100%',
+                                                height: '100%',
+                                                filter: `drop-shadow(0 0 40px ${item.status === 'correct' ? '#22c55e' : item.status === 'wrong' ? '#ef4444' : color})`
+                                            },
+                                            children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("polygon", {
+                                                points: "50,5 95,38 78,92 22,92 5,38",
+                                                fill: "#000",
+                                                stroke: item.status === 'correct' ? '#22c55e' : item.status === 'wrong' ? '#ef4444' : color,
+                                                strokeWidth: "3"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/templates/Animations.tsx",
+                                                lineNumber: 2553,
+                                                columnNumber: 19
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 2552,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            style: {
+                                                position: 'absolute',
+                                                inset: '5px',
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                overflow: 'hidden',
+                                                zIndex: 1,
+                                                // cookie-cutter math matching the SVG polygon points
+                                                WebkitClipPath: 'polygon(50% 5%, 95% 38%, 78% 92%, 22% 92%, 5% 38%)',
+                                                clipPath: 'polygon(50% 5%, 95% 38%, 78% 92%, 22% 92%, 5% 38%)'
+                                            },
+                                            children: item.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                src: item.image,
+                                                style: {
+                                                    width: '100%',
+                                                    height: '100%',
+                                                    objectFit: 'cover' // ⚡ Switched to cover so it fills the masked area nicely
+                                                }
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/templates/Animations.tsx",
+                                                lineNumber: 2571,
+                                                columnNumber: 21
+                                            }, ("TURBOPACK compile-time value", void 0))
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 2557,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0)),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            style: {
+                                                position: 'absolute',
+                                                inset: 0,
+                                                display: 'flex',
+                                                justifyContent: 'center',
+                                                alignItems: 'center',
+                                                zIndex: 10,
+                                                pointerEvents: 'none',
+                                                transform: `scale(${statusScale})`
+                                            },
+                                            children: [
+                                                item.status === "wrong" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    style: {
+                                                        fontSize: '500px',
+                                                        color: '#ef4444',
+                                                        fontWeight: 900,
+                                                        textShadow: '0 0 80px #000'
+                                                    },
+                                                    children: "✕"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/templates/Animations.tsx",
+                                                    lineNumber: 2589,
+                                                    columnNumber: 47
+                                                }, ("TURBOPACK compile-time value", void 0)),
+                                                item.status === "correct" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    style: {
+                                                        fontSize: '500px',
+                                                        color: '#22c55e',
+                                                        fontWeight: 900,
+                                                        textShadow: '0 0 80px #000'
+                                                    },
+                                                    children: "✓"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/templates/Animations.tsx",
+                                                    lineNumber: 2590,
+                                                    columnNumber: 49
+                                                }, ("TURBOPACK compile-time value", void 0))
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/templates/Animations.tsx",
+                                            lineNumber: 2583,
+                                            columnNumber: 17
+                                        }, ("TURBOPACK compile-time value", void 0))
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 2549,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0)),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    style: {
+                                        position: 'absolute',
+                                        bottom: '-150px',
+                                        width: '100%',
+                                        textAlign: 'center',
+                                        color: 'white',
+                                        fontSize: '150px',
+                                        fontWeight: 900,
+                                        textTransform: 'uppercase',
+                                        letterSpacing: '5px'
+                                    },
+                                    children: item.label || "LABEL"
+                                }, void 0, false, {
+                                    fileName: "[project]/src/templates/Animations.tsx",
+                                    lineNumber: 2594,
+                                    columnNumber: 15
+                                }, ("TURBOPACK compile-time value", void 0))
+                            ]
+                        }, i, true, {
+                            fileName: "[project]/src/templates/Animations.tsx",
+                            lineNumber: 2541,
+                            columnNumber: 13
+                        }, ("TURBOPACK compile-time value", void 0));
+                    })
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/templates/Animations.tsx",
+                lineNumber: 2477,
+                columnNumber: 7
+            }, ("TURBOPACK compile-time value", void 0))
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/templates/Animations.tsx",
+        lineNumber: 2467,
+        columnNumber: 5
+    }, ("TURBOPACK compile-time value", void 0));
+};
+}),
+"[project]/src/config/templateConfig.ts [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+/**
+ * Template Configuration System
+ * Defines available templates and their layer configurations
+ * Used by the Layers & Visibility panel to auto-generate UI
+ */ __turbopack_context__.s([
+    "TEMPLATE_CONFIGS",
+    ()=>TEMPLATE_CONFIGS,
+    "getDefaultActiveLayers",
+    ()=>getDefaultActiveLayers,
+    "getTemplateConfig",
+    ()=>getTemplateConfig
+]);
+const TEMPLATE_CONFIGS = {
+    PUPPET_MASTER: {
+        id: "PUPPET_MASTER",
+        name: "Puppet Master",
+        availableLayers: [
+            {
+                id: "hand",
+                label: "Puppet Hand Rig"
+            },
+            {
+                id: "brain",
+                label: "Neural Brain"
+            },
+            {
+                id: "text",
+                label: "Kinetic Text"
+            }
+        ]
+    },
+    BAR_CHART: {
+        id: "BAR_CHART",
+        name: "Bar Chart",
+        availableLayers: [
+            {
+                id: "bars",
+                label: "Data Bars"
+            },
+            {
+                id: "labels",
+                label: "Data Labels"
+            },
+            {
+                id: "text",
+                label: "Title & Text"
+            }
+        ]
+    },
+    CHART_CRASH: {
+        id: "CHART_CRASH",
+        name: "Chart Crash",
+        availableLayers: [
+            {
+                id: "chart",
+                label: "Chart Visualization"
+            },
+            {
+                id: "text",
+                label: "Kinetic Text"
+            }
+        ]
+    },
+    CROWD_SCALE: {
+        id: "CROWD_SCALE",
+        name: "Crowd Scale",
+        availableLayers: [
+            {
+                id: "crowd",
+                label: "Crowd Elements"
+            },
+            {
+                id: "text",
+                label: "Text Overlay"
+            }
+        ]
+    },
+    PRODUCT_SHOWCASE: {
+        id: "PRODUCT_SHOWCASE",
+        name: "Product Showcase",
+        availableLayers: [
+            {
+                id: "product",
+                label: "Product Image"
+            },
+            {
+                id: "text",
+                label: "Title & Description"
+            }
+        ]
+    },
+    TRIPLE_BUILD: {
+        id: "TRIPLE_BUILD",
+        name: "Triple Build",
+        availableLayers: [
+            {
+                id: "elements",
+                label: "Build Elements"
+            },
+            {
+                id: "text",
+                label: "Kinetic Text"
+            }
+        ]
+    },
+    BOOK_REVEAL: {
+        id: "BOOK_REVEAL",
+        name: "Book Reveal",
+        availableLayers: [
+            {
+                id: "book",
+                label: "Book Imagery"
+            },
+            {
+                id: "text",
+                label: "Book Info"
+            }
+        ]
+    },
+    KINETIC_ROADMAP: {
+        id: "KINETIC_ROADMAP",
+        name: "Kinetic Roadmap",
+        availableLayers: [
+            {
+                id: "roadmap",
+                label: "Roadmap Path"
+            },
+            {
+                id: "icons",
+                label: "Milestone Icons"
+            },
+            {
+                id: "text",
+                label: "Labels & Text"
+            }
+        ]
+    },
+    MINDSET_FLOW: {
+        id: "MINDSET_FLOW",
+        name: "Mindset Flow",
+        availableLayers: [
+            {
+                id: "images",
+                label: "Flow Images"
+            },
+            {
+                id: "text",
+                label: "Text Overlay"
+            }
+        ]
+    },
+    DARK_WEALTH: {
+        id: "DARK_WEALTH",
+        name: "Dark Wealth",
+        availableLayers: [
+            {
+                id: "card",
+                label: "Credit Card"
+            },
+            {
+                id: "coin",
+                label: "Coin & Currency"
+            },
+            {
+                id: "text",
+                label: "Wealth Text"
+            }
+        ]
+    },
+    KINETIC_SPEAKER: {
+        id: "KINETIC_SPEAKER",
+        name: "Kinetic Speaker",
+        availableLayers: [
+            {
+                id: "speaker",
+                label: "Speaker"
+            },
+            {
+                id: "text",
+                label: "Text Animation"
+            }
+        ]
+    },
+    CAPITAL_VS_ATTENTION: {
+        id: "CAPITAL_VS_ATTENTION",
+        name: "Capital vs Attention",
+        availableLayers: [
+            {
+                id: "comparison",
+                label: "Comparison Visuals"
+            },
+            {
+                id: "text",
+                label: "Text Elements"
+            }
+        ]
+    },
+    CHRONO: {
+        id: "CHRONO",
+        name: "Chrono",
+        availableLayers: [
+            {
+                id: "timeline",
+                label: "Timeline"
+            },
+            {
+                id: "text",
+                label: "Time Labels"
+            }
+        ]
+    },
+    VERSUS: {
+        id: "VERSUS",
+        name: "Versus",
+        availableLayers: [
+            {
+                id: "left",
+                label: "Left Side"
+            },
+            {
+                id: "right",
+                label: "Right Side"
+            },
+            {
+                id: "text",
+                label: "Versus Text"
+            }
+        ]
+    },
+    LINE_CHART: {
+        id: "LINE_CHART",
+        name: "Line Chart",
+        availableLayers: [
+            {
+                id: "line",
+                label: "Line Graph"
+            },
+            {
+                id: "grid",
+                label: "Grid Background"
+            },
+            {
+                id: "labels",
+                label: "Data Labels"
+            }
+        ]
+    },
+    KINETIC_STOMP: {
+        id: "KINETIC_STOMP",
+        name: "Kinetic Stomp",
+        availableLayers: [
+            {
+                id: "stomp",
+                label: "Stomp Animation"
+            },
+            {
+                id: "text",
+                label: "Kinetic Text"
+            }
+        ]
+    },
+    CHASE_ATTENTION: {
+        id: "CHASE_ATTENTION",
+        name: "Chase Attention",
+        availableLayers: [
+            {
+                id: "chase",
+                label: "Chase Animation"
+            },
+            {
+                id: "text",
+                label: "Text Callout"
+            }
+        ]
+    },
+    FOCUS: {
+        id: "FOCUS",
+        name: "Focus",
+        availableLayers: [
+            {
+                id: "focus",
+                label: "Focus Element"
+            },
+            {
+                id: "text",
+                label: "Text Overlay"
+            }
+        ]
+    }
+};
+function getTemplateConfig(templateId) {
+    return TEMPLATE_CONFIGS[templateId] || TEMPLATE_CONFIGS.BAR_CHART;
+}
+function getDefaultActiveLayers(templateId) {
+    const config = getTemplateConfig(templateId);
+    const layers = {};
+    config.availableLayers.forEach((layer)=>{
+        layers[layer.id] = true;
+    });
+    return layers;
+}
+}),
+"[project]/src/app/editor/page.tsx [app-ssr] (ecmascript)", ((__turbopack_context__) => {
+"use strict";
+
+__turbopack_context__.s([
+    "default",
+    ()=>EditorPage
+]);
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react-jsx-dev-runtime.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/next/dist/server/route-modules/app-page/vendored/ssr/react.js [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$remotion$2f$player$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@remotion/player/dist/esm/index.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$templates$2f$Animations$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/templates/Animations.tsx [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$remotion$2f$google$2d$fonts$2f$dist$2f$esm$2f$Montserrat$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@remotion/google-fonts/dist/esm/Montserrat.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$remotion$2f$google$2d$fonts$2f$dist$2f$esm$2f$BebasNeue$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@remotion/google-fonts/dist/esm/BebasNeue.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$remotion$2f$google$2d$fonts$2f$dist$2f$esm$2f$Poppins$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/node_modules/@remotion/google-fonts/dist/esm/Poppins.mjs [app-ssr] (ecmascript)");
+var __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$config$2f$templateConfig$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__ = __turbopack_context__.i("[project]/src/config/templateConfig.ts [app-ssr] (ecmascript)");
+"use client";
+;
+;
+;
+;
+;
+;
+;
+;
+function EditorContent() {
+    const [activeSceneIndex, setActiveSceneIndex] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(0);
+    const [isRendering, setIsRendering] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [backgroundMode, setBackgroundMode] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])('black'); // 'black', 'transparent', or 'green'
+    const [activeLayers, setActiveLayers] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({}); // Dynamic per-template
+    const [showExportModal, setShowExportModal] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])(false);
+    const [inputProps, setInputProps] = (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useState"])({
+        isSequence: true,
+        scenes: [
+            {
+                visualType: "KINETIC_STOMP",
+                headerText: "STARTUP TRUTH",
+                chartData: [
+                    {
+                        label: "90% FAIL"
+                    }
+                ]
+            }
+        ],
+        color: "#a855f7",
+        scale: 1,
+        layout: "vertical",
+        layoutMode: "full",
+        reactionVideoUrl: "",
+        captions: [] // 🟢 ADD THIS LINE
+    });
+    // ?? Robust draft loading logic
+    __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].useEffect(()=>{
+        try {
+            const draft = localStorage.getItem("autoae_draft");
+            if (draft) {
+                const parsed = JSON.parse(draft);
+                if (parsed && parsed.scenes && parsed.scenes.length > 0) {
+                    setInputProps((prev)=>({
+                            ...prev,
+                            isSequence: true,
+                            scenes: parsed.scenes,
+                            color: parsed.color || prev.color,
+                            videoTitle: parsed.videoTitle || "Untitled Video",
+                            captions: parsed.captions || [],
+                            // 🟢 THE FIX: Tell the editor to load the video URL!
+                            reactionVideoUrl: parsed.reactionVideoUrl || ""
+                        }));
+                } else if (parsed && parsed.visualType) {
+                    setInputProps((prev)=>({
+                            ...prev,
+                            isSequence: false,
+                            scenes: [
+                                {
+                                    visualType: parsed.visualType,
+                                    headerText: parsed.headerText || "",
+                                    chartData: parsed.chartData || []
+                                }
+                            ],
+                            color: parsed.color || prev.color,
+                            captions: parsed.captions || [],
+                            // 🟢 THE FIX: Tell the editor to load the video URL here too!
+                            reactionVideoUrl: parsed.reactionVideoUrl || ""
+                        }));
+                }
+            }
+        } catch (err) {
+            console.error("Failed to load draft:", err);
+        }
+    }, []);
+    const activeScene = inputProps.scenes[activeSceneIndex] || inputProps.scenes[0];
+    const currentTemplate = (0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$config$2f$templateConfig$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getTemplateConfig"])(activeScene?.visualType || "BAR_CHART");
+    // ?? Update active layers when template changes
+    (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["useEffect"])(()=>{
+        const templateId = activeScene?.visualType || "BAR_CHART";
+        setActiveLayers((0, __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$config$2f$templateConfig$2e$ts__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["getDefaultActiveLayers"])(templateId));
+    }, [
+        activeScene?.visualType
+    ]);
+    // ?? Toggle a specific layer
+    const toggleLayer = (layerId)=>{
+        setActiveLayers((prev)=>({
+                ...prev,
+                [layerId]: !prev[layerId]
+            }));
+    };
+    // 🟢 NEW: Simplified render function for the export button
+    const handleRenderAndExport = async ()=>{
+        setIsRendering(true);
+        try {
+            // Calculate total duration. (Assuming 150 frames per scene for standard templates)
+            const totalScenes = inputProps.scenes?.length || 1;
+            let duration = totalScenes * 150;
+            // Handle the Pentagon Flow slider exception if it exists
+            if (inputProps.scenes?.[0]?.visualType === "PENTAGON_FLOW") {
+                duration = (inputProps.scenes[0].chartData?.length || 3) * (inputProps.scenes[0].framesPerStage || 150);
+            }
+            const response = await fetch("/api/render", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    inputProps: inputProps,
+                    durationInFrames: duration,
+                    exportType: "standard" // Start with standard MP4!
+                })
+            });
+            const data = await response.json();
+            if (data.url) {
+                // Create a hidden link to force the browser to download the file
+                const a = document.createElement('a');
+                a.href = data.url;
+                a.download = `AutoAE-Export-${Date.now()}.mp4`;
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+            } else {
+                alert("Render failed: " + (data.error || "Unknown error"));
+            }
+        } catch (error) {
+            console.error("Render request failed:", error);
+            alert("Failed to connect to the render server.");
+        } finally{
+            setIsRendering(false);
+        }
+    };
+    const calculateDuration = (scenes)=>{
+        const calculateSceneDuration = (scene)=>{
+            const type = scene.visualType;
+            // ⚡ Set this back to 120 (4 seconds) since each scene handles itself now!
+            if (type === "AI_TEST") return 120;
+            if (type === "CHASE_ATTENTION") return 60;
+            if (type === "KINETIC_STOMP") return (scene.chartData?.length || 1) * 45 + 30;
+            if ([
+                "CHART_CRASH",
+                "CROWD_SCALE",
+                "PRODUCT_SHOWCASE"
+            ].includes(type)) return 270;
+            if ([
+                "TRIPLE_BUILD",
+                "CAPITAL_VS_ATTENTION",
+                "CHRONO",
+                "VERSUS",
+                "LINE_CHART",
+                "DARK_WEALTH",
+                "PUPPET_MASTER",
+                "FOCUS"
+            ].includes(type)) return 150;
+            if (type === "BOOK_REVEAL") return 120; // ? Decreased from 180 to 120 (4 seconds)
+            if (type === "KINETIC_ROADMAP") return 120; // ? SET TO 4 SECONDS
+            if (type === "MINDSET_FLOW") return 180; // ?? 6 seconds for camera pan
+            if (type === "PANORAMIC_REEL") return 150; // ??? 5 seconds for horizon slide
+            if (type === "KINETIC_SPEAKER") return 90;
+            return 120; // fallback
+        };
+        return scenes.reduce((acc, scene)=>acc + calculateSceneDuration(scene), 0) || 600;
+    };
+    // ?? Update the function signature to handle standard MP4, layered ZIP, and AE script exports
+    const handleDownload = async (exportType = "standard")=>{
+        if (isRendering) return;
+        setIsRendering(true);
+        try {
+            // Determine which layers to export if it's a layered request
+            let layersToExport = [];
+            if (exportType === "layered") {
+                layersToExport = currentTemplate.availableLayers.map((l)=>l.id);
+            }
+            const res = await fetch("/api/render", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    id: "Main",
+                    inputProps: {
+                        ...inputProps,
+                        // ? CRITICAL: Send the current sidebar toggle states to the server!
+                        activeLayers: activeLayers,
+                        backgroundMode: backgroundMode
+                    },
+                    durationInFrames: calculateDuration(inputProps.scenes),
+                    exportType: exportType,
+                    layersToExport: layersToExport
+                })
+            });
+            const data = await res.json();
+            if (data.url) {
+                const link = document.createElement("a");
+                link.href = data.url;
+                let downloadName = "AutoAE-Video.mp4";
+                if (exportType === "layered") downloadName = "Layered-Assets.zip";
+                if (exportType === "aescript") downloadName = "AutoAE-AE-Project.zip";
+                if (exportType === "davinci") downloadName = "AutoAE-DaVinci-Project.zip";
+                link.download = downloadName;
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        } catch (err) {
+            console.error(err);
+        } finally{
+            setIsRendering(false);
+        }
+    };
+    // 🟢 SMART PLAYER DURATION: Bulletproof Caption Parsing!
+    let dynamicDuration = 150; // Fallback default
+    let safeCaptions = inputProps?.captions || [];
+    // 1. If Gemini returned a raw string, parse it into an array
+    if (typeof safeCaptions === 'string') {
+        try {
+            safeCaptions = JSON.parse(safeCaptions);
+        } catch (e) {
+            console.error("Failed to parse captions string:", e);
+            safeCaptions = [];
+        }
+    }
+    // 2. Ensure every single word has valid numbers for the timeline
+    const normalizedCaptions = Array.isArray(safeCaptions) ? safeCaptions.map((word)=>({
+            ...word,
+            start: Number(word.start || word.startTime || 0),
+            end: Number(word.end || word.endTime || 0)
+        })) : [];
+    // 3. Find the end time of the very last word spoken!
+    if (normalizedCaptions.length > 0) {
+        const lastCaption = normalizedCaptions[normalizedCaptions.length - 1];
+        const totalDurationMs = lastCaption.end;
+        // Convert milliseconds to frames (at 30 FPS).
+        // Add a 1-second buffer (30 frames) at the end.
+        dynamicDuration = Math.max(150, Math.ceil(totalDurationMs / 1000 * 30) + 30);
+    }
+    // 4. If we are in "AI_TEST" (Dynamic Canvas) mode, let the captions dictate the length.
+    // Otherwise, use the old hardcoded template length math.
+    if (inputProps.scenes?.[0]?.visualType !== "AI_TEST" && inputProps.scenes?.[0]?.visualType !== "DYNAMIC_CANVAS") {
+        dynamicDuration = calculateDuration(inputProps.scenes);
+    }
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+        className: "flex h-screen bg-[#0a0a0a] text-white overflow-hidden font-sans",
+        children: [
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("aside", {
+                className: "w-80 bg-[#111] border-r border-white/10 p-6 flex flex-col gap-6 shadow-2xl overflow-y-auto custom-scrollbar",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex items-center gap-3 mb-2",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "w-8 h-8 bg-purple-600 rounded-lg"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 339,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h1", {
+                                className: "text-xl font-black uppercase italic",
+                                children: "AutoAE PRO"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 340,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 338,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "bg-gray-900 p-4 rounded-lg mb-6 text-white",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-sm font-bold text-gray-400 uppercase tracking-wider mb-3",
+                                children: "Layers & Visibility"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 345,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center justify-between bg-gray-800 p-2 rounded",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-sm",
+                                                children: "Background"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 353,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                className: "bg-gray-700 text-xs p-1 rounded border-none outline-none cursor-pointer",
+                                                value: backgroundMode,
+                                                onChange: (e)=>setBackgroundMode(e.target.value),
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "black",
+                                                        children: "? Black"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 359,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "green",
+                                                        children: "?? Green Screen"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 360,
+                                                        columnNumber: 17
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                        value: "transparent",
+                                                        children: "?? Transparent"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 361,
+                                                        columnNumber: 17
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 354,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 352,
+                                        columnNumber: 13
+                                    }, this),
+                                    currentTemplate.availableLayers.map((layer)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex items-center justify-between bg-gray-800 p-2 rounded",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-sm",
+                                                    children: layer.label
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 368,
+                                                    columnNumber: 17
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>toggleLayer(layer.id),
+                                                    className: "text-lg hover:opacity-70 transition-opacity cursor-pointer",
+                                                    children: activeLayers[layer.id] ? '???' : '???'
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 369,
+                                                    columnNumber: 17
+                                                }, this)
+                                            ]
+                                        }, layer.id, true, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 367,
+                                            columnNumber: 15
+                                        }, this))
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 349,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 344,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex flex-col gap-3",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex justify-between items-center px-1",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest",
+                                        children: "Timeline"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 383,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>{
+                                            const newScene = {
+                                                visualType: "BAR_CHART",
+                                                headerText: "New Scene",
+                                                chartData: []
+                                            };
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: [
+                                                        ...prev.scenes,
+                                                        newScene
+                                                    ]
+                                                }));
+                                            setActiveSceneIndex(inputProps.scenes.length);
+                                        },
+                                        className: "text-[10px] font-bold text-purple-400",
+                                        children: "+ ADD SCENE"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 384,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 382,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex gap-2 items-center overflow-x-auto pb-2 custom-scrollbar",
+                                children: inputProps.scenes.map((scene, i)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["default"].Fragment, {
+                                        children: [
+                                            i > 0 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex flex-col items-center gap-1 group",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                        value: inputProps.scenes[i - 1].transition || "whip",
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[i - 1].transition = e.target.value;
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "bg-zinc-800 text-[8px] text-zinc-400 border border-white/5 rounded px-1 outline-none hover:border-purple-500/50 transition-all cursor-pointer",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                value: "whip",
+                                                                children: "WHIP PAN"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 407,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                value: "fade",
+                                                                children: "CROSS FADE"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 408,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                value: "flash",
+                                                                children: "WHITE FLASH"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 409,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                value: "zoom",
+                                                                children: "CINEMATIC ZOOM"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 410,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                value: "blur",
+                                                                children: "SOFT BLUR"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 411,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                value: "none",
+                                                                children: "HARD CUT"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 412,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                value: "bubble_wipe",
+                                                                children: "?? BUBBLE WIPE"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 413,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                value: "ice_zoom",
+                                                                children: "?? Ice Zoom In"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 414,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                value: "wave_wipe",
+                                                                children: "?? Wave Wipe"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 415,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 398,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "w-0.5 h-4 bg-zinc-800 group-hover:bg-purple-500/30 transition-colors"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 417,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 397,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "relative group flex-shrink-0",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                        onClick: ()=>setActiveSceneIndex(i),
+                                                        className: `px-4 py-2 rounded-lg text-[10px] font-black transition-all ${activeSceneIndex === i ? "bg-purple-600 text-white" : "bg-zinc-900 text-zinc-500 border border-white/5"}`,
+                                                        children: [
+                                                            "SCENE ",
+                                                            i + 1
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 421,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    inputProps.scenes.length > 1 && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                        onClick: (e)=>{
+                                                            e.stopPropagation();
+                                                            const newScenes = inputProps.scenes.filter((__, idx)=>idx !== i);
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                            setActiveSceneIndex(Math.max(0, i - 1));
+                                                        },
+                                                        className: "absolute -top-1 -right-1 w-4 h-4 bg-red-500 text-white rounded-full flex items-center justify-center text-[8px] opacity-0 group-hover:opacity-100 transition-opacity",
+                                                        children: "?"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 428,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 420,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, i, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 395,
+                                        columnNumber: 15
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 393,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 381,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4 bg-zinc-900/60 border border-white/10 rounded-xl p-4 shadow-lg border-l-4 border-l-orange-500",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block text-[10px] font-bold text-zinc-500 mb-3 uppercase tracking-widest",
+                                children: "Layout Mode"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 446,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex gap-2 mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setInputProps((prev)=>({
+                                                    ...prev,
+                                                    layoutMode: 'full'
+                                                })),
+                                        className: `flex-1 py-2 rounded-lg text-[10px] font-bold transition-all ${inputProps.layoutMode === 'full' ? 'bg-orange-500 text-white' : 'bg-zinc-800 text-zinc-500'}`,
+                                        children: "FULL SCREEN"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 450,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>setInputProps((prev)=>({
+                                                    ...prev,
+                                                    layoutMode: 'split'
+                                                })),
+                                        className: `flex-1 py-2 rounded-lg text-[10px] font-bold transition-all ${inputProps.layoutMode === 'split' ? 'bg-orange-500 text-white' : 'bg-zinc-800 text-zinc-500'}`,
+                                        children: "SPLIT SCREEN"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 454,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 449,
+                                columnNumber: 11
+                            }, this),
+                            inputProps.layoutMode === 'split' && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[9px] font-bold text-zinc-600 uppercase",
+                                        children: "Reaction Video (.mp4)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 462,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        placeholder: "Paste .mp4 URL...",
+                                        value: inputProps.reactionVideoUrl || "",
+                                        onChange: (e)=>setInputProps((prev)=>({
+                                                    ...prev,
+                                                    reactionVideoUrl: e.target.value
+                                                })),
+                                        className: "w-full bg-zinc-950 border border-white/10 rounded p-2 text-xs text-white"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 463,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 461,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 445,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "flex flex-col gap-2 mt-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest px-1",
+                                children: "Template Library"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 475,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "grid grid-cols-2 gap-2 max-h-[400px] overflow-y-auto pr-2 custom-scrollbar pb-4",
+                                children: [
+                                    {
+                                        id: "AI_TEST",
+                                        label: "🤖 AI TEST",
+                                        icon: "🧪",
+                                        desc: "DYNAMIC JSON RENDERER"
+                                    },
+                                    {
+                                        id: "KINETIC_SPEAKER",
+                                        label: "SPEAKER",
+                                        icon: "📢",
+                                        desc: "WORD POP"
+                                    },
+                                    {
+                                        id: "PUPPET_MASTER",
+                                        label: "PUPPET",
+                                        icon: "🎭",
+                                        desc: "BRAIN STRINGS"
+                                    },
+                                    {
+                                        id: "FOCUS",
+                                        label: "FOCUS",
+                                        icon: "🎯",
+                                        desc: "PROGRESS BAR"
+                                    },
+                                    {
+                                        id: "NEON_CONCEPT",
+                                        label: "NEON",
+                                        icon: "💎",
+                                        desc: "DIAMOND & PILLAR"
+                                    },
+                                    {
+                                        id: "BOOK_REVEAL",
+                                        label: "BOOK",
+                                        icon: "📖",
+                                        desc: "3D BOOK REVEAL"
+                                    },
+                                    {
+                                        id: "KINETIC_ROADMAP",
+                                        icon: "🛣️",
+                                        label: "ROADMAP",
+                                        desc: "LINE + ICONS"
+                                    },
+                                    {
+                                        id: "HYPER_IMPACT",
+                                        label: "HYPER POP",
+                                        icon: "💥",
+                                        desc: "BOTTLE + IMPACT"
+                                    },
+                                    {
+                                        id: "MACRO_POUR",
+                                        label: "THE POUR",
+                                        icon: "🥤",
+                                        desc: "MACRO ZOOM"
+                                    },
+                                    {
+                                        id: "KINETIC_STOMP",
+                                        label: "STOMP",
+                                        icon: "⚡",
+                                        desc: "AGGRESSIVE HOOK"
+                                    },
+                                    {
+                                        id: "CHRONO",
+                                        label: "CINEMATIC",
+                                        icon: "🎬",
+                                        desc: "PRODUCT REVEAL"
+                                    },
+                                    {
+                                        id: "PRODUCT_SHOWCASE",
+                                        label: "SHOWCASE",
+                                        icon: "✨",
+                                        desc: "FEATURE FOCUS"
+                                    },
+                                    {
+                                        id: "TRIPLE_BUILD",
+                                        label: "3 PILLARS",
+                                        icon: "🏛️",
+                                        desc: "CORE VALUES"
+                                    },
+                                    {
+                                        id: "CHASE_ATTENTION",
+                                        label: "CHASE",
+                                        icon: "🏃",
+                                        desc: "PRIORITY SHIFT"
+                                    },
+                                    {
+                                        id: "VERSUS",
+                                        label: "VERSUS",
+                                        icon: "⚔️",
+                                        desc: "A VS B SPLIT"
+                                    },
+                                    {
+                                        id: "VERTICAL_SPLIT",
+                                        label: "SPLIT SCREEN",
+                                        icon: "🔲",
+                                        desc: "TOP / BOTTOM"
+                                    },
+                                    {
+                                        id: "ICE_BUCKET",
+                                        label: "ICE BUCKET",
+                                        icon: "❄️",
+                                        desc: "FLAT LAY"
+                                    },
+                                    {
+                                        id: "FESTIVAL_CROWD",
+                                        label: "NIGHT FESTIVAL",
+                                        icon: "🎡",
+                                        desc: "AERIAL DRONE"
+                                    },
+                                    {
+                                        id: "BAR_CHART",
+                                        label: "BAR CHART",
+                                        icon: "📊",
+                                        desc: "DATA METRICS"
+                                    },
+                                    {
+                                        id: "LINE_CHART",
+                                        label: "LINE CHART",
+                                        icon: "📈",
+                                        desc: "TREND GROWTH"
+                                    },
+                                    {
+                                        id: "CROWD_SCALE",
+                                        label: "SCALE",
+                                        icon: "👥",
+                                        desc: "1 VS 1 MILLION"
+                                    },
+                                    {
+                                        id: "CHART_CRASH",
+                                        label: "CRASH",
+                                        icon: "📉",
+                                        desc: "FAILING METRICS"
+                                    },
+                                    {
+                                        id: "STAMP_CHECKLIST",
+                                        label: "CHECKLIST",
+                                        icon: "✅",
+                                        desc: "HARSH TRUTHS"
+                                    },
+                                    {
+                                        id: "CAROUSEL",
+                                        label: "CAROUSEL",
+                                        icon: "🎠",
+                                        desc: "PROCESS FLOW"
+                                    },
+                                    {
+                                        id: "NETWORK",
+                                        label: "NETWORK",
+                                        icon: "🕸️",
+                                        desc: "NODE SYSTEMS"
+                                    },
+                                    {
+                                        id: "CHAT",
+                                        label: "CHAT",
+                                        icon: "💬",
+                                        desc: "TEXT MESSAGES"
+                                    },
+                                    {
+                                        id: "LISTICLE",
+                                        label: "LISTICLE",
+                                        icon: "📝",
+                                        desc: "TOP 5 COUNT"
+                                    },
+                                    {
+                                        id: "CAPITAL",
+                                        label: "CAPITAL",
+                                        icon: "💰",
+                                        desc: "INVESTMENT"
+                                    },
+                                    {
+                                        id: "DARK_WEALTH",
+                                        label: "DARK WEALTH",
+                                        icon: "🤑",
+                                        desc: "3D PARALLAX FLIP"
+                                    },
+                                    {
+                                        id: "MINDSET_FLOW",
+                                        label: "MINDSET",
+                                        icon: "🧠",
+                                        desc: "HABIT JOURNEY"
+                                    },
+                                    {
+                                        id: "PANORAMIC_REEL",
+                                        label: "REEL",
+                                        icon: "🎞️",
+                                        desc: "HORIZON SLIDE"
+                                    },
+                                    {
+                                        id: "PENTAGON_FLOW",
+                                        label: "PENTA FLOW",
+                                        icon: "⬠",
+                                        desc: "CIRCULAR COMPARE"
+                                    }
+                                ].map((tpl)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>{
+                                            const newType = tpl.id;
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].visualType = newType;
+                                            // 🤖 AI_TEST needs no special setup - uses DynamicSceneRenderer directly
+                                            if (newType === "AI_TEST") {
+                                            // Just set the type, DynamicSceneRenderer handles the rest
+                                            } else if ([
+                                                "BAR_CHART",
+                                                "LINE_CHART",
+                                                "CHART_CRASH",
+                                                "CROWD_SCALE"
+                                            ].includes(newType)) {
+                                                newScenes[activeSceneIndex].chartData = [
+                                                    {
+                                                        label: "Item 1",
+                                                        value: 10
+                                                    },
+                                                    {
+                                                        label: "Item 2",
+                                                        value: 80
+                                                    }
+                                                ];
+                                            } else if (newType === "KINETIC_SPEAKER") {
+                                                newScenes[activeSceneIndex].chartData = [
+                                                    {
+                                                        label: "Iss video main tumhain",
+                                                        value: 0
+                                                    },
+                                                    {
+                                                        label: "10 Powerful",
+                                                        value: 1
+                                                    },
+                                                    {
+                                                        label: "books",
+                                                        value: 0
+                                                    }
+                                                ];
+                                            } else if (newType === "NEON_CONCEPT") {
+                                                newScenes[activeSceneIndex].headerText = "These will teach you";
+                                                newScenes[activeSceneIndex].leftText = "10 powerful skills";
+                                                newScenes[activeSceneIndex].backgroundImage = ""; // Forces it to load the safe 3D Diamond
+                                            } else if (newType === "BOOK_REVEAL") {
+                                                newScenes[activeSceneIndex].number = "1";
+                                                newScenes[activeSceneIndex].coverImage = "https://images.unsplash.com/photo-1544947950-fa07a98d237f?q=80&w=800&auto=format&fit=crop";
+                                            } else if (newType === "DARK_WEALTH") {
+                                                newScenes[activeSceneIndex].topText1 = "Kis trah khel skte ho";
+                                                newScenes[activeSceneIndex].mainText1 = "MONEY";
+                                                newScenes[activeSceneIndex].topText2 = "How can you become";
+                                                newScenes[activeSceneIndex].mainText2 = "RICH";
+                                                newScenes[activeSceneIndex].cardImage = "https://cdn.pixabay.com/photo/2021/07/22/11/04/credit-card-6485023_1280.png";
+                                                newScenes[activeSceneIndex].coinImage = "https://cdn.pixabay.com/photo/2021/04/30/16/47/bitcoin-6219253_1280.png";
+                                                newScenes[activeSceneIndex].noteImage = "https://cdn.pixabay.com/photo/2016/09/22/16/38/money-1687705_1280.png";
+                                            } else if (newType === "PUPPET_MASTER") {
+                                                newScenes[activeSceneIndex].chartData = [
+                                                    {
+                                                        label: "Influence",
+                                                        value: 0
+                                                    },
+                                                    {
+                                                        label: "Master Mind",
+                                                        value: 1
+                                                    },
+                                                    {
+                                                        label: "Control",
+                                                        value: 0
+                                                    }
+                                                ];
+                                                // Inject perfect starting values
+                                                newScenes[activeSceneIndex].handSize = 600;
+                                                newScenes[activeSceneIndex].handX = -138;
+                                                newScenes[activeSceneIndex].handY = -182;
+                                                newScenes[activeSceneIndex].handRotation = 6;
+                                                newScenes[activeSceneIndex].handSpeed = 1;
+                                                newScenes[activeSceneIndex].stringTension = 1;
+                                            } else if (newType === "MINDSET_FLOW") {
+                                                newScenes[activeSceneIndex].image1 = "";
+                                                newScenes[activeSceneIndex].image2 = "";
+                                                newScenes[activeSceneIndex].image3 = "";
+                                                newScenes[activeSceneIndex].bookImage = "";
+                                                newScenes[activeSceneIndex].img1Size = 380;
+                                                newScenes[activeSceneIndex].img2Size = 380;
+                                                newScenes[activeSceneIndex].img3Size = 380;
+                                                newScenes[activeSceneIndex].img1Y = 0;
+                                                newScenes[activeSceneIndex].img2Y = 0;
+                                                newScenes[activeSceneIndex].img3Y = 0;
+                                                newScenes[activeSceneIndex].tintColor = "#00d4ff";
+                                            } else if (newType === "PANORAMIC_REEL") {
+                                                newScenes[activeSceneIndex].chartData = [
+                                                    {
+                                                        label: "VILLAGE",
+                                                        image: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?w=800"
+                                                    },
+                                                    {
+                                                        label: "CITY",
+                                                        image: "https://images.unsplash.com/photo-1449824913935-59a10b8d2000?w=800"
+                                                    },
+                                                    {
+                                                        label: "CONSTRUCTION",
+                                                        image: "https://images.unsplash.com/photo-1503387762-592dea58ef23?w=800"
+                                                    }
+                                                ];
+                                            } else if (newType === "PENTAGON_FLOW") {
+                                                newScenes[activeSceneIndex].chartData = [
+                                                    {
+                                                        label: "BRICKS",
+                                                        status: "neutral",
+                                                        image: ""
+                                                    },
+                                                    {
+                                                        label: "IRON",
+                                                        status: "wrong",
+                                                        image: ""
+                                                    },
+                                                    {
+                                                        label: "CEMENT",
+                                                        status: "correct",
+                                                        image: ""
+                                                    }
+                                                ];
+                                            }
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: `flex flex-col items-start justify-center p-3 rounded-xl border transition-all text-left relative overflow-hidden group ${activeScene.visualType === tpl.id ? 'bg-gradient-to-br from-purple-500/20 to-purple-900/10 border-purple-500 shadow-[0_0_15px_rgba(168,85,247,0.15)]' : 'bg-zinc-900/50 border-white/5 hover:bg-zinc-800 hover:border-white/20'}`,
+                                        children: [
+                                            activeScene.visualType === tpl.id && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "absolute -top-4 -right-4 w-12 h-12 bg-purple-500/30 blur-xl rounded-full pointer-events-none"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 610,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center gap-2 mb-1 z-10",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-lg",
+                                                        children: tpl.icon
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 613,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: `text-[10px] font-bold uppercase tracking-wider ${activeScene.visualType === tpl.id ? 'text-purple-300' : 'text-zinc-300'}`,
+                                                        children: tpl.label
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 614,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 612,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-[8px] text-zinc-500 uppercase tracking-widest z-10",
+                                                children: tpl.desc
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 618,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, tpl.id, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 512,
+                                        columnNumber: 15
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 476,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 474,
+                        columnNumber: 9
+                    }, this),
+                    activeScene.visualType !== "BOOK_REVEAL" && activeScene.visualType !== "NEON_CONCEPT" && activeScene.visualType !== "KINETIC_SPEAKER" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                children: "SCENE HEADER"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 628,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                type: "text",
+                                value: activeScene.headerText ?? "",
+                                onChange: (e)=>{
+                                    const newScenes = [
+                                        ...inputProps.scenes
+                                    ];
+                                    newScenes[activeSceneIndex] = {
+                                        ...newScenes[activeSceneIndex],
+                                        headerText: e.target.value
+                                    };
+                                    setInputProps((prev)=>({
+                                            ...prev,
+                                            scenes: newScenes
+                                        }));
+                                },
+                                className: "w-full bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 629,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 627,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4 bg-zinc-900/60 border border-white/10 rounded-xl p-4 shadow-lg border-l-4 border-l-cyan-500",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block text-[10px] font-bold text-zinc-500 mb-2 uppercase tracking-widest",
+                                children: "Global Font Style"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 644,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                value: activeScene.fontFamily || "Montserrat",
+                                onChange: (e)=>{
+                                    const fontName = e.target.value;
+                                    const newScenes = [
+                                        ...inputProps.scenes
+                                    ];
+                                    newScenes[activeSceneIndex] = {
+                                        ...newScenes[activeSceneIndex],
+                                        fontFamily: fontName
+                                    };
+                                    setInputProps((prev)=>({
+                                            ...prev,
+                                            scenes: newScenes
+                                        }));
+                                    // Load the font immediately when clicked
+                                    if (fontName === 'Bebas Neue') (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$remotion$2f$google$2d$fonts$2f$dist$2f$esm$2f$BebasNeue$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["loadFont"])();
+                                    if (fontName === 'Poppins') (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$remotion$2f$google$2d$fonts$2f$dist$2f$esm$2f$Poppins$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["loadFont"])();
+                                    if (fontName === 'Montserrat') (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$remotion$2f$google$2d$fonts$2f$dist$2f$esm$2f$Montserrat$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["loadFont"])();
+                                },
+                                className: "w-full bg-zinc-950 border border-white/10 rounded p-3 text-xs text-white appearance-none cursor-pointer focus:border-cyan-500 transition-colors",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                        value: "Montserrat",
+                                        children: "Montserrat (Clean & Modern)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 665,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                        value: "Bebas Neue",
+                                        children: "Bebas Neue (Tall & Cinematic)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 666,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                        value: "Poppins",
+                                        children: "Poppins (Soft & Friendly)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 667,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                        value: "'Arial Black', Arial, sans-serif",
+                                        children: "Arial Black (System Default)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 668,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 647,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 643,
+                        columnNumber: 9
+                    }, this),
+                    (activeScene.visualType === "KINETIC_SPEAKER" || activeScene.visualType === "PUPPET_MASTER") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4 bg-zinc-900/40 border border-white/5 rounded-xl p-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3",
+                                children: "Speaker Text & Size"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 675,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "flex justify-between text-[10px] font-bold text-zinc-400 mb-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: "HIGHLIGHT FONT SIZE"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 679,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-purple-400",
+                                                children: [
+                                                    activeScene.customFontSize || 135,
+                                                    "px"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 680,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 678,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "range",
+                                        min: "60",
+                                        max: "200",
+                                        step: "5",
+                                        value: activeScene.customFontSize || 135,
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].customFontSize = Number(e.target.value);
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full accent-purple-500 h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 682,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 677,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-2",
+                                children: [
+                                    activeScene.chartData?.map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex gap-2 items-center",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                    type: "text",
+                                                    value: item.label,
+                                                    onChange: (e)=>{
+                                                        const newScenes = [
+                                                            ...inputProps.scenes
+                                                        ];
+                                                        newScenes[activeSceneIndex].chartData[idx].label = e.target.value;
+                                                        setInputProps((prev)=>({
+                                                                ...prev,
+                                                                scenes: newScenes
+                                                            }));
+                                                    },
+                                                    className: "flex-1 bg-zinc-950 border border-white/10 rounded p-2 text-xs text-white"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 697,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>{
+                                                        const newScenes = [
+                                                            ...inputProps.scenes
+                                                        ];
+                                                        newScenes[activeSceneIndex].chartData[idx].value = item.value === 1 ? 0 : 1;
+                                                        setInputProps((prev)=>({
+                                                                ...prev,
+                                                                scenes: newScenes
+                                                            }));
+                                                    },
+                                                    className: `px-2 py-2 rounded text-[9px] font-bold transition-all ${item.value === 1 ? 'bg-purple-600 text-white shadow-[0_0_10px_rgba(168,85,247,0.4)]' : 'bg-zinc-800 text-zinc-500'}`,
+                                                    children: item.value === 1 ? 'GLOW' : 'NORMAL'
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 707,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>{
+                                                        const newScenes = [
+                                                            ...inputProps.scenes
+                                                        ];
+                                                        newScenes[activeSceneIndex].chartData.splice(idx, 1);
+                                                        setInputProps((prev)=>({
+                                                                ...prev,
+                                                                scenes: newScenes
+                                                            }));
+                                                    },
+                                                    className: "text-zinc-600 hover:text-red-500 px-1 transition-colors",
+                                                    children: "?"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 717,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, idx, true, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 696,
+                                            columnNumber: 17
+                                        }, this)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            if (!newScenes[activeSceneIndex].chartData) newScenes[activeSceneIndex].chartData = [];
+                                            newScenes[activeSceneIndex].chartData.push({
+                                                label: "New Word",
+                                                value: 0
+                                            });
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full mt-1 py-2 border border-dashed border-white/10 text-zinc-500 rounded text-[10px] font-bold hover:bg-white/5 hover:text-white transition-colors",
+                                        children: "+ ADD TEXT LINE"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 727,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 694,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 674,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "VERTICAL_SPLIT" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "grid grid-cols-2 gap-2 mb-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "TOP LABEL"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 746,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        value: activeScene.leftText || "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].leftText = e.target.value;
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-2 text-xs text-white",
+                                        placeholder: "Dull Office"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 747,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 745,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "BOTTOM LABEL"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 754,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        value: activeScene.rightText || "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].rightText = e.target.value;
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-2 text-xs text-white",
+                                        placeholder: "Vibrant Beach"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 755,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 753,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 744,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "BOOK_REVEAL" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4 bg-zinc-900/40 border border-white/5 rounded-xl p-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3",
+                                children: "?? Book Reveal Controls"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 767,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "GIANT BACKGROUND NUMBER"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 771,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        // ? FIX: Use ?? "" so you can delete it!
+                                        value: activeScene.number ?? "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].number = e.target.value;
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 772,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 770,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "BOOK COVER IMAGE URL"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 787,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        placeholder: "Paste image URL here...",
+                                        value: activeScene.coverImage || "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].coverImage = e.target.value;
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 788,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 786,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "BOOK NAME (TOP LINE)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 803,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        // ? FIX: Use ?? ""
+                                        value: activeScene.title ?? "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].title = e.target.value;
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 804,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 802,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "AUTHOR NAME (BOTTOM LINE)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 819,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        // ? FIX: Use ?? ""
+                                        value: activeScene.author ?? "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].author = e.target.value;
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 820,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 818,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
+                                className: "border-zinc-700/30 my-3"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 833,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "GLOBAL FONT COLOR"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 837,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "color",
+                                                value: activeScene.fontColor || "#111111",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex].fontColor = e.target.value;
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "w-16 h-12 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 839,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
+                                                value: activeScene.fontColor || "#111111",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex].fontColor = e.target.value;
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "flex-1 bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white font-mono uppercase"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 849,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 838,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 836,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "flex justify-between text-[10px] font-bold text-zinc-400 mb-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: "GLOBAL FONT SIZE SCALE"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 865,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-purple-400",
+                                                children: [
+                                                    activeScene.fontSize || 100,
+                                                    "%"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 866,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 864,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "range",
+                                        min: "50",
+                                        max: "150",
+                                        value: activeScene.fontSize || 100,
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].fontSize = Number(e.target.value);
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full accent-purple-500 h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 868,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 863,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
+                                className: "border-zinc-700/30 my-3"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 882,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "GIANT NUMBER COLOR"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 886,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "color",
+                                                value: activeScene.numberColor || "#000000",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex].numberColor = e.target.value;
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "w-16 h-12 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 888,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
+                                                value: activeScene.numberColor || "#000000",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex].numberColor = e.target.value;
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "flex-1 bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white font-mono uppercase"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 898,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 887,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 885,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
+                                className: "border-zinc-700/30 my-3"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 911,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "p-3 bg-black/40 rounded-lg border border-white/5",
+                                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                    className: "flex items-center justify-between cursor-pointer",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                            className: "text-[10px] font-bold text-zinc-400",
+                                            children: "? ENABLE LIGHTNING STRIKE"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 916,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            type: "checkbox",
+                                            checked: activeScene.showLightning ?? true,
+                                            onChange: (e)=>{
+                                                const newScenes = [
+                                                    ...inputProps.scenes
+                                                ];
+                                                newScenes[activeSceneIndex].showLightning = e.target.checked;
+                                                setInputProps((prev)=>({
+                                                        ...prev,
+                                                        scenes: newScenes
+                                                    }));
+                                            },
+                                            className: "w-4 h-4 accent-purple-500 rounded cursor-pointer"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 917,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/editor/page.tsx",
+                                    lineNumber: 915,
+                                    columnNumber: 15
+                                }, this)
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 914,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 766,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "MINDSET_FLOW" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "space-y-4 mb-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "p-3 bg-black/40 rounded-lg border border-white/5 mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2 uppercase",
+                                        children: "?? Image Tint Color"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 939,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "color",
+                                                value: activeScene.tintColor || "#00d4ff",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex] = {
+                                                        ...newScenes[activeSceneIndex],
+                                                        tintColor: e.target.value
+                                                    };
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "w-12 h-12 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 941,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-xs text-zinc-400",
+                                                children: "Applies a cinematic duotone tint to the 3 habit images."
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 951,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 940,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 938,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block text-xs font-bold text-purple-400 mb-2 uppercase tracking-wider",
+                                children: "??? Staggered Habit Images"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 955,
+                                columnNumber: 13
+                            }, this),
+                            [
+                                1,
+                                2,
+                                3
+                            ].map((num)=>{
+                                const imgKey = `image${num}`;
+                                const sizeKey = `img${num}Size`;
+                                const yKey = `img${num}Y`;
+                                return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                    className: "p-4 bg-black/60 rounded-lg border border-white/10 flex flex-col gap-3",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex justify-between items-center",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                    className: "text-[11px] font-bold text-white uppercase",
+                                                    children: [
+                                                        "HABIT IMAGE ",
+                                                        num
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 968,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                    className: "cursor-pointer bg-zinc-800 hover:bg-zinc-700 px-3 py-1 rounded text-[10px] font-bold text-white transition-colors",
+                                                    children: [
+                                                        "Upload File",
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                            type: "file",
+                                                            accept: "image/*",
+                                                            className: "hidden",
+                                                            onChange: (e)=>{
+                                                                const file = e.target.files?.[0];
+                                                                if (file) {
+                                                                    // ? FIX: Converted to Base64 so the MP4 renderer can read it!
+                                                                    const reader = new FileReader();
+                                                                    reader.onloadend = ()=>{
+                                                                        const newScenes = [
+                                                                            ...inputProps.scenes
+                                                                        ];
+                                                                        newScenes[activeSceneIndex] = {
+                                                                            ...newScenes[activeSceneIndex],
+                                                                            [imgKey]: reader.result
+                                                                        };
+                                                                        setInputProps((prev)=>({
+                                                                                ...prev,
+                                                                                scenes: newScenes
+                                                                            }));
+                                                                    };
+                                                                    reader.readAsDataURL(file);
+                                                                }
+                                                            }
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 971,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 969,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 967,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            type: "text",
+                                            placeholder: "Or Paste URL...",
+                                            value: activeScene[imgKey] || '',
+                                            onChange: (e)=>{
+                                                const newScenes = [
+                                                    ...inputProps.scenes
+                                                ];
+                                                newScenes[activeSceneIndex] = {
+                                                    ...newScenes[activeSceneIndex],
+                                                    [imgKey]: e.target.value
+                                                };
+                                                setInputProps((prev)=>({
+                                                        ...prev,
+                                                        scenes: newScenes
+                                                    }));
+                                            },
+                                            className: "w-full bg-zinc-900 border border-white/10 rounded px-2 py-1.5 text-xs text-white"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 990,
+                                            columnNumber: 19
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "grid grid-cols-2 gap-4 mt-2",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                            className: "flex justify-between text-[9px] font-bold text-zinc-400 mb-1",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    children: "SIZE"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 1004,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "text-purple-400",
+                                                                    children: [
+                                                                        activeScene[sizeKey] || 380,
+                                                                        "px"
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 1005,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1003,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                            type: "range",
+                                                            min: "150",
+                                                            max: "800",
+                                                            value: activeScene[sizeKey] || 380,
+                                                            onChange: (e)=>{
+                                                                const newScenes = [
+                                                                    ...inputProps.scenes
+                                                                ];
+                                                                newScenes[activeSceneIndex] = {
+                                                                    ...newScenes[activeSceneIndex],
+                                                                    [sizeKey]: Number(e.target.value)
+                                                                };
+                                                                setInputProps((prev)=>({
+                                                                        ...prev,
+                                                                        scenes: newScenes
+                                                                    }));
+                                                            },
+                                                            className: "w-full accent-purple-500 h-1 bg-zinc-800 rounded appearance-none"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1007,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 1002,
+                                                    columnNumber: 21
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                            className: "flex justify-between text-[9px] font-bold text-zinc-400 mb-1",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    children: "MOVE (UP/DOWN)"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 1019,
+                                                                    columnNumber: 25
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "text-purple-400",
+                                                                    children: activeScene[yKey] || 0
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 1020,
+                                                                    columnNumber: 25
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1018,
+                                                            columnNumber: 23
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                            type: "range",
+                                                            min: "-400",
+                                                            max: "400",
+                                                            value: activeScene[yKey] || 0,
+                                                            onChange: (e)=>{
+                                                                const newScenes = [
+                                                                    ...inputProps.scenes
+                                                                ];
+                                                                newScenes[activeSceneIndex] = {
+                                                                    ...newScenes[activeSceneIndex],
+                                                                    [yKey]: Number(e.target.value)
+                                                                };
+                                                                setInputProps((prev)=>({
+                                                                        ...prev,
+                                                                        scenes: newScenes
+                                                                    }));
+                                                            },
+                                                            className: "w-full accent-blue-500 h-1 bg-zinc-800 rounded appearance-none"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1022,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 1017,
+                                                    columnNumber: 21
+                                                }, this)
+                                            ]
+                                        }, void 0, true, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 1001,
+                                            columnNumber: 19
+                                        }, this)
+                                    ]
+                                }, imgKey, true, {
+                                    fileName: "[project]/src/app/editor/page.tsx",
+                                    lineNumber: 966,
+                                    columnNumber: 17
+                                }, this);
+                            }),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "p-3 bg-black/40 rounded-lg border border-white/5 mt-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "block text-[10px] font-bold text-zinc-500 uppercase mb-2",
+                                        children: "?? Final Book Image"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1039,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
+                                                placeholder: "Paste Book URL...",
+                                                value: activeScene.bookImage || '',
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex] = {
+                                                        ...newScenes[activeSceneIndex],
+                                                        bookImage: e.target.value
+                                                    };
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "flex-1 bg-zinc-900 border border-white/10 rounded px-2 py-1.5 text-xs text-white"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1041,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "cursor-pointer bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded text-xs font-bold text-white flex items-center justify-center",
+                                                children: [
+                                                    "Upload",
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "file",
+                                                        accept: "image/*",
+                                                        className: "hidden",
+                                                        onChange: (e)=>{
+                                                            const file = e.target.files?.[0];
+                                                            if (file) {
+                                                                // ? FIX: Converted to Base64
+                                                                const reader = new FileReader();
+                                                                reader.onloadend = ()=>{
+                                                                    const newScenes = [
+                                                                        ...inputProps.scenes
+                                                                    ];
+                                                                    newScenes[activeSceneIndex] = {
+                                                                        ...newScenes[activeSceneIndex],
+                                                                        bookImage: reader.result
+                                                                    };
+                                                                    setInputProps((prev)=>({
+                                                                            ...prev,
+                                                                            scenes: newScenes
+                                                                        }));
+                                                                };
+                                                                reader.readAsDataURL(file);
+                                                            }
+                                                        }
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1052,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1050,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1040,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1038,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 935,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "NEON_CONCEPT" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4 bg-zinc-900/40 border border-white/5 rounded-xl p-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-4",
+                                children: "?? Neon Concept Controls"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1077,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-4 p-3 bg-black/40 rounded-lg border border-white/5",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "TOP TEXT LINE"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1081,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-2 mb-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
+                                                value: activeScene.headerText ?? "",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex] = {
+                                                        ...newScenes[activeSceneIndex],
+                                                        headerText: e.target.value
+                                                    };
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "flex-1 bg-zinc-900 border border-white/10 rounded p-2 text-sm text-white",
+                                                placeholder: "Text..."
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1085,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "w-20 relative",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "number",
+                                                        value: activeScene.topFontSize ?? 75,
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                topFontSize: Number(e.target.value)
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-2 text-sm text-white text-center font-mono",
+                                                        title: "Font Size"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1097,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "absolute -top-3 right-1 text-[8px] text-zinc-600 font-bold uppercase",
+                                                        children: "Size"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1108,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1096,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1084,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "color",
+                                                value: activeScene.topFontColor || "#00ffff",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex] = {
+                                                        ...newScenes[activeSceneIndex],
+                                                        topFontColor: e.target.value
+                                                    };
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "w-8 h-8 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1114,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-[10px] font-bold text-zinc-400 uppercase",
+                                                children: "Text Color"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1124,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1113,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1080,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-4 p-3 bg-black/40 rounded-lg border border-white/5",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "BOTTOM TEXT LINE (GIANT)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1130,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-2 mb-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
+                                                value: activeScene.leftText ?? "",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex] = {
+                                                        ...newScenes[activeSceneIndex],
+                                                        leftText: e.target.value
+                                                    };
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "flex-1 bg-zinc-900 border border-white/10 rounded p-2 text-sm text-white",
+                                                placeholder: "Text..."
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1134,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "w-20 relative",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "number",
+                                                        value: activeScene.bottomFontSize ?? 125,
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                bottomFontSize: Number(e.target.value)
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-2 text-sm text-white text-center font-mono",
+                                                        title: "Font Size"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1146,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "absolute -top-3 right-1 text-[8px] text-zinc-600 font-bold uppercase",
+                                                        children: "Size"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1157,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1145,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1133,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "color",
+                                                value: activeScene.bottomFontColor || "#00aaff",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex] = {
+                                                        ...newScenes[activeSceneIndex],
+                                                        bottomFontColor: e.target.value
+                                                    };
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "w-8 h-8 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1163,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-[10px] font-bold text-zinc-400 uppercase",
+                                                children: "Text Color"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1173,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1162,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1129,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
+                                className: "border-zinc-700/30 my-4"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1177,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "BACKGROUND GLOW CENTER"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1181,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "color",
+                                                value: activeScene.bgGradientColor || "#002255",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex] = {
+                                                        ...newScenes[activeSceneIndex],
+                                                        bgGradientColor: e.target.value
+                                                    };
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "w-16 h-12 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1183,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
+                                                value: activeScene.bgGradientColor || "#002255",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex] = {
+                                                        ...newScenes[activeSceneIndex],
+                                                        bgGradientColor: e.target.value
+                                                    };
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "flex-1 bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white font-mono uppercase"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1193,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1182,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1180,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 1076,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "NEON_CONCEPT" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mt-4 mb-4 bg-zinc-900/40 border border-white/5 rounded-xl p-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-4",
+                                children: "??? Pillar & Diamond Styling"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1212,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-4",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "DIAMOND GLOW COLOR"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1216,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "color",
+                                                value: activeScene.diamondColor || "#00d4ff",
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex] = {
+                                                        ...newScenes[activeSceneIndex],
+                                                        diamondColor: e.target.value
+                                                    };
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "w-12 h-10 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1218,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
+                                                readOnly: true,
+                                                value: activeScene.diamondColor || "#00d4ff",
+                                                className: "flex-1 bg-zinc-950 border border-white/10 rounded p-2 text-[10px] text-white font-mono uppercase"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1228,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1217,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1215,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "space-y-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 uppercase",
+                                        children: "Pillar Column Colors (Left to Right)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1234,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "grid grid-cols-3 gap-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex flex-col gap-1",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "color",
+                                                        value: activeScene.pillarColorLeft || "#00d4ff",
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                pillarColorLeft: e.target.value
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "w-full h-10 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1238,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-[8px] text-zinc-600 text-center font-bold",
+                                                        children: "LEFT"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1248,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1237,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex flex-col gap-1",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "color",
+                                                        value: activeScene.pillarColorCenter || "#0088cc",
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                pillarColorCenter: e.target.value
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "w-full h-10 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1253,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-[8px] text-zinc-600 text-center font-bold",
+                                                        children: "CENTER"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1263,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1252,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex flex-col gap-1",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "color",
+                                                        value: activeScene.pillarColorRight || "#001a33",
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                pillarColorRight: e.target.value
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "w-full h-10 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1268,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-[8px] text-zinc-600 text-center font-bold",
+                                                        children: "RIGHT"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1278,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1267,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1235,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1233,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 1211,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "KINETIC_ROADMAP" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4 bg-zinc-900/40 border border-white/5 rounded-xl p-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3",
+                                children: "??? Roadmap Icons"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1289,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-4",
+                                children: [
+                                    0,
+                                    1,
+                                    2,
+                                    3
+                                ].map((iconIdx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "p-3 bg-black/30 rounded-lg border border-white/5",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "block text-[9px] font-bold text-zinc-500 mb-2 uppercase",
+                                                children: [
+                                                    "Slot ",
+                                                    iconIdx + 1
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1294,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex items-center gap-3 relative",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "w-12 h-12 bg-zinc-800 rounded-lg flex items-center justify-center text-2xl border border-white/10 text-cyan-400 shrink-0",
+                                                        children: activeScene.icons?.[iconIdx]?.startsWith('http') ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("img", {
+                                                            src: activeScene.icons[iconIdx],
+                                                            className: "w-8 h-8 object-contain brightness-0 invert",
+                                                            style: {
+                                                                filter: 'drop-shadow(0 0 5px cyan)'
+                                                            }
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1300,
+                                                            columnNumber: 25
+                                                        }, this) : activeScene.icons?.[iconIdx] || "?"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1298,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex-1 relative group",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                type: "text",
+                                                                // ? FIX: Make the actual text transparent so it doesn't "ghost"
+                                                                className: "w-full bg-zinc-950 border border-white/10 rounded p-2 text-xs text-transparent focus:text-white transition-colors",
+                                                                value: activeScene.icons?.[iconIdx] ?? "",
+                                                                onChange: (e)=>{
+                                                                    const newScenes = [
+                                                                        ...inputProps.scenes
+                                                                    ];
+                                                                    const currentIcons = [
+                                                                        ...newScenes[activeSceneIndex].icons || []
+                                                                    ];
+                                                                    currentIcons[iconIdx] = e.target.value;
+                                                                    newScenes[activeSceneIndex] = {
+                                                                        ...newScenes[activeSceneIndex],
+                                                                        icons: currentIcons
+                                                                    };
+                                                                    setInputProps((prev)=>({
+                                                                            ...prev,
+                                                                            scenes: newScenes
+                                                                        }));
+                                                                }
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1308,
+                                                                columnNumber: 23
+                                                            }, this),
+                                                            !activeScene.icons?.[iconIdx]?.startsWith('http') && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "absolute left-3 top-1/2 -translate-y-1/2 text-[10px] text-zinc-500 pointer-events-none truncate max-w-[80%] uppercase font-mono tracking-tighter",
+                                                                children: activeScene.icons?.[iconIdx] || "Select Icon..."
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1324,
+                                                                columnNumber: 25
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1307,
+                                                        columnNumber: 21
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "cursor-pointer bg-zinc-800 hover:bg-zinc-700 p-2 rounded border border-white/10 transition-colors shrink-0",
+                                                        children: [
+                                                            "??",
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                type: "file",
+                                                                className: "hidden",
+                                                                accept: "image/*",
+                                                                onChange: (e)=>{
+                                                                    const file = e.target.files?.[0];
+                                                                    if (file) {
+                                                                        const reader = new FileReader();
+                                                                        reader.onloadend = ()=>{
+                                                                            const newScenes = [
+                                                                                ...inputProps.scenes
+                                                                            ];
+                                                                            const currentIcons = [
+                                                                                ...newScenes[activeSceneIndex].icons || []
+                                                                            ];
+                                                                            currentIcons[iconIdx] = reader.result;
+                                                                            newScenes[activeSceneIndex] = {
+                                                                                ...newScenes[activeSceneIndex],
+                                                                                icons: currentIcons
+                                                                            };
+                                                                            setInputProps((prev)=>({
+                                                                                    ...prev,
+                                                                                    scenes: newScenes
+                                                                                }));
+                                                                        };
+                                                                        reader.readAsDataURL(file);
+                                                                    }
+                                                                }
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1333,
+                                                                columnNumber: 23
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1331,
+                                                        columnNumber: 21
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1296,
+                                                columnNumber: 19
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "grid grid-cols-6 gap-2 mt-3",
+                                                children: [
+                                                    "RiRocketLine",
+                                                    "RiLightbulbLine",
+                                                    "RiBookLine",
+                                                    "RiCheckLine",
+                                                    "RiMentalHealthLine",
+                                                    "RiShieldLine",
+                                                    "RiSmartphoneLine",
+                                                    "RiTeamLine",
+                                                    "RiBarChartBoxLine",
+                                                    "RiMedal2Line"
+                                                ].map((curatedIconID)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                        onClick: ()=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            const currentIcons = [
+                                                                ...newScenes[activeSceneIndex].icons || []
+                                                            ];
+                                                            // ? We store the string ID of the icon!
+                                                            currentIcons[iconIdx] = curatedIconID;
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                icons: currentIcons
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "p-1 hover:bg-white/10 rounded border border-cyan-800/20 text-sm transition-colors flex justify-center items-center h-10",
+                                                        children: [
+                                                            curatedIconID === "RiRocketLine" && "??",
+                                                            curatedIconID === "RiLightbulbLine" && "??",
+                                                            curatedIconID === "RiBookLine" && "??",
+                                                            curatedIconID === "RiCheckLine" && "?",
+                                                            curatedIconID === "RiMentalHealthLine" && "??",
+                                                            curatedIconID === "RiShieldLine" && "???",
+                                                            curatedIconID === "RiSmartphoneLine" && "??",
+                                                            curatedIconID === "RiTeamLine" && "??",
+                                                            curatedIconID === "RiBarChartBoxLine" && "??",
+                                                            curatedIconID === "RiMedal2Line" && "??"
+                                                        ]
+                                                    }, curatedIconID, true, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1359,
+                                                        columnNumber: 23
+                                                    }, this))
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1356,
+                                                columnNumber: 19
+                                            }, this)
+                                        ]
+                                    }, iconIdx, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1293,
+                                        columnNumber: 17
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1291,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mt-4 p-3 bg-black/40 rounded-lg border border-white/5",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                        className: "text-[10px] font-bold text-zinc-500 uppercase mb-3",
+                                        children: "Text Styling"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1391,
+                                        columnNumber: 11
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-4 items-end",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex-1",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "block text-[9px] font-bold text-zinc-500 mb-2 uppercase",
+                                                        children: "Font Size"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1396,
+                                                        columnNumber: 15
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "number",
+                                                        value: activeScene.fontSize ?? 115,
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                fontSize: Number(e.target.value)
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "w-full bg-zinc-950 border border-white/10 rounded p-2 text-xs text-white font-mono"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1397,
+                                                        columnNumber: 15
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1395,
+                                                columnNumber: 13
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                className: "flex-1",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "block text-[9px] font-bold text-zinc-500 mb-2 uppercase",
+                                                        children: "Text Color"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1411,
+                                                        columnNumber: 15
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                        className: "flex gap-2",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                type: "color",
+                                                                value: activeScene.fontColor || "#ffffff",
+                                                                onChange: (e)=>{
+                                                                    const newScenes = [
+                                                                        ...inputProps.scenes
+                                                                    ];
+                                                                    newScenes[activeSceneIndex] = {
+                                                                        ...newScenes[activeSceneIndex],
+                                                                        fontColor: e.target.value
+                                                                    };
+                                                                    setInputProps((prev)=>({
+                                                                            ...prev,
+                                                                            scenes: newScenes
+                                                                        }));
+                                                                },
+                                                                className: "w-10 h-9 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1413,
+                                                                columnNumber: 17
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                type: "text",
+                                                                value: activeScene.fontColor || "#ffffff",
+                                                                readOnly: true,
+                                                                className: "flex-1 bg-zinc-950 border border-white/10 rounded p-2 text-[10px] text-white font-mono uppercase"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1423,
+                                                                columnNumber: 17
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1412,
+                                                        columnNumber: 15
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1410,
+                                                columnNumber: 13
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1393,
+                                        columnNumber: 11
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1390,
+                                columnNumber: 9
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 1288,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "DARK_WEALTH" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4 bg-zinc-900/40 border border-white/5 rounded-xl p-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-4",
+                                children: "?? Dark Wealth Controls"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1439,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-4 p-3 bg-black/40 rounded-lg border border-white/5",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "PHASE 1 (Pre-Flip)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1443,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        value: activeScene.topText1 ?? "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex] = {
+                                                ...newScenes[activeSceneIndex],
+                                                topText1: e.target.value
+                                            };
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-2 text-xs text-white mb-2",
+                                        placeholder: "Small Top Text..."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1444,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        value: activeScene.mainText1 ?? "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex] = {
+                                                ...newScenes[activeSceneIndex],
+                                                mainText1: e.target.value
+                                            };
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-3 text-sm font-bold text-white uppercase tracking-widest",
+                                        placeholder: "GIANT MAIN TEXT..."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1453,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1442,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-4 p-3 bg-black/40 rounded-lg border border-white/5",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "PHASE 2 (Post-Flip)"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1466,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        value: activeScene.topText2 ?? "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex] = {
+                                                ...newScenes[activeSceneIndex],
+                                                topText2: e.target.value
+                                            };
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-2 text-xs text-white mb-2",
+                                        placeholder: "Small Top Text..."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1467,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        value: activeScene.mainText2 ?? "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex] = {
+                                                ...newScenes[activeSceneIndex],
+                                                mainText2: e.target.value
+                                            };
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-3 text-sm font-bold text-white uppercase tracking-widest",
+                                        placeholder: "GIANT MAIN TEXT..."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1476,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1465,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
+                                className: "border-zinc-700/30 my-4"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1487,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "space-y-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-1",
+                                        children: "Floating 3D Assets"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1491,
+                                        columnNumber: 15
+                                    }, this),
+                                    [
+                                        {
+                                            label: "Left Floating Image (Card)",
+                                            key: "cardImage"
+                                        },
+                                        {
+                                            label: "Right Floating Image (Coin)",
+                                            key: "coinImage"
+                                        },
+                                        {
+                                            label: "Wipe Transition Image (Note)",
+                                            key: "noteImage"
+                                        }
+                                    ].map((asset)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "flex gap-2",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                    type: "text",
+                                                    value: activeScene[asset.key] || "",
+                                                    onChange: (e)=>{
+                                                        const newScenes = [
+                                                            ...inputProps.scenes
+                                                        ];
+                                                        newScenes[activeSceneIndex] = {
+                                                            ...newScenes[activeSceneIndex],
+                                                            [asset.key]: e.target.value
+                                                        };
+                                                        setInputProps((prev)=>({
+                                                                ...prev,
+                                                                scenes: newScenes
+                                                            }));
+                                                    },
+                                                    className: "flex-1 bg-zinc-950 border border-white/10 rounded p-2 text-xs text-white",
+                                                    placeholder: `Paste ${asset.label} URL...`
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 1500,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                    className: "cursor-pointer bg-zinc-800 hover:bg-zinc-700 p-2 rounded border border-white/10 transition-colors shrink-0 flex items-center justify-center",
+                                                    children: [
+                                                        "??",
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                            type: "file",
+                                                            className: "hidden",
+                                                            accept: "image/*",
+                                                            onChange: (e)=>{
+                                                                const file = e.target.files?.[0];
+                                                                if (file) {
+                                                                    const reader = new FileReader();
+                                                                    reader.onloadend = ()=>{
+                                                                        const newScenes = [
+                                                                            ...inputProps.scenes
+                                                                        ];
+                                                                        newScenes[activeSceneIndex] = {
+                                                                            ...newScenes[activeSceneIndex],
+                                                                            [asset.key]: reader.result
+                                                                        };
+                                                                        setInputProps((prev)=>({
+                                                                                ...prev,
+                                                                                scenes: newScenes
+                                                                            }));
+                                                                    };
+                                                                    reader.readAsDataURL(file);
+                                                                }
+                                                            }
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1513,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 1511,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, asset.key, true, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 1499,
+                                            columnNumber: 17
+                                        }, this)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                        className: "text-[8px] text-zinc-600 mt-2 italic",
+                                        children: "*Use transparent PNGs for the best 3D parallax effect."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1531,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1490,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 1438,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "PUPPET_MASTER" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "space-y-4 mb-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "p-3 bg-black/40 rounded-lg border border-white/5",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                        className: "block text-[10px] font-bold text-zinc-500 uppercase mb-2",
+                                        children: "??? Custom Hand Image"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1542,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex gap-2 mb-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "text",
+                                                placeholder: "Paste Hand Cutout URL...",
+                                                value: activeScene.handImage || '',
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex] = {
+                                                        ...newScenes[activeSceneIndex],
+                                                        handImage: e.target.value
+                                                    };
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "flex-1 bg-zinc-900 border border-white/10 rounded px-2 py-1.5 text-xs text-white"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1545,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "cursor-pointer bg-zinc-800 hover:bg-zinc-700 px-3 py-1.5 rounded text-xs font-bold text-white flex items-center justify-center",
+                                                children: [
+                                                    "Upload",
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "file",
+                                                        accept: "image/*",
+                                                        className: "hidden",
+                                                        onChange: (e)=>{
+                                                            const file = e.target.files?.[0];
+                                                            if (file) {
+                                                                const reader = new FileReader();
+                                                                reader.onloadend = ()=>{
+                                                                    const newScenes = [
+                                                                        ...inputProps.scenes
+                                                                    ];
+                                                                    newScenes[activeSceneIndex] = {
+                                                                        ...newScenes[activeSceneIndex],
+                                                                        handImage: reader.result
+                                                                    };
+                                                                    setInputProps((prev)=>({
+                                                                            ...prev,
+                                                                            scenes: newScenes
+                                                                        }));
+                                                                };
+                                                                reader.readAsDataURL(file);
+                                                            }
+                                                        }
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1556,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1554,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1544,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "grid grid-cols-2 gap-3",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "flex justify-between text-[9px] font-bold text-zinc-400 mb-1",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: "SIZE"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1578,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-purple-400",
+                                                                children: [
+                                                                    activeScene.handSize ?? 600,
+                                                                    "px"
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1579,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1577,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "range",
+                                                        min: "100",
+                                                        max: "600",
+                                                        value: activeScene.handSize ?? 600,
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                handSize: Number(e.target.value)
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "w-full accent-purple-500 h-1 bg-zinc-800 rounded appearance-none"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1581,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1576,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "flex justify-between text-[9px] font-bold text-zinc-400 mb-1",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: "MOVE X"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1593,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-purple-400",
+                                                                children: activeScene.handX ?? -138
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1594,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1592,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "range",
+                                                        min: "-300",
+                                                        max: "300",
+                                                        value: activeScene.handX ?? -138,
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                handX: Number(e.target.value)
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "w-full accent-blue-500 h-1 bg-zinc-800 rounded appearance-none"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1596,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1591,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "flex justify-between text-[9px] font-bold text-zinc-400 mb-1",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: "MOVE Y"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1608,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-purple-400",
+                                                                children: activeScene.handY ?? -182
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1609,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1607,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "range",
+                                                        min: "-300",
+                                                        max: "300",
+                                                        value: activeScene.handY ?? -182,
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                handY: Number(e.target.value)
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "w-full accent-green-500 h-1 bg-zinc-800 rounded appearance-none"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1611,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1606,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                        className: "flex justify-between text-[9px] font-bold text-zinc-400 mb-1",
+                                                        children: [
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                children: "ROTATE"
+                                                            }, void 0, false, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1623,
+                                                                columnNumber: 21
+                                                            }, this),
+                                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                className: "text-pink-400",
+                                                                children: [
+                                                                    activeScene.handRotation ?? 6,
+                                                                    "ï¿½"
+                                                                ]
+                                                            }, void 0, true, {
+                                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                                lineNumber: 1624,
+                                                                columnNumber: 21
+                                                            }, this)
+                                                        ]
+                                                    }, void 0, true, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1622,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                        type: "range",
+                                                        min: "-180",
+                                                        max: "180",
+                                                        value: activeScene.handRotation ?? 6,
+                                                        onChange: (e)=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                handRotation: Number(e.target.value)
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        },
+                                                        className: "w-full accent-pink-500 h-1 bg-zinc-800 rounded appearance-none"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1626,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1621,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1575,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1541,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "p-3 bg-black/40 rounded-lg border border-white/5",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                        children: "? BRAIN COLOR"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1641,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex items-center gap-3",
+                                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                            type: "color",
+                                            value: activeScene.brainColor || "#00d4ff",
+                                            onChange: (e)=>{
+                                                const newScenes = [
+                                                    ...inputProps.scenes
+                                                ];
+                                                newScenes[activeSceneIndex] = {
+                                                    ...newScenes[activeSceneIndex],
+                                                    brainColor: e.target.value
+                                                };
+                                                setInputProps((prev)=>({
+                                                        ...prev,
+                                                        scenes: newScenes
+                                                    }));
+                                            },
+                                            className: "w-12 h-12 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 1643,
+                                            columnNumber: 17
+                                        }, this)
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1642,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1640,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "grid grid-cols-2 gap-3",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "p-3 bg-black/40 rounded-lg border border-white/5",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "flex justify-between text-[9px] font-bold text-zinc-400 mb-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "HAND SPEED"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1661,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-amber-400",
+                                                        children: activeScene.handSpeed ?? 1
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1662,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1660,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "range",
+                                                min: "1",
+                                                max: "10",
+                                                step: "0.5",
+                                                value: activeScene.handSpeed ?? 1,
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex].handSpeed = Number(e.target.value);
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "w-full accent-amber-500 h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1664,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-[7px] text-zinc-600 mt-1",
+                                                children: "Velocity & dampening"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1677,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1659,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "p-3 bg-black/40 rounded-lg border border-white/5",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                className: "flex justify-between text-[9px] font-bold text-zinc-400 mb-2",
+                                                children: [
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        children: "STRING TENSION"
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1683,
+                                                        columnNumber: 19
+                                                    }, this),
+                                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                        className: "text-rose-400",
+                                                        children: activeScene.stringTension ?? 1
+                                                    }, void 0, false, {
+                                                        fileName: "[project]/src/app/editor/page.tsx",
+                                                        lineNumber: 1684,
+                                                        columnNumber: 19
+                                                    }, this)
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1682,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "range",
+                                                min: "1",
+                                                max: "100",
+                                                step: "1",
+                                                value: activeScene.stringTension ?? 1,
+                                                onChange: (e)=>{
+                                                    const newScenes = [
+                                                        ...inputProps.scenes
+                                                    ];
+                                                    newScenes[activeSceneIndex].stringTension = Number(e.target.value);
+                                                    setInputProps((prev)=>({
+                                                            ...prev,
+                                                            scenes: newScenes
+                                                        }));
+                                                },
+                                                className: "w-full accent-rose-500 h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1686,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                                className: "text-[7px] text-zinc-600 mt-1",
+                                                children: "Snap & vibration"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1699,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1681,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1657,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 1538,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block text-[10px] font-bold text-zinc-500 mb-2 uppercase",
+                                children: "Background Video / Image"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1711,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        placeholder: "Paste .mp4 or Image URL...",
+                                        value: activeScene.backgroundImage ?? "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex] = {
+                                                ...newScenes[activeSceneIndex],
+                                                backgroundImage: e.target.value
+                                            };
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-3 text-xs text-white"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1713,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "flex items-center justify-center gap-2 w-full py-3 bg-zinc-800 hover:bg-zinc-700 rounded border border-dashed border-white/20 cursor-pointer transition-all text-xs text-zinc-400",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: "?? Upload Local Video or Image"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1726,
+                                                columnNumber: 15
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "file",
+                                                className: "hidden",
+                                                // ? FIX: Ensure video files are accepted in the file picker
+                                                accept: "video/*,image/*",
+                                                onChange: (e)=>{
+                                                    const file = e.target.files?.[0];
+                                                    if (file) {
+                                                        const reader = new FileReader();
+                                                        reader.onloadend = ()=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex] = {
+                                                                ...newScenes[activeSceneIndex],
+                                                                backgroundImage: reader.result
+                                                            };
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        };
+                                                        reader.readAsDataURL(file);
+                                                    }
+                                                }
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1727,
+                                                columnNumber: 15
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1725,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1712,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 1709,
+                        columnNumber: 9
+                    }, this),
+                    activeScene.visualType === "VERTICAL_SPLIT" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                children: "BOTTOM IMAGE URL (Vibrant)"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1752,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                type: "text",
+                                value: activeScene.backgroundImage2 || "",
+                                onChange: (e)=>{
+                                    const newScenes = [
+                                        ...inputProps.scenes
+                                    ];
+                                    newScenes[activeSceneIndex].backgroundImage2 = e.target.value;
+                                    setInputProps((prev)=>({
+                                            ...prev,
+                                            scenes: newScenes
+                                        }));
+                                },
+                                className: "w-full bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white mb-2",
+                                placeholder: "Paste Image URL (Beach)"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1753,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 1751,
+                        columnNumber: 11
+                    }, this),
+                    (activeScene.visualType === "MACRO_POUR" || activeScene.visualType === "ICE_BUCKET") && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                children: "BRAND LOGO (Transparent PNG/SVG)"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1770,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        value: activeScene.logoUrl || "",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].logoUrl = e.target.value;
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white",
+                                        placeholder: "Paste Logo URL..."
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1774,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "flex flex-col items-center justify-center w-full h-12 border-2 border-dashed border-white/10 rounded-lg cursor-pointer hover:bg-white/5 hover:border-purple-500 transition-all",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-[10px] font-bold text-zinc-400 uppercase tracking-widest",
+                                                children: "??? Upload Logo"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1787,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                type: "file",
+                                                accept: "image/*",
+                                                className: "hidden",
+                                                onChange: (e)=>{
+                                                    const file = e.target.files?.[0];
+                                                    if (file) {
+                                                        const reader = new FileReader();
+                                                        reader.onloadend = ()=>{
+                                                            const newScenes = [
+                                                                ...inputProps.scenes
+                                                            ];
+                                                            newScenes[activeSceneIndex].logoUrl = reader.result;
+                                                            setInputProps((prev)=>({
+                                                                    ...prev,
+                                                                    scenes: newScenes
+                                                                }));
+                                                        };
+                                                        reader.readAsDataURL(file);
+                                                    }
+                                                }
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1790,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1786,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1773,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 1769,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "PANORAMIC_REEL" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4 bg-zinc-900/40 border border-white/5 rounded-xl p-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3",
+                                children: "Reel Settings"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1815,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-6",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "flex justify-between text-[10px] font-bold text-zinc-400 mb-2",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: "SCROLL SPEED"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1818,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-orange-400",
+                                                children: [
+                                                    activeScene.reelSpeed || 5,
+                                                    "x"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1819,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1817,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "range",
+                                        min: "1",
+                                        max: "15",
+                                        step: "0.5",
+                                        value: activeScene.reelSpeed || 5,
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].reelSpeed = Number(e.target.value);
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full accent-orange-500 h-1 bg-zinc-800 rounded-lg appearance-none cursor-pointer"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1821,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1816,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block text-[10px] font-bold text-zinc-500 mb-3 uppercase tracking-widest",
+                                children: "Slide Images"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1834,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-3",
+                                children: [
+                                    activeScene.chartData?.map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "p-3 bg-black/40 rounded-lg border border-white/10 flex flex-col gap-2 relative group",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>{
+                                                        const newScenes = [
+                                                            ...inputProps.scenes
+                                                        ];
+                                                        newScenes[activeSceneIndex].chartData.splice(idx, 1);
+                                                        setInputProps((prev)=>({
+                                                                ...prev,
+                                                                scenes: newScenes
+                                                            }));
+                                                    },
+                                                    className: "absolute -top-2 -right-2 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity z-10",
+                                                    children: "?"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 1839,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex gap-2",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                            type: "text",
+                                                            placeholder: "Label...",
+                                                            value: item.label,
+                                                            onChange: (e)=>{
+                                                                const newScenes = [
+                                                                    ...inputProps.scenes
+                                                                ];
+                                                                newScenes[activeSceneIndex].chartData[idx].label = e.target.value;
+                                                                setInputProps((prev)=>({
+                                                                        ...prev,
+                                                                        scenes: newScenes
+                                                                    }));
+                                                            },
+                                                            className: "flex-1 bg-zinc-900 border border-white/5 rounded px-2 py-1 text-[10px] text-white"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1850,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                            className: "cursor-pointer bg-zinc-800 hover:bg-zinc-700 px-2 py-1 rounded text-[9px] font-bold text-white transition-colors flex items-center",
+                                                            children: [
+                                                                "UPLOAD",
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                    type: "file",
+                                                                    accept: "image/*",
+                                                                    className: "hidden",
+                                                                    onChange: (e)=>{
+                                                                        const file = e.target.files?.[0];
+                                                                        if (file) {
+                                                                            const reader = new FileReader();
+                                                                            reader.onloadend = ()=>{
+                                                                                const newScenes = [
+                                                                                    ...inputProps.scenes
+                                                                                ];
+                                                                                newScenes[activeSceneIndex].chartData[idx].image = reader.result;
+                                                                                setInputProps((prev)=>({
+                                                                                        ...prev,
+                                                                                        scenes: newScenes
+                                                                                    }));
+                                                                            };
+                                                                            reader.readAsDataURL(file);
+                                                                        }
+                                                                    }
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 1865,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1863,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 1848,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                    type: "text",
+                                                    placeholder: "Or paste URL...",
+                                                    value: item.image || "",
+                                                    onChange: (e)=>{
+                                                        const newScenes = [
+                                                            ...inputProps.scenes
+                                                        ];
+                                                        newScenes[activeSceneIndex].chartData[idx].image = e.target.value;
+                                                        setInputProps((prev)=>({
+                                                                ...prev,
+                                                                scenes: newScenes
+                                                            }));
+                                                    },
+                                                    className: "w-full bg-zinc-950 border border-white/5 rounded px-2 py-1 text-[9px] text-zinc-400"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 1884,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, idx, true, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 1837,
+                                            columnNumber: 17
+                                        }, this)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            if (!newScenes[activeSceneIndex].chartData) newScenes[activeSceneIndex].chartData = [];
+                                            newScenes[activeSceneIndex].chartData.push({
+                                                label: `SLIDE ${newScenes[activeSceneIndex].chartData.length + 1}`,
+                                                image: ""
+                                            });
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full mt-2 py-2 border border-dashed border-white/20 text-zinc-500 rounded-lg text-[10px] font-bold hover:bg-white/5 hover:text-white transition-colors",
+                                        children: "+ ADD NEW SLIDE"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1899,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1835,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 1814,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "PENTAGON_FLOW" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4 bg-zinc-900/40 border border-white/5 rounded-xl p-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "mb-5 bg-black/40 p-3 rounded-lg border border-white/10",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                        className: "text-[10px] font-bold text-white uppercase tracking-widest mb-2 flex justify-between",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: "Hold Duration (Speed)"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1921,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                className: "text-cyan-400",
+                                                children: [
+                                                    ((activeScene.framesPerStage || 150) / 30).toFixed(1),
+                                                    "s per item"
+                                                ]
+                                            }, void 0, true, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1922,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1920,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "range",
+                                        min: "45",
+                                        max: "150",
+                                        step: "15",
+                                        value: activeScene.framesPerStage || 150,
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].framesPerStage = parseInt(e.target.value);
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full accent-cyan-400"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1926,
+                                        columnNumber: 15
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                        className: "flex justify-between text-[9px] text-zinc-500 font-bold mt-1",
+                                        children: [
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: "Fast (1.5s)"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1938,
+                                                columnNumber: 17
+                                            }, this),
+                                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                children: "Slow (5.0s)"
+                                            }, void 0, false, {
+                                                fileName: "[project]/src/app/editor/page.tsx",
+                                                lineNumber: 1939,
+                                                columnNumber: 17
+                                            }, this)
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 1937,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1919,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3",
+                                children: "Flow Stages"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1943,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex flex-col gap-3",
+                                children: [
+                                    activeScene.chartData?.map((item, idx)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "p-3 bg-black/40 rounded-lg border border-white/10 flex flex-col gap-2 relative group",
+                                            children: [
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                                    onClick: ()=>{
+                                                        const newScenes = [
+                                                            ...inputProps.scenes
+                                                        ];
+                                                        newScenes[activeSceneIndex].chartData.splice(idx, 1);
+                                                        setInputProps((prev)=>({
+                                                                ...prev,
+                                                                scenes: newScenes
+                                                            }));
+                                                    },
+                                                    className: "absolute -top-2 -right-2 w-5 h-5 bg-red-500 text-white rounded-full flex items-center justify-center text-[10px] opacity-0 group-hover:opacity-100 transition-opacity z-10",
+                                                    children: "✕"
+                                                }, void 0, false, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 1948,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex gap-2",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                            type: "text",
+                                                            placeholder: "Label (e.g. EENT)",
+                                                            value: item.label,
+                                                            onChange: (e)=>{
+                                                                const newScenes = [
+                                                                    ...inputProps.scenes
+                                                                ];
+                                                                newScenes[activeSceneIndex].chartData[idx].label = e.target.value;
+                                                                setInputProps((prev)=>({
+                                                                        ...prev,
+                                                                        scenes: newScenes
+                                                                    }));
+                                                            },
+                                                            className: "flex-1 bg-zinc-900 border border-white/5 rounded px-2 py-1 text-[10px] text-white font-bold uppercase"
+                                                        }, void 0, false, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1959,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("select", {
+                                                            value: item.status || "neutral",
+                                                            onChange: (e)=>{
+                                                                const newScenes = [
+                                                                    ...inputProps.scenes
+                                                                ];
+                                                                newScenes[activeSceneIndex].chartData[idx].status = e.target.value;
+                                                                setInputProps((prev)=>({
+                                                                        ...prev,
+                                                                        scenes: newScenes
+                                                                    }));
+                                                            },
+                                                            className: "bg-zinc-800 border border-white/5 rounded px-2 py-1 text-[10px] text-white outline-none cursor-pointer",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                    value: "neutral",
+                                                                    children: "Neutral"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 1981,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                    value: "wrong",
+                                                                    children: "Wrong (✕)"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 1982,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("option", {
+                                                                    value: "correct",
+                                                                    children: "Correct (✓)"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 1983,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1972,
+                                                            columnNumber: 21
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 1957,
+                                                    columnNumber: 19
+                                                }, this),
+                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                    className: "flex flex-col gap-2 mt-2",
+                                                    children: [
+                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "flex items-center gap-2",
+                                                            children: [
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                                                    className: "cursor-pointer bg-zinc-800 hover:bg-zinc-700 px-2 py-1.5 rounded text-[9px] font-bold text-white transition-colors whitespace-nowrap",
+                                                                    children: [
+                                                                        "UPLOAD",
+                                                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                            type: "file",
+                                                                            accept: "image/*",
+                                                                            className: "hidden",
+                                                                            onChange: (e)=>{
+                                                                                const file = e.target.files?.[0];
+                                                                                if (file) {
+                                                                                    const reader = new FileReader();
+                                                                                    reader.onloadend = ()=>{
+                                                                                        const newScenes = [
+                                                                                            ...inputProps.scenes
+                                                                                        ];
+                                                                                        newScenes[activeSceneIndex].chartData[idx].image = reader.result;
+                                                                                        setInputProps((prev)=>({
+                                                                                                ...prev,
+                                                                                                scenes: newScenes
+                                                                                            }));
+                                                                                    };
+                                                                                    reader.readAsDataURL(file);
+                                                                                }
+                                                                            }
+                                                                        }, void 0, false, {
+                                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                                            lineNumber: 1993,
+                                                                            columnNumber: 25
+                                                                        }, this)
+                                                                    ]
+                                                                }, void 0, true, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 1991,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("span", {
+                                                                    className: "text-[9px] text-zinc-600 font-bold",
+                                                                    children: "OR"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 2010,
+                                                                    columnNumber: 23
+                                                                }, this),
+                                                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                                                    type: "text",
+                                                                    placeholder: "Paste Image URL...",
+                                                                    // We only show the text if it's a URL (starts with http). 
+                                                                    // If it's a local file upload, it's a massive base64 string, so we hide that text.
+                                                                    value: item.image?.startsWith('http') ? item.image : '',
+                                                                    onChange: (e)=>{
+                                                                        const newScenes = [
+                                                                            ...inputProps.scenes
+                                                                        ];
+                                                                        newScenes[activeSceneIndex].chartData[idx].image = e.target.value;
+                                                                        setInputProps((prev)=>({
+                                                                                ...prev,
+                                                                                scenes: newScenes
+                                                                            }));
+                                                                    },
+                                                                    className: "flex-1 bg-zinc-900 border border-white/10 rounded px-2 py-1 text-[9px] text-white outline-none placeholder:text-zinc-600"
+                                                                }, void 0, false, {
+                                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                                    lineNumber: 2013,
+                                                                    columnNumber: 23
+                                                                }, this)
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 1989,
+                                                            columnNumber: 21
+                                                        }, this),
+                                                        item.image && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                                            className: "text-[9px] text-cyan-400 font-bold truncate",
+                                                            children: [
+                                                                "✓ ",
+                                                                item.image.startsWith('data:') ? 'Local Image Added' : 'URL Image Added'
+                                                            ]
+                                                        }, void 0, true, {
+                                                            fileName: "[project]/src/app/editor/page.tsx",
+                                                            lineNumber: 2030,
+                                                            columnNumber: 23
+                                                        }, this)
+                                                    ]
+                                                }, void 0, true, {
+                                                    fileName: "[project]/src/app/editor/page.tsx",
+                                                    lineNumber: 1988,
+                                                    columnNumber: 19
+                                                }, this)
+                                            ]
+                                        }, idx, true, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 1946,
+                                            columnNumber: 17
+                                        }, this)),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            if (!newScenes[activeSceneIndex].chartData) newScenes[activeSceneIndex].chartData = [];
+                                            newScenes[activeSceneIndex].chartData.push({
+                                                label: `ITEM ${newScenes[activeSceneIndex].chartData.length + 1}`,
+                                                status: "neutral",
+                                                image: ""
+                                            });
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-full mt-2 py-2 border border-dashed border-white/20 text-zinc-500 rounded-lg text-[10px] font-bold hover:bg-white/5 hover:text-white transition-colors",
+                                        children: "+ ADD STAGE"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 2039,
+                                        columnNumber: 15
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 1944,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 1916,
+                        columnNumber: 11
+                    }, this),
+                    activeScene.visualType === "COMPARISON_PENTAGON" && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4 bg-zinc-900/40 border border-white/5 rounded-xl p-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                className: "text-[10px] font-bold text-zinc-500 uppercase tracking-widest mb-3",
+                                children: "Comparison Status"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2057,
+                                columnNumber: 13
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex gap-2",
+                                children: [
+                                    "neutral",
+                                    "wrong",
+                                    "correct"
+                                ].map((s)=>/*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                        onClick: ()=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex].status = s;
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: `flex-1 py-2 rounded-lg text-[9px] font-bold uppercase transition-all ${activeScene.status === s ? 'bg-purple-600 text-white' : 'bg-zinc-800 text-zinc-500'}`,
+                                        children: s
+                                    }, s, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 2060,
+                                        columnNumber: 17
+                                    }, this))
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2058,
+                                columnNumber: 13
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 2056,
+                        columnNumber: 11
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                children: "ACCENT / HIGHLIGHT COLOR"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2078,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "color",
+                                        value: activeScene.color || "#00d4ff",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex] = {
+                                                ...newScenes[activeSceneIndex],
+                                                color: e.target.value
+                                            };
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-12 h-12 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 2080,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        value: activeScene.color || "#00d4ff",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex] = {
+                                                ...newScenes[activeSceneIndex],
+                                                color: e.target.value
+                                            };
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "flex-1 bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white font-mono uppercase"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 2089,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2079,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 2077,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "mb-4",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("label", {
+                                className: "block text-[10px] font-bold text-zinc-500 mb-2",
+                                children: "SCENE BACKGROUND COLOR"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2103,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                className: "flex gap-2",
+                                children: [
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "color",
+                                        value: activeScene.sceneBgColor || "#050505",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex] = {
+                                                ...newScenes[activeSceneIndex],
+                                                sceneBgColor: e.target.value
+                                            };
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "w-12 h-12 rounded cursor-pointer bg-zinc-900 border border-white/10"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 2105,
+                                        columnNumber: 13
+                                    }, this),
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("input", {
+                                        type: "text",
+                                        value: activeScene.sceneBgColor || "#050505",
+                                        onChange: (e)=>{
+                                            const newScenes = [
+                                                ...inputProps.scenes
+                                            ];
+                                            newScenes[activeSceneIndex] = {
+                                                ...newScenes[activeSceneIndex],
+                                                sceneBgColor: e.target.value
+                                            };
+                                            setInputProps((prev)=>({
+                                                    ...prev,
+                                                    scenes: newScenes
+                                                }));
+                                        },
+                                        className: "flex-1 bg-zinc-900 border border-white/10 rounded p-3 text-sm text-white font-mono uppercase"
+                                    }, void 0, false, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 2114,
+                                        columnNumber: 13
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2104,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 2102,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                        onClick: handleRenderAndExport,
+                        disabled: isRendering,
+                        className: `w-full py-4 rounded-xl font-black text-lg transition-all shadow-lg flex items-center justify-center gap-2 mt-auto 
+            ${isRendering ? 'bg-purple-800 text-purple-300 cursor-wait' : 'bg-purple-600 hover:bg-purple-500 text-white hover:shadow-purple-500/25'}`,
+                        children: isRendering ? /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Fragment"], {
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("svg", {
+                                    className: "animate-spin -ml-1 mr-3 h-5 w-5 text-white",
+                                    xmlns: "http://www.w3.org/2000/svg",
+                                    fill: "none",
+                                    viewBox: "0 0 24 24",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("circle", {
+                                            className: "opacity-25",
+                                            cx: "12",
+                                            cy: "12",
+                                            r: "10",
+                                            stroke: "currentColor",
+                                            strokeWidth: "4"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2135,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("path", {
+                                            className: "opacity-75",
+                                            fill: "currentColor",
+                                            d: "M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2136,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/editor/page.tsx",
+                                    lineNumber: 2134,
+                                    columnNumber: 15
+                                }, this),
+                                "RENDERING..."
+                            ]
+                        }, void 0, true) : "RENDER & EXPORT"
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 2126,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/editor/page.tsx",
+                lineNumber: 337,
+                columnNumber: 7
+            }, this),
+            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("main", {
+                className: "flex-1 flex flex-col items-center justify-center bg-[#050505] p-12 relative",
+                children: [
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "absolute top-4 right-4 bg-red-600 text-white font-mono text-[10px] p-4 rounded-xl z-50 shadow-2xl max-w-md max-h-[300px] overflow-auto",
+                        children: [
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                                className: "font-bold text-lg mb-2",
+                                children: "🕵️ DEBUGGER"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2150,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                children: [
+                                    "Total Duration: ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("b", {
+                                        children: [
+                                            dynamicDuration,
+                                            " frames"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 2151,
+                                        columnNumber: 30
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2151,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                children: [
+                                    "Captions Found: ",
+                                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("b", {
+                                        children: [
+                                            inputProps?.captions?.length || 0,
+                                            " words"
+                                        ]
+                                    }, void 0, true, {
+                                        fileName: "[project]/src/app/editor/page.tsx",
+                                        lineNumber: 2152,
+                                        columnNumber: 30
+                                    }, this)
+                                ]
+                            }, void 0, true, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2152,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("hr", {
+                                className: "my-2 border-white/20"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2153,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                className: "text-white/80",
+                                children: "First Word Data:"
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2154,
+                                columnNumber: 11
+                            }, this),
+                            /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("pre", {
+                                children: JSON.stringify(inputProps?.captions?.[0] || "None", null, 2)
+                            }, void 0, false, {
+                                fileName: "[project]/src/app/editor/page.tsx",
+                                lineNumber: 2155,
+                                columnNumber: 11
+                            }, this)
+                        ]
+                    }, void 0, true, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 2149,
+                        columnNumber: 9
+                    }, this),
+                    /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                        className: "h-[80vh] aspect-[9/16] rounded-[2.5rem] border-[12px] border-zinc-900 overflow-hidden shadow-2xl relative ring-1 ring-white/10",
+                        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f40$remotion$2f$player$2f$dist$2f$esm$2f$index$2e$mjs__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Player"], {
+                            component: __TURBOPACK__imported__module__$5b$project$5d2f$src$2f$templates$2f$Animations$2e$tsx__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["MasterSequence"],
+                            inputProps: {
+                                ...inputProps,
+                                activeLayers: activeLayers,
+                                backgroundMode: backgroundMode,
+                                layoutMode: inputProps.layoutMode,
+                                reactionVideoUrl: inputProps.reactionVideoUrl,
+                                captions: normalizedCaptions // ⚡ CRITICAL: Use the bulletproof array!
+                            },
+                            durationInFrames: dynamicDuration,
+                            fps: 30,
+                            compositionWidth: 1080,
+                            compositionHeight: 1920,
+                            style: backgroundMode === 'transparent' ? {
+                                backgroundImage: `repeating-linear-gradient(45deg, #1f2937 25%, transparent 25%, transparent 75%, #1f2937 75%, #1f2937), repeating-linear-gradient(45deg, #1f2937 25%, #111827 25%, #111827 75%, #1f2937 75%, #1f2937)`,
+                                backgroundPosition: `0 0, 10px 10px`,
+                                backgroundSize: `20px 20px`,
+                                backgroundColor: 'transparent',
+                                width: "100%",
+                                height: "100%"
+                            } : {
+                                backgroundColor: '#050505',
+                                width: "100%",
+                                height: "100%"
+                            },
+                            controls: true,
+                            autoPlay: true
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/editor/page.tsx",
+                            lineNumber: 2161,
+                            columnNumber: 11
+                        }, this)
+                    }, void 0, false, {
+                        fileName: "[project]/src/app/editor/page.tsx",
+                        lineNumber: 2160,
+                        columnNumber: 9
+                    }, this)
+                ]
+            }, void 0, true, {
+                fileName: "[project]/src/app/editor/page.tsx",
+                lineNumber: 2146,
+                columnNumber: 7
+            }, this),
+            showExportModal && /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                className: "fixed inset-0 z-50 flex items-center justify-center bg-black/80 backdrop-blur-sm p-6",
+                children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                    className: "bg-[#111] border border-white/10 rounded-3xl p-8 max-w-4xl w-full shadow-2xl relative",
+                    children: [
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                            onClick: ()=>setShowExportModal(false),
+                            className: "absolute top-6 right-6 text-zinc-500 hover:text-white transition-colors",
+                            children: "?"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/editor/page.tsx",
+                            lineNumber: 2199,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h2", {
+                            className: "text-2xl font-black text-white uppercase tracking-widest mb-2",
+                            children: "Export Project"
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/editor/page.tsx",
+                            lineNumber: 2206,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                            className: "text-sm text-zinc-400 mb-8",
+                            children: "Choose your preferred format for the ultimate editing workflow."
+                        }, void 0, false, {
+                            fileName: "[project]/src/app/editor/page.tsx",
+                            lineNumber: 2207,
+                            columnNumber: 13
+                        }, this),
+                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                            className: "grid grid-cols-1 md:grid-cols-2 gap-4",
+                            children: [
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: ()=>{
+                                        setShowExportModal(false);
+                                        handleDownload();
+                                    },
+                                    className: "group flex flex-col items-start text-left p-6 bg-zinc-900/50 hover:bg-zinc-800 border border-white/5 hover:border-green-500/50 rounded-2xl transition-all",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-12 h-12 bg-green-500/20 text-green-400 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform",
+                                            children: "??"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2216,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "text-white font-bold mb-1",
+                                            children: "Standard Video (.mp4)"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2217,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs text-zinc-500",
+                                            children: "A single, flat video file. Perfect for beginners or immediate social media posting."
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2218,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/editor/page.tsx",
+                                    lineNumber: 2212,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: ()=>{
+                                        setShowExportModal(false);
+                                        handleDownload("layered");
+                                    },
+                                    className: "group flex flex-col items-start text-left p-6 bg-zinc-900/50 hover:bg-zinc-800 border border-white/5 hover:border-purple-500/50 rounded-2xl transition-all",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-12 h-12 bg-purple-500/20 text-purple-400 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform",
+                                            children: "??"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2226,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "text-white font-bold mb-1",
+                                            children: "Layered Asset Pack (.zip)"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2227,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs text-zinc-500",
+                                            children: "Transparent layers (Hand, Brain, Text) separated into individual WebM files for Premiere/FCP."
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2228,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/editor/page.tsx",
+                                    lineNumber: 2222,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    onClick: ()=>{
+                                        setShowExportModal(false);
+                                        handleDownload("aescript");
+                                    },
+                                    className: "group flex flex-col items-start text-left p-6 bg-zinc-900/50 hover:bg-zinc-800 border border-white/5 hover:border-blue-500/50 rounded-2xl transition-all",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-12 h-12 bg-blue-500/20 text-blue-400 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform",
+                                            children: "??"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2236,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "text-white font-bold mb-1",
+                                            children: "After Effects Studio Project (.zip)"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2237,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs text-zinc-500",
+                                            children: "Downloads a complete package with all your images and a smart .jsx script for a 1:1, zero-effort reconstruction."
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2238,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/editor/page.tsx",
+                                    lineNumber: 2232,
+                                    columnNumber: 15
+                                }, this),
+                                /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("button", {
+                                    // ⚡ FIX: Now actually triggers the download with the "davinci" flag
+                                    onClick: ()=>{
+                                        setShowExportModal(false);
+                                        handleDownload("davinci");
+                                    },
+                                    className: "group flex flex-col items-start text-left p-6 bg-zinc-900/50 hover:bg-zinc-800 border border-white/5 hover:border-red-500/50 rounded-2xl transition-all",
+                                    children: [
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+                                            className: "w-12 h-12 bg-red-500/20 text-red-400 rounded-lg flex items-center justify-center text-xl mb-4 group-hover:scale-110 transition-transform",
+                                            children: "🔥"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2247,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("h3", {
+                                            className: "text-white font-bold mb-1",
+                                            children: "DaVinci Python (.py)"
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2248,
+                                            columnNumber: 17
+                                        }, this),
+                                        /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("p", {
+                                            className: "text-xs text-zinc-500",
+                                            children: "Generates a Python API script to automatically reconstruct the timeline and media pool in DaVinci Resolve."
+                                        }, void 0, false, {
+                                            fileName: "[project]/src/app/editor/page.tsx",
+                                            lineNumber: 2249,
+                                            columnNumber: 17
+                                        }, this)
+                                    ]
+                                }, void 0, true, {
+                                    fileName: "[project]/src/app/editor/page.tsx",
+                                    lineNumber: 2242,
+                                    columnNumber: 15
+                                }, this)
+                            ]
+                        }, void 0, true, {
+                            fileName: "[project]/src/app/editor/page.tsx",
+                            lineNumber: 2209,
+                            columnNumber: 13
+                        }, this)
+                    ]
+                }, void 0, true, {
+                    fileName: "[project]/src/app/editor/page.tsx",
+                    lineNumber: 2196,
+                    columnNumber: 11
+                }, this)
+            }, void 0, false, {
+                fileName: "[project]/src/app/editor/page.tsx",
+                lineNumber: 2195,
+                columnNumber: 9
+            }, this)
+        ]
+    }, void 0, true, {
+        fileName: "[project]/src/app/editor/page.tsx",
+        lineNumber: 336,
+        columnNumber: 5
+    }, this);
+}
+function EditorPage() {
+    return /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(__TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["Suspense"], {
+        fallback: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])("div", {
+            className: "h-screen w-full bg-black flex items-center justify-center text-white font-bold tracking-widest",
+            children: "LOADING EDITOR..."
+        }, void 0, false, {
+            fileName: "[project]/src/app/editor/page.tsx",
+            lineNumber: 2262,
+            columnNumber: 25
+        }, void 0),
+        children: /*#__PURE__*/ (0, __TURBOPACK__imported__module__$5b$project$5d2f$node_modules$2f$next$2f$dist$2f$server$2f$route$2d$modules$2f$app$2d$page$2f$vendored$2f$ssr$2f$react$2d$jsx$2d$dev$2d$runtime$2e$js__$5b$app$2d$ssr$5d$__$28$ecmascript$29$__["jsxDEV"])(EditorContent, {}, void 0, false, {
+            fileName: "[project]/src/app/editor/page.tsx",
+            lineNumber: 2263,
+            columnNumber: 7
+        }, this)
+    }, void 0, false, {
+        fileName: "[project]/src/app/editor/page.tsx",
+        lineNumber: 2262,
+        columnNumber: 5
+    }, this);
+}
+}),
+];
+
+//# sourceMappingURL=%5Broot-of-the-server%5D__5a5dcc7b._.js.map

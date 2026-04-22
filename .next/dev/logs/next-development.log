@@ -1,0 +1,473 @@
+[00:00:04.178] Server  LOG     ✓ Ready in 3s
+[24:40:22.192] Server  LOG     ○ Compiling / ...
+[24:40:36.767] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[24:40:45.047] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[24:40:57.175] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"4 Fastest Cars in 2025\",\n  \"color\": \"#FF0000\",\n  \"scenes\": [\n    {\n      \"visualType\": \"BAR_CHART\",\n      \"headerText\": \"4 Fastest Cars in 2025 (MPH)\",\n      \"chartData\": [\n        {\n          \"label\": \"Koenigsegg Jesko Absolut\",\n          \"value\": 330\n        },\n        {\n          \"label\": \"Bugatti Bolide\",\n          \"value\": 311\n        },\n        {\n          \"label\": \"Hennessey Venom F5\",\n          \"value\": 301\n        },\n        {\n          \"label\": \"SSC Tuatara\",\n          \"value\": 295\n        }\n      ],\n      \"searchQuery\": \"supercars racing high speed\",\n      \"transition\": \"zoom\"\n    }\n  ],\n  \"captions\": []\n}"
+[24:40:58.178] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[24:40:59.531] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[24:41:00.104] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[24:41:02.021] Browser LOG     Could not play video due to following error:  {}
+[24:41:02.021] Browser LOG     The video will be muted and we'll retry playing it.
+[24:41:02.021] Browser LOG     Use onAutoPlayError() to handle this error yourself.
+[24:41:02.022] Browser LOG     Could not play video due to following error:  {}
+[24:42:43.847] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[24:42:53.690] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[24:43:22.399] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"3 Essential Soccer Tips\",\n  \"color\": \"#2ecc71\",\n  \"scenes\": [\n    {\n      \"visualType\": \"TRIPLE_SHOWCASE\",\n      \"headerText\": \"3 TIPS TO LEVEL UP\",\n      \"cards\": {\n        \"slot1\": {\n          \"type\": \"image\",\n          \"src\": \"https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg\"\n        },\n        \"slot2\": {\n          \"type\": \"image\",\n          \"src\": \"https://images.pexels.com/photos/1171084/pexels-photo-1171084.jpeg\"\n        },\n        \"slot3\": {\n          \"type\": \"image\",\n          \"src\": \"https://images.pexels.com/photos/61135/pexels-photo-61135.jpeg\"\n        }\n      },\n      \"transition\": \"zoom\"\n    }\n  ],\n  \"captions\": [\n    {\n      \"text\": \"1. Master Your First Touch\",\n      \"start\": 0,\n      \"end\": 2\n    },\n    {\n      \"text\": \"2. Boost Explosive Speed\",\n      \"start\": 2,\n      \"end\": 4\n    },\n    {\n      \"text\": \"3. Scan the Field Constantly\",\n      \"start\": 4,\n      \"end\": 6\n    }\n  ]\n}"
+[24:43:23.981] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[24:43:24.525] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[24:43:24.525] Browser WARN    {}
+[24:43:24.525] Browser WARN    {}
+[24:43:24.525] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:27.102] Browser WARN    {}
+[24:43:28.833] Browser WARN    {}
+[24:43:28.833] Browser WARN    {}
+[24:43:28.833] Browser WARN    {}
+[24:43:28.833] Browser WARN    {}
+[24:43:28.833] Browser WARN    {}
+[24:43:29.671] Browser WARN    {}
+[24:43:29.671] Browser WARN    {}
+[24:43:29.671] Browser WARN    {}
+[24:43:29.671] Browser WARN    {}
+[24:43:29.671] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 1000ms
+[24:43:29.779] Browser WARN    {}
+[24:43:29.779] Browser WARN    {}
+[24:43:29.779] Browser WARN    {}
+[24:43:29.779] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 1000ms
+[24:43:31.003] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 2000ms
+[24:43:31.003] Browser WARN    {}
+[24:43:32.324] Browser WARN    {}
+[24:43:32.324] Browser WARN    {}
+[24:43:32.324] Browser WARN    {}
+[24:43:32.324] Browser WARN    {}
+[24:43:32.324] Browser WARN    {}
+[24:43:32.324] Browser WARN    {}
+[24:43:32.324] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 1000ms
+[24:43:33.225] Browser WARN    {}
+[24:43:33.225] Browser WARN    {}
+[24:43:33.225] Browser WARN    {}
+[24:43:33.225] Browser WARN    {}
+[24:43:33.225] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 1000ms
+[24:43:34.216] Browser WARN    {}
+[24:43:34.216] Browser WARN    {}
+[24:43:34.216] Browser WARN    {}
+[24:43:34.216] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 1000ms
+[24:43:34.371] Browser WARN    {}
+[24:43:34.371] Browser WARN    {}
+[24:43:34.371] Browser WARN    {}
+[24:43:34.371] Browser WARN    {}
+[24:43:34.371] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 1000ms
+[24:43:35.461] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 2000ms
+[30:42:46.440] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[30:42:46.783] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[30:42:48.880] Browser WARN    {}
+[30:42:48.880] Browser WARN    {}
+[30:42:48.880] Browser WARN    {}
+[30:42:48.880] Browser WARN    {}
+[30:42:48.880] Browser WARN    {}
+[30:42:48.880] Browser WARN    {}
+[30:42:48.880] Browser WARN    {}
+[30:42:48.880] Browser WARN    {}
+[30:42:48.880] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 1000ms
+[30:42:49.614] Browser WARN    {}
+[30:42:49.614] Browser WARN    {}
+[30:42:49.614] Browser WARN    {}
+[30:42:49.614] Browser WARN    {}
+[30:42:49.614] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 1000ms
+[30:42:51.119] Browser WARN    {}
+[30:42:51.119] Browser WARN    {}
+[30:42:51.119] Browser WARN    {}
+[30:42:51.120] Browser WARN    {}
+[30:42:51.120] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 1000ms
+[30:42:52.273] Browser WARN    {}
+[30:42:52.273] Browser WARN    {}
+[30:42:52.273] Browser WARN    {}
+[30:42:52.273] Browser WARN    {}
+[30:42:52.273] Browser WARN    {}
+[30:42:52.382] Browser WARN    {}
+[30:42:52.382] Browser WARN    {}
+[30:42:52.382] Browser WARN    {}
+[30:42:52.382] Browser WARN    {}
+[30:42:52.382] Browser WARN    {}
+[30:42:52.382] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 1000ms
+[30:42:53.455] Browser WARN    Could not load image with source https://images.pexels.com/photos/114288/pexels-photo-114288.jpeg, retrying again in 2000ms
+[30:43:06.165] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[30:43:13.025] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[30:43:18.559] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"4 Pro Soccer Tips\",\n  \"color\": \"#2ecc71\",\n  \"scenes\": [\n    {\n      \"visualType\": \"LISTICLE\",\n      \"headerText\": \"4 PRO SOCCER TIPS\",\n      \"chartData\": [\n        {\n          \"label\": \"Master Ball Control\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"Practice Weak Foot\",\n          \"value\": 2\n        },\n        {\n          \"label\": \"Boost Match Stamina\",\n          \"value\": 3\n        },\n        {\n          \"label\": \"Communicate Clearly\",\n          \"value\": 4\n        }\n      ],\n      \"searchQuery\": \"soccer stadium action\",\n      \"transition\": \"zoom\"\n    }\n  ],\n  \"captions\": []\n}"
+[30:43:19.296] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[30:43:19.711] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[30:47:21.958] Server  LOG     ✓ Compiled in 716ms
+[30:47:39.571] Server  LOG     ✓ Compiled in 1128ms
+[30:49:01.902] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[30:49:07.164] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[30:49:10.619] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"3 Pro Soccer Tips\",\n  \"color\": \"#2ecc71\",\n  \"scenes\": [\n    {\n      \"visualType\": \"LISTICLE\",\n      \"headerText\": \"3 PRO SOCCER TIPS\",\n      \"chartData\": [\n        {\n          \"label\": \"Master Your First Touch\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"Scan the Field Constantly\",\n          \"value\": 2\n        },\n        {\n          \"label\": \"Develop Your Weak Foot\",\n          \"value\": 3\n        }\n      ],\n      \"searchQuery\": \"soccer training highlights\",\n      \"transition\": \"zoom\"\n    }\n  ],\n  \"captions\": []\n}"
+[30:49:11.061] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[30:49:11.380] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[30:49:11.689] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[30:49:13.001] Browser LOG     Could not play video due to following error:  {}
+[30:49:13.001] Browser LOG     The video will be muted and we'll retry playing it.
+[30:49:13.002] Browser LOG     Use onAutoPlayError() to handle this error yourself.
+[30:49:13.002] Browser LOG     Could not play video due to following error:  {}
+[30:53:27.677] Server  LOG     ✓ Compiled in 732ms
+[30:53:27.900] Browser ERROR   ./src/templates/Animations.tsx:348:3
+Parsing ecmascript source code failed
+  346 |   );
+  347 | };
+> 348 |   );
+      |   ^
+  349 | };
+  350 |
+  351 | export const StampChecklistTemplate: React.FC<any> = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = { items: true, stamps: true, text: true }, backgroundMode = 'black' }) => (
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./src/templates/Animations.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/templates/Animations.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Server Component]
+[30:54:00.203] Browser ERROR   ./src/templates/Animations.tsx:348:3
+Parsing ecmascript source code failed
+  346 |   );
+  347 | };
+> 348 |   );
+      |   ^
+  349 | };
+  350 |
+  351 | export const StampChecklistTemplate: React.FC<any> = ({ headerText, chartData, color = "#F40009", fontFamily = "Montserrat", activeLayers = { items: true, stamps: true, text: true }, backgroundMode = 'black' }) => (
+
+Expression expected
+
+Import traces:
+  Client Component Browser:
+    ./src/templates/Animations.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/templates/Animations.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Server Component]
+[30:54:56.300] Server  LOG     ✓ Compiled in 677ms
+[30:59:33.425] Server  LOG     ✓ Compiled in 353ms
+[30:59:49.792] Server  LOG     ✓ Finished filesystem cache database compaction in 13.4s
+[31:02:25.305] Server  LOG     ✓ Compiled in 397ms
+[31:06:02.711] Server  LOG     ✓ Compiled in 532ms
+[31:12:36.974] Server  LOG     ✓ Compiled in 706ms
+[31:17:49.570] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[31:17:51.313] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[31:17:57.684] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"The AI Surge 2020-2024\",\n  \"color\": \"#00FFCC\",\n  \"scenes\": [\n    {\n      \"visualType\": \"BAR_CHART\",\n      \"headerText\": \"Global AI Adoption (%)\",\n      \"chartData\": [\n        {\n          \"label\": \"2020\",\n          \"value\": 12\n        },\n        {\n          \"label\": \"2021\",\n          \"value\": 20\n        },\n        {\n          \"label\": \"2022\",\n          \"value\": 35\n        },\n        {\n          \"label\": \"2023\",\n          \"value\": 68\n        },\n        {\n          \"label\": \"2024\",\n          \"value\": 94\n        }\n      ],\n      \"searchQuery\": \"artificial intelligence neural network technology\",\n      \"transition\": \"zoom\"\n    }\n  ],\n  \"captions\": [\n    \"In just four years, AI has moved from the sidelines to the center of global industry.\",\n    \"Witness the unprecedented speed of the intelligence revolution.\"\n  ]\n}"
+[31:17:58.081] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[31:17:58.408] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[31:17:58.563] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[31:17:59.538] Browser LOG     Could not play video due to following error:  {}
+[31:17:59.538] Browser LOG     The video will be muted and we'll retry playing it.
+[31:17:59.538] Browser LOG     Use onAutoPlayError() to handle this error yourself.
+[31:17:59.538] Browser LOG     Could not play video due to following error:  {}
+[31:17:59.662] Browser ERROR   unhandledRejection: AbortError: The fetching process for the media resource was aborted by the user agent at the user's request.
+[31:18:21.738] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[31:18:21.910] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[31:18:22.116] Browser LOG     Could not play video due to following error:  {}
+[31:18:22.116] Browser LOG     The video will be muted and we'll retry playing it.
+[31:18:22.117] Browser LOG     Use onAutoPlayError() to handle this error yourself.
+[31:18:22.117] Browser LOG     Could not play video due to following error:  {}
+[31:23:02.999] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[31:23:03.307] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[31:23:03.923] Browser LOG     Could not play video due to following error:  {}
+[31:23:03.924] Browser LOG     The video will be muted and we'll retry playing it.
+[31:23:03.924] Browser LOG     Use onAutoPlayError() to handle this error yourself.
+[31:23:03.924] Browser LOG     Could not play video due to following error:  {}
+[31:55:31.485] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[31:55:36.905] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[31:55:56.740] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"The Rapid Growth of AI Adoption\",\n  \"color\": \"#00F2FF\",\n  \"scenes\": [\n    {\n      \"visualType\": \"LINE_CHART\",\n      \"headerText\": \"AI Adoption Growth (2020-2024)\",\n      \"chartData\": [\n        {\n          \"label\": \"2020\",\n          \"value\": 12\n        },\n        {\n          \"label\": \"2021\",\n          \"value\": 22\n        },\n        {\n          \"label\": \"2022\",\n          \"value\": 35\n        },\n        {\n          \"label\": \"2023\",\n          \"value\": 54\n        },\n        {\n          \"label\": \"2024\",\n          \"value\": 78\n        }\n      ],\n      \"searchQuery\": \"artificial intelligence digital brain technology\"\n    }\n  ],\n  \"captions\": []\n}"
+[31:55:57.912] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[31:55:58.212] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:03:52.582] Server  LOG     ✓ Compiled in 1565ms
+[32:10:40.458] Server  LOG     ✓ Compiled in 1162ms
+[32:13:08.996] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:13:09.941] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:13:10.331] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:13:10.600] Browser LOG     Could not play video due to following error:  {}
+[32:13:10.600] Browser LOG     The video will be muted and we'll retry playing it.
+[32:13:10.600] Browser LOG     Use onAutoPlayError() to handle this error yourself.
+[32:13:10.600] Browser LOG     Could not play video due to following error:  {}
+[32:13:35.497] Browser WARN    Made 27 network requests to load fonts for Poppins. Consider loading fewer weights and subsets by passing options to loadFont(). Disable this warning by passing "ignoreTooManyRequestsWarning: true" to "options".
+[32:13:35.497] Browser WARN    Made 54 network requests to load fonts for Poppins. Consider loading fewer weights and subsets by passing options to loadFont(). Disable this warning by passing "ignoreTooManyRequestsWarning: true" to "options".
+[32:19:11.039] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:19:16.448] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[32:19:27.536] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"The 3 Core Pillars of a Billion-Dollar Startup\",\n  \"color\": \"#00FF7F\",\n  \"scenes\": [\n    {\n      \"visualType\": \"LISTICLE\",\n      \"headerText\": \"Billion Dollar Pillars\",\n      \"chartData\": [\n        {\n          \"label\": \"Obsessive Product-Market Fit\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"Scalable Unit Economics\",\n          \"value\": 2\n        },\n        {\n          \"label\": \"High-Performance Culture\",\n          \"value\": 3\n        }\n      ],\n      \"searchQuery\": \"startup tech office sleek\",\n      \"transition\": \"fade\"\n    }\n  ],\n  \"captions\": []\n}"
+[32:19:28.827] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:19:29.136] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:23:30.752] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:23:31.056] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:23:35.439] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:23:58.228] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[32:24:05.236] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"Billion Dollar Startup Foundations\",\n  \"color\": \"#00E5FF\",\n  \"scenes\": [\n    {\n      \"visualType\": \"TRIPLE_BUILD\",\n      \"headerText\": \"3 Pillars of a Billion-Dollar Startup\",\n      \"chartData\": [\n        {\n          \"label\": \"Product-Market Fit\",\n          \"value\": 100\n        },\n        {\n          \"label\": \"High-Performance Team\",\n          \"value\": 100\n        },\n        {\n          \"label\": \"Unit Economics\",\n          \"value\": 100\n        }\n      ],\n      \"searchQuery\": \"modern tech office startup architecture skyscraper\",\n      \"transition\": \"zoom\"\n    }\n  ],\n  \"captions\": []\n}"
+[32:24:06.499] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:24:06.808] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:28:02.388] Server  LOG     ✓ Compiled in 1564ms
+[32:32:11.819] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:32:12.537] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:32:12.942] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:35:52.637] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:35:54.715] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[32:35:58.175] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"3 Secrets To Success\",\n  \"color\": \"#FFD700\",\n  \"scenes\": [\n    {\n      \"visualType\": \"KINETIC_SPEAKER\",\n      \"headerText\": \"3 SECRETS TO SUCCESS\",\n      \"chartData\": [\n        {\n          \"label\": \"DISCIPLINE\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"CONSISTENCY\",\n          \"value\": 2\n        },\n        {\n          \"label\": \"RESILIENCE\",\n          \"value\": 3\n        }\n      ],\n      \"searchQuery\": \"successful business speaker stage background\"\n    }\n  ],\n  \"captions\": []\n}"
+[32:35:59.308] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:35:59.579] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:45:16.280] Server  LOG     ✓ Compiled in 889ms
+[32:50:50.555] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:50:51.567] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:50:51.999] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:51:08.708] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:51:12.586] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[32:51:31.443] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"3 Secrets To Success\",\n  \"color\": \"#FFD700\",\n  \"scenes\": [\n    {\n      \"visualType\": \"KINETIC_SPEAKER\",\n      \"chartData\": [\n        {\n          \"label\": \"3 SECRETS\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"TO SUCCESS\",\n          \"value\": 1\n        }\n      ],\n      \"searchQuery\": \"charismatic motivational speaker stage\"\n    }\n  ],\n  \"captions\": []\n}"
+[32:51:32.429] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:51:32.739] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[32:55:37.470] Server  LOG     ✓ Compiled in 968ms
+[32:59:26.019] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[32:59:33.159] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[33:02:05.685] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[33:02:10.429] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"The Social Media Control Loop\",\n  \"color\": \"#FF3E3E\",\n  \"scenes\": [\n    {\n      \"visualType\": \"TRIPLE_BUILD\",\n      \"headerText\": \"The Control Trifecta\",\n      \"chartData\": [\n        {\n          \"label\": \"Dopamine Hits\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"Infinite Scroll\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"Ghost Notifications\",\n          \"value\": 1\n        }\n      ],\n      \"searchQuery\": \"smartphone addiction dopamine\"\n    }\n  ],\n  \"captions\": []\n}"
+[33:02:11.551] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[33:02:12.492] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[33:02:12.840] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[33:19:42.879] Server  LOG     ✓ Compiled in 801ms
+[33:21:23.010] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[33:21:23.454] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[33:21:43.157] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[33:21:47.217] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[33:22:01.661] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": false,\n  \"videoTitle\": \"The Mind Control Machine\",\n  \"color\": \"#7D26CD\",\n  \"scenes\": [\n    {\n      \"visualType\": \"PUPPET_MASTER\",\n      \"chartData\": [\n        {\n          \"label\": \"Dopamine Spikes\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"Infinite Scrolling\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"Ghost Notifications\",\n          \"value\": 1\n        }\n      ],\n      \"handSpeed\": 5,\n      \"color\": \"#FF0044\",\n      \"brainColor\": \"#00F5FF\",\n      \"searchQuery\": \"brain neural digital manipulation addiction\",\n      \"transition\": \"flash\"\n    }\n  ],\n  \"captions\": [\n    {\n      \"text\": \"Your focus is being harvested.\",\n      \"start\": 0,\n      \"end\": 2.5\n    },\n    {\n      \"text\": \"Dopamine, scrolling, and notifications are the strings pulling your mind.\",\n      \"start\": 2.5,\n      \"end\": 6\n    }\n  ]\n}"
+[33:22:03.100] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[33:22:03.371] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[33:25:56.700] Server  LOG     ✓ Compiled in 1020ms
+[33:38:02.396] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[33:38:04.404] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[33:38:10.992] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": false,\n  \"videoTitle\": \"AI Video Mastery Roadmap\",\n  \"color\": \"#7000FF\",\n  \"scenes\": [\n    {\n      \"visualType\": \"LISTICLE\",\n      \"headerText\": \"4 Steps to AI Video Mastery\",\n      \"chartData\": [\n        {\n          \"label\": \"Prompting\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"Scripting\",\n          \"value\": 2\n        },\n        {\n          \"label\": \"Editing\",\n          \"value\": 3\n        },\n        {\n          \"label\": \"Monetizing\",\n          \"value\": 4\n        }\n      ],\n      \"searchQuery\": \"futuristic artificial intelligence technology\",\n      \"transition\": \"blur\"\n    }\n  ],\n  \"captions\": [\n    {\n      \"text\": \"Mastering AI video comes down to four critical steps.\",\n      \"start\": 0,\n      \"end\": 3\n    }\n  ]\n}"
+[33:38:13.100] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[33:38:14.086] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[33:38:14.490] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[33:48:30.540] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[33:48:32.091] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[33:48:56.729] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[33:49:04.431] Server  LOG     AI RESPONSE RAW: "[\n  {\n    \"isSequence\": true,\n    \"videoTitle\": \"Instruction & Template Architecture Update\",\n    \"color\": \"#00BFFF\",\n    \"scenes\": [\n      {\n        \"visualType\": \"KINETIC_ROADMAP\",\n        \"headerText\": \"Core Logic Enhancements\",\n        \"chartData\": [\n          {\n            \"label\": \"Listicle: Rules & Tips Only\",\n            \"value\": 1\n          },\n          {\n            \"label\": \"Kinetic Roadmap: Path Focus\",\n            \"value\": 1\n          },\n          {\n            \"label\": \"Component: Pexels Video Fix\",\n            \"value\": 1\n          }\n        ],\n        \"searchQuery\": \"high speed fiber optic journey\"\n      }\n    ],\n    \"captions\": [\n      {\n        \"text\": \"Updating system prompts for precise template selection.\",\n        \"start\": 0,\n        \"end\": 2\n      },\n      {\n        \"text\": \"Listicles are now optimized for Top 5s and Rules.\",\n        \"start\": 2,\n        \"end\": 4\n      },\n      {\n        \"text\": \"Roadmaps and growth paths now use Kinetic Roadmap by default.\",\n        \"start\": 4,\n        \"end\": 6\n      },\n      {\n        \"text\": \"Background video support is now properly wrapped in AbsoluteFill.\",\n        \"start\": 6,\n        \"end\": 8\n      }\n    ]\n  }\n]"
+[34:18:24.955] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:18:37.470] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[34:18:42.561] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"AI Video Mastery Roadmap\",\n  \"color\": \"#00F0FF\",\n  \"scenes\": [\n    {\n      \"visualType\": \"KINETIC_ROADMAP\",\n      \"headerText\": \"AI VIDEO ROADMAP\",\n      \"chartData\": [\n        {\n          \"label\": \"Prompting\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"Scripting\",\n          \"value\": 2\n        },\n        {\n          \"label\": \"Editing\",\n          \"value\": 3\n        },\n        {\n          \"label\": \"Monetizing\",\n          \"value\": 4\n        }\n      ],\n      \"searchQuery\": \"futuristic digital neon highway\",\n      \"transition\": \"zoom\"\n    }\n  ],\n  \"captions\": []\n}"
+[34:18:43.016] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[34:18:43.365] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:18:43.545] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[34:21:47.329] Server  LOG     ✓ Compiled in 516ms
+[34:22:28.124] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[34:22:28.606] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:22:28.843] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[34:23:38.125] Server  LOG     ✓ Compiled in 636ms
+[34:24:09.489] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[34:24:09.851] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:24:10.074] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[34:25:08.566] Server  LOG     ✓ Compiled in 444ms
+[34:25:43.943] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[34:25:44.211] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:25:44.524] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[34:26:16.245] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:26:18.146] Browser LOG     Pinging local Gemini API for Prompt-to-Graphic...
+[34:26:24.992] Server  LOG     AI RESPONSE RAW: "{\n  \"isSequence\": true,\n  \"videoTitle\": \"The Ultimate AI Video Roadmap\",\n  \"color\": \"#00F2FF\",\n  \"scenes\": [\n    {\n      \"visualType\": \"KINETIC_ROADMAP\",\n      \"headerText\": \"AI VIDEO MASTERY\",\n      \"chartData\": [\n        {\n          \"label\": \"PROMPTING\",\n          \"value\": 1\n        },\n        {\n          \"label\": \"SCRIPTING\",\n          \"value\": 2\n        },\n        {\n          \"label\": \"EDITING\",\n          \"value\": 3\n        },\n        {\n          \"label\": \"MONETIZING\",\n          \"value\": 4\n        }\n      ],\n      \"searchQuery\": \"professional video editing cinematography\",\n      \"transition\": \"zoom\"\n    }\n  ],\n  \"captions\": []\n}"
+[34:26:25.530] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:26:25.768] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[34:26:36.905] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[34:26:37.110] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[34:52:41.955] Server  LOG     ✓ Compiled in 307ms
+[34:56:53.462] Server  LOG     ✓ Compiled in 303ms
+[34:56:53.591] Browser ERROR   ./src/templates/Animations.tsx:1701:5
+Parsing ecmascript source code failed
+  1699 |   coinImage = "https://img.icons8.com/fluency/512/bitcoin.png", 
+  1700 |   noteImage = "https://img.icons8.com/fluency/512/stack-of-money.png" 
+> 1701 | }) => {
+       |     ^
+  1702 |   const frame = useCurrentFrame();
+  1703 |
+  1704 |   // 🎥 1. MASTER CAMERA ZOOM (⚡ EXTENDED TO 180 FRAMES)
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/templates/Animations.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/templates/Animations.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Server Component]
+[34:56:53.591] Browser ERROR   ./src/templates/Animations.tsx:1688:1
+Parsing ecmascript source code failed
+  1686 |     </AbsoluteFill>
+  1687 |   );
+> 1688 | };
+       | ^
+  1689 |
+  1690 | // --- 🎬 SCENE: DARK WEALTH (Continuous Zoom & Flip Transition) ---
+  1691 | export const DarkWealthTemplate: React.FC<any> = ({
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/templates/Animations.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/templates/Animations.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Server Component]
+[34:57:02.203] Browser ERROR   ./src/templates/Animations.tsx:1701:5
+Parsing ecmascript source code failed
+  1699 |   coinImage = "https://img.icons8.com/fluency/512/bitcoin.png", 
+  1700 |   noteImage = "https://img.icons8.com/fluency/512/stack-of-money.png" 
+> 1701 | }) => {
+       |     ^
+  1702 |   const frame = useCurrentFrame();
+  1703 |
+  1704 |   // 🎥 1. MASTER CAMERA ZOOM (⚡ EXTENDED TO 180 FRAMES)
+
+Unexpected token. Did you mean `{'>'}` or `&gt;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/templates/Animations.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/templates/Animations.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Server Component]
+[34:57:02.203] Browser ERROR   ./src/templates/Animations.tsx:1688:1
+Parsing ecmascript source code failed
+  1686 |     </AbsoluteFill>
+  1687 |   );
+> 1688 | };
+       | ^
+  1689 |
+  1690 | // --- 🎬 SCENE: DARK WEALTH (Continuous Zoom & Flip Transition) ---
+  1691 | export const DarkWealthTemplate: React.FC<any> = ({
+
+Unexpected token. Did you mean `{'}'}` or `&rbrace;`?
+
+Import traces:
+  Client Component Browser:
+    ./src/templates/Animations.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/templates/Animations.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Server Component]
+[35:02:46.076] Server  WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[35:02:46.466] Browser INFO    %cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold
+[35:02:46.627] Browser WARN    Note: Some companies are required to obtain a license to use Remotion. See: https://remotion.dev/license
+Pass the `acknowledgeRemotionLicense` prop to `<Player />` function to make this message disappear.
+[35:04:09.519] Server  LOG     ✓ Compiled in 309ms
+[35:04:09.632] Browser ERROR   ./src/templates/Animations.tsx:1678:6
+Parsing ecmascript source code failed
+  1676 |       </AbsoluteFill>
+  1677 |     </AbsoluteFill>
+> 1678 |     </AbsoluteFill>
+       |      ^^^^^^^^^^^^^^
+  1679 |   );
+  1680 | };
+  1681 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./src/templates/Animations.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/templates/Animations.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Server Component]
+[35:04:11.483] Browser ERROR   ./src/templates/Animations.tsx:1678:6
+Parsing ecmascript source code failed
+  1676 |       </AbsoluteFill>
+  1677 |     </AbsoluteFill>
+> 1678 |     </AbsoluteFill>
+       |      ^^^^^^^^^^^^^^
+  1679 |   );
+  1680 | };
+  1681 |
+
+Unterminated regexp literal
+
+Import traces:
+  Client Component Browser:
+    ./src/templates/Animations.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Client Component Browser]
+    ./src/app/editor/page.tsx [Server Component]
+
+  Client Component SSR:
+    ./src/templates/Animations.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Client Component SSR]
+    ./src/app/editor/page.tsx [Server Component]
+[35:06:03.974] Server  LOG     ✓ Compiled in 435ms
+[35:10:03.892] Server  LOG     ✓ Compiled in 475ms
